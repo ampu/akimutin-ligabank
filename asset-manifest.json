@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/akimutin-ligabank/static/css/main.be744fd1.chunk.css",
+    "main.js": "/akimutin-ligabank/static/js/main.f8377caa.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.f8377caa.chunk.js.map",
+    "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
+    "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
+    "static/css/2.3c526f5d.chunk.css": "/akimutin-ligabank/static/css/2.3c526f5d.chunk.css",
+    "static/js/2.cf21c09c.chunk.js": "/akimutin-ligabank/static/js/2.cf21c09c.chunk.js",
+    "static/js/2.cf21c09c.chunk.js.map": "/akimutin-ligabank/static/js/2.cf21c09c.chunk.js.map",
+    "index.html": "/akimutin-ligabank/index.html",
+    "static/css/2.3c526f5d.chunk.css.map": "/akimutin-ligabank/static/css/2.3c526f5d.chunk.css.map",
+    "static/css/main.be744fd1.chunk.css.map": "/akimutin-ligabank/static/css/main.be744fd1.chunk.css.map",
+    "static/js/2.cf21c09c.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.cf21c09c.chunk.js.LICENSE.txt",
+    "static/media/facebook-icon.8896c0b6.svg": "/akimutin-ligabank/static/media/facebook-icon.8896c0b6.svg",
+    "static/media/header-close-button-icon.2e84d9a1.svg": "/akimutin-ligabank/static/media/header-close-button-icon.2e84d9a1.svg",
+    "static/media/header-toggle-button-icon.18424167.svg": "/akimutin-ligabank/static/media/header-toggle-button-icon.18424167.svg",
+    "static/media/instagram-icon.ea1b5258.svg": "/akimutin-ligabank/static/media/instagram-icon.ea1b5258.svg",
+    "static/media/logo--desktop.65ddc6c9.svg": "/akimutin-ligabank/static/media/logo--desktop.65ddc6c9.svg",
+    "static/media/logo--mobile.d8ac653e.svg": "/akimutin-ligabank/static/media/logo--mobile.d8ac653e.svg",
+    "static/media/logo--tablet.1e22d91b.svg": "/akimutin-ligabank/static/media/logo--tablet.1e22d91b.svg",
+    "static/media/index.scss": "/akimutin-ligabank/static/media/short-phone-icon.4d4c8c64.svg",
+    "static/media/sign-in-icon.d0b8d1c2.svg": "/akimutin-ligabank/static/media/sign-in-icon.d0b8d1c2.svg",
+    "static/media/twitter-icon.5ba01cc6.svg": "/akimutin-ligabank/static/media/twitter-icon.5ba01cc6.svg",
+    "static/media/youtube-icon.58342471.svg": "/akimutin-ligabank/static/media/youtube-icon.58342471.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f63a9e83.js",
+    "static/css/2.3c526f5d.chunk.css",
+    "static/js/2.cf21c09c.chunk.js",
+    "static/css/main.be744fd1.chunk.css",
+    "static/js/main.f8377caa.chunk.js"
+  ]
+}
