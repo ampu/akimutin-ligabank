@@ -1,0 +1,68 @@
+.page {
+  height: 100%;
+}
+
+.page-body {
+  height: 100%;
+
+  font-family: "roboto", "arial", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+
+  color: $primary-color;
+
+  &--mobile-modal {
+    @include mobile {
+      overflow: hidden;
+    }
+  }
+}
+
+.page-layout {
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+.page-main {
+  padding-bottom: 107px;
+
+  &--not-found {
+    @include container;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.page-title {
+  margin-top: 46px;
+  margin-bottom: 49px;
+
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 1.4;
+}
+
+.page-link {
+  @include button;
+
+  display: inline-block;
+  vertical-align: middle;
+  padding: 24px 100px 26px;
+
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.container {
+  @include container;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

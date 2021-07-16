@@ -1,0 +1,41 @@
+.site-navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+
+  font-size: 16px;
+  line-height: 1;
+
+  @include tablet-mobile {
+    font-size: 14px;
+  }
+}
+
+.site-navigation__link {
+  white-space: nowrap;
+  font: inherit;
+  text-decoration: none;
+
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $primary-active-color;
+  }
+
+  &--active {
+    cursor: default;
+
+    color: $primary-active-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

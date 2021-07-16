@@ -1,0 +1,97 @@
+.hero-area {
+  grid-row-end: 3;
+
+  background-color: $primary-active-color;
+  background-image: linear-gradient(180.24deg, $dark-gradient-color-1 36.31%, $dark-gradient-color-2 99.79%);
+}
+
+.hero-area__container {
+  @include container;
+
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 105px;
+  padding-bottom: 114px;
+  padding-left: 170px - 52px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background-color: $primary-active-color;
+  background-clip: padding-box;
+  border-left: 52px solid transparent;
+  border-right: 201px solid transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    height: 269px;
+
+    background-image: linear-gradient(183.47deg, $decoration-gradient-color-1 66.3%, $decoration-gradient-color-2 97.14%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 270px;
+    height: 269px;
+
+    background-image: linear-gradient(183.47deg, $decoration-gradient-color-1 27.26%, $decoration-gradient-color-2 97.14%);
+  }
+}
+
+.hero-area__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 54px;
+
+  color: $alternative-color;
+}
+
+.hero-area__slogan {
+  margin-top: 0;
+  margin-bottom: 37px;
+
+  font-size: 22px;
+
+  color: $alternative-legend-color;
+}
+
+.hero-area__link {
+  padding: 17px 36px 18px;
+
+  font-weight: 500;
+  font-size: 18px;
+
+  color: $primary-color;
+  background-color: $alternative-color;
+  border-radius: 4px;
+  text-decoration: none;
+
+  &:hover {
+    color: $alternative-color;
+    background-color: $primary-color;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.hero-area__credit-cards {
+  position: absolute;
+  z-index: 1;
+  top: 61px;
+  right: 0;
+  margin-right: -76px;
+  width: 444px;
+  height: 286px;
+}

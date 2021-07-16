@@ -1,0 +1,93 @@
+@mixin tablet {
+  @media (min-width: $viewport--tablet) and (max-width: $min-viewport--desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet-mobile {
+  @media (max-width: $min-viewport--desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $viewport--tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  min-width: $min-viewport--desktop - $scroll-width;
+  max-width: $max-content-width--desktop + 2 * $side-padding--desktop;
+  padding-left: $side-padding--desktop;
+  padding-right: $side-padding--desktop;
+
+  @include tablet {
+    min-width: auto;
+    max-width: auto;
+    width: $viewport--tablet;
+    padding-left: $side-padding--tablet;
+    padding-right: $side-padding--tablet;
+  }
+
+  @include mobile {
+    min-width: auto;
+    max-width: auto;
+    width: $viewport--mobile;
+    padding-left: $side-padding--mobile;
+    padding-right: $side-padding--mobile;
+  }
+}
+
+@mixin button {
+  cursor: pointer;
+  color: $alternative-color;
+  background-color: $primary-active-color;
+  border: none;
+  border-radius: 4px;
+
+  &:hover {
+    color: $alternative-color;
+    background-color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $alternative-color, 0 0 0 4px $primary-active-color;
+
+    &:hover {
+      box-shadow: 0 0 0 2px $alternative-color, 0 0 0 4px $primary-color;
+    }
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  z-index: -1;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+@mixin outline {
+  box-shadow: 0 0 0 2px $primary-outline-color, 0 0 0 3px $secondary-outline-color;
+}
