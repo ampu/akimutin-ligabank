@@ -5,13 +5,6 @@
   display: flex;
   flex-flow: wrap;
   justify-content: flex-start;
-
-  font-size: 16px;
-  line-height: 1;
-
-  @include tablet-mobile {
-    font-size: 14px;
-  }
 }
 
 .site-navigation__link {

@@ -94,9 +94,15 @@
   margin-left: -26px;
   margin-bottom: -10px;
 
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+
   @include tablet-mobile {
     margin-top: 28px;
     margin-left: -20px;
+
+    font-size: 14px;
   }
 
   @include mobile {

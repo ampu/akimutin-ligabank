@@ -19,28 +19,26 @@ const Footer = () => {
         </div>
 
         <SiteNavigation isFooter
-          listClassName="footer__site-navigation"
+          listClassName="footer__site-navigation-list"
           itemClassName="footer__site-navigation-item"
         />
 
-        <a className="footer__phone-number" href="tel:*0904">
-          <span className="footer__phone-number-value footer__phone-number-value--short">
-            *0904
-          </span>
-          <span className="footer__phone-number-legend footer__phone-number-legend--short">
-            Бесплатно для абонентов<br/>
-            МТС, Билайн, Мегафон, Теле2
-          </span>
-        </a>
+        <dl className="footer__phones">
+          <a className="footer__short-number" href="tel:*0904">
+            <dt>
+              Бесплатно для абонентов<br/>
+              МТС, Билайн, Мегафон, Теле2
+            </dt>
+            <dd>*0904</dd>
+          </a>
 
-        <a className="footer__phone-number" href="tel:+78001112233">
-          <span className="footer__phone-number-value footer__phone-number-value--mobile">
-            8 800 111 22 33
-          </span>
-          <span className="footer__phone-number-legend footer__phone-number-legend--mobile">
-            Бесплатный для всех городов России
-          </span>
-        </a>
+          <a className="footer__mobile-number" href="tel:+78001112233">
+            <dt>
+              Бесплатный для всех городов России
+            </dt>
+            <dd>8 800 111 22 33</dd>
+          </a>
+        </dl>
 
         <SocialNavigation/>
       </div>

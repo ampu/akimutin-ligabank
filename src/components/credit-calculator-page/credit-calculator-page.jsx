@@ -9,10 +9,10 @@ import {Footer} from '../footer/footer';
 
 const CreditCalculatorPage = () => {
   return <>
-    <Header/>
+    <Footer/>
     <main className="credit-calculator-page">
     </main>
-    <Footer/>
+    <Header/>
   </>;
 };
 

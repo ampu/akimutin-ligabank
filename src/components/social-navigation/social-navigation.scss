@@ -12,6 +12,10 @@
   &:last-of-type {
     margin-right: 0;
   }
+
+  @include tablet-mobile {
+    margin-right: 20px;
+  }
 }
 
 .social-navigation__link {

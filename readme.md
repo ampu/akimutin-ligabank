@@ -1,7 +1,7 @@
 # Проект Акселератора «Liga Bank»
 
-* [Канал Slack](https://app.slack.com/client/)
-* [Карточка проекта](https://docs.google.com/spreadsheets/d/)
+* [Канал Slack](https://htmlrocket.slack.com/archives/C0252L8QHU7)
+* [Карточка проекта](https://docs.google.com/spreadsheets/d/1EsslUijEMIsZdxJj-MNcBNjAikX6qTY2OCllaUySJXE/edit?usp=sharing)
 * [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
 
 ## Available Scripts
