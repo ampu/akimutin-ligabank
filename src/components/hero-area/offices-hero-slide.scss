@@ -1,0 +1,113 @@
+.offices-hero-slide {
+  background: $offices-slide-background-color url("../../images/hero-slide-3--desktop.jpg") no-repeat center center / auto 400px;
+
+  @include tablet {
+    background: url("../../images/hero-slide-3--tablet.jpg") no-repeat center center / auto 300px, linear-gradient(to right, $offices-slide-background-color 0%, $offices-slide-background-color 50%, $offices-slide-background-color-right 50%, $offices-slide-background-color-right 100%);
+    background-color: $offices-slide-background-color;
+  }
+
+  @include mobile {
+    background: url("../../images/hero-slide-3--tablet.jpg") no-repeat calc(50% - 57px) calc(50% + 1px) / auto 226px, linear-gradient(to right, $offices-slide-background-color 0%, $offices-slide-background-color 50%, $offices-slide-background-color-right 50%, $offices-slide-background-color-right 100%);
+    background-color: $offices-slide-background-color;
+  }
+}
+
+.offices-hero-slide__inner {
+  @include container;
+
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 104px;
+  padding-left: (170px + $side-padding--desktop);
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 400px;
+
+  @include tablet {
+    padding-top: 67px;
+    padding-left: (41px + $side-padding--tablet);
+    min-height: 300px;
+  }
+
+  @include mobile {
+    padding-top: 42px;
+    padding-left: $side-padding--mobile;
+    min-height: 226px;
+  }
+}
+
+.offices-hero-slide h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 54px;
+
+  color: $primary-color;
+
+  @include tablet {
+    font-size: 46px;
+    margin-bottom: 12px;
+  }
+
+  @include mobile {
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+}
+
+.offices-hero-slide p {
+  margin-top: 0;
+  margin-bottom: 37px;
+
+  font-size: 22px;
+
+  color: $slide-alternative-slogan-color;
+
+  @include tablet {
+    margin-bottom: 35px;
+
+    font-size: 18px;
+  }
+
+  @include mobile {
+    margin-bottom: 28px;
+    max-width: 140px;
+
+    font-size: 16px;
+  }
+}
+
+.offices-hero-slide a {
+  padding: 17px 48px 18px;
+
+  font-weight: 500;
+  font-size: 18px;
+
+  color: $alternative-color;
+  background-color: $primary-active-color;
+  border-radius: 4px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  @include tablet {
+    padding: 16px 38px 16px;
+
+    font-size: 16px;
+  }
+
+  @include mobile {
+    padding: 14px 38px 15px;
+
+    font-size: 14px;
+  }
+}

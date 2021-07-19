@@ -1,36 +1,74 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import getClassName from 'classnames';
 
-import {LocalPath} from '../../constants/local-path';
+import {CreditHeroSlide} from './credit-hero-slide';
+import {ConfidenceHeroSlide} from './confidence-hero-slide';
+import {OfficesHeroSlide} from './offices-hero-slide';
+import {withSlider} from '../../hocs/with-slider';
 
-import creditCardsPng from '../../images/credit-cards@1x.png';
-import retinaCreditCardsPng from '../../images/credit-cards@2x.png';
-import creditCardsWebp from '../../images/credit-cards@1x.webp';
-import retinaCreditCardsWebp from '../../images/credit-cards@2x.webp';
+const SWITCH_SLIDE_INTERVAL = 4000;
 
-const HeroArea = () => {
+const HERO_AREA_SLIDES = [
+  {key: `credit`, component: CreditHeroSlide, isAlternativeButton: false},
+  {key: `confidence`, component: ConfidenceHeroSlide, isAlternativeButton: false},
+  {key: `offices`, component: OfficesHeroSlide, isAlternativeButton: true},
+];
+
+const HeroArea = ({
+  activeSlideIndex,
+  onSlideTouchStart,
+  onSlideTouchMove,
+  onSlideTouchEnd,
+  onButtonClick,
+}) => {
   return (
-    <section className="hero-area">
-      <div className="hero-area__container">
-        <h2 className="hero-area__title">Лига Банк</h2>
-        <p className="hero-area__slogan">Кредиты на любой случай</p>
-        <Link to={LocalPath.CALCULATE_LOAN} className="hero-area__link">Рассчитать кредит</Link>
+    <div className="hero-area">
+      <ul className="hero-area__controls">
+        {HERO_AREA_SLIDES.map((slide, slideIndex) => {
+          const buttonClassName = getClassName({
+            active: slideIndex === activeSlideIndex,
+            alternative: slide.isAlternativeButton,
+          });
+          return (
+            <li key={slide.key}>
+              <button
+                type="button"
+                className={buttonClassName}
+                data-index={slideIndex}
+                onClick={onButtonClick}
+              >
+                <span className="visually-hidden">Слайд №${slideIndex + 1}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
 
-        <picture>
-          <source
-            type="image/webp"
-            srcSet={`${retinaCreditCardsWebp} 2x, ${creditCardsWebp} 1x`}
-          />
-          <img
-            className="hero-area__credit-cards"
-            src={creditCardsPng}
-            srcSet={`${retinaCreditCardsPng} 2x, ${creditCardsPng} 1x`}
-            alt="Кредитные карты «ЛИГА Банк»"
-          />
-        </picture>
-      </div>
-    </section>
+      <ul className="hero-area__slides">
+        {HERO_AREA_SLIDES.map((slide, slideIndex) => slideIndex === activeSlideIndex && (
+          <li
+            key={slide.key}
+            onTouchStart={onSlideTouchStart}
+            onTouchMove={onSlideTouchMove}
+            onTouchEnd={onSlideTouchEnd}
+          >
+            <slide.component/>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export {HeroArea};
+HeroArea.propTypes = {
+  activeSlideIndex: PropTypes.number.isRequired,
+  onSlideTouchStart: PropTypes.func.isRequired,
+  onSlideTouchMove: PropTypes.func.isRequired,
+  onSlideTouchEnd: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
+};
+
+const HeroAreaWithSlider = withSlider(HeroArea, HERO_AREA_SLIDES.length, SWITCH_SLIDE_INTERVAL);
+
+export {HeroArea, HeroAreaWithSlider};

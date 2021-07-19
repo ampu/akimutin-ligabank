@@ -1,5 +1,6 @@
 @import "~normalize.css/normalize.css";
 @import "./constants/constants";
+@import "./functions";
 @import "./mixins";
 @import "./animations";
 @import "./globals";
@@ -8,5 +9,11 @@
 @import "./components/user-navigation/user-navigation";
 @import "./components/social-navigation/social-navigation";
 @import "./components/header/header";
+@import "./components/hero-area/credit-hero-slide";
+@import "./components/hero-area/confidence-hero-slide";
+@import "./components/hero-area/offices-hero-slide";
+@import "./components/hero-area/hero-area";
+@import "./components/services/services";
 @import "./components/footer/footer";
 @import "./components/not-found-page/not-found-page";
+@import "./components/credit-calculator-page/credit-calculator-page";

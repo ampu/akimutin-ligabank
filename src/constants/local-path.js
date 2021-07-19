@@ -8,6 +8,10 @@ export const LocalPath = {
 
   SIGN_IN: `/sign-in`,
   ASK_QUESTION: `/ask-question`,
+
+  DEPOSITS: `/deposits`,
+  ENSURANCE: `/ensurance`,
+  ONLINE_SERVICES: `/online-services`,
 };
 
 export const CREDIT_CALCULATOR_PAGE_PATHS = [

@@ -1,0 +1,83 @@
+.confidence-hero-slide {
+  background: url("../../images/hero-slide-2--desktop.jpg") no-repeat center center / auto 400px, linear-gradient(to right, $confidence-slide-background-color-left 0%, $confidence-slide-background-color-left 50%, $confidence-slide-background-color-right 50%, $confidence-slide-background-color-right 100%);
+  background-color: $confidence-slide-background-color-right;
+
+  @include tablet {
+    background: url("../../images/hero-slide-2--tablet.jpg") no-repeat center center / auto 300px, linear-gradient(to right, $confidence-slide-background-color-left 0%, $confidence-slide-background-color-left 50%, $confidence-slide-background-color-right 50%, $confidence-slide-background-color-right 100%);
+    background-color: $confidence-slide-background-color-right;
+  }
+
+  @include mobile {
+    background: url("../../images/hero-slide-2--tablet.jpg") no-repeat calc(50% - 47px) calc(50% + 1px) / auto 226px, linear-gradient(to right, $confidence-slide-background-color-left 0%, $confidence-slide-background-color-left 50%, $confidence-slide-background-color-right 50%, $confidence-slide-background-color-right 100%);
+    background-color: $confidence-slide-background-color-right;
+  }
+}
+
+.confidence-hero-slide__inner {
+  @include container;
+
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 104px;
+  padding-left: 215px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 400px;
+
+  @include tablet {
+    padding-top: 67px;
+    padding-left: (41px + $side-padding--tablet);
+    min-height: 300px;
+  }
+
+  @include mobile {
+    padding-top: 42px;
+    padding-left: $side-padding--mobile;
+    min-height: 226px;
+  }
+}
+
+.confidence-hero-slide h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 54px;
+
+  color: $primary-color;
+
+  @include tablet {
+    font-size: 46px;
+    margin-bottom: 12px;
+  }
+
+  @include mobile {
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+}
+
+.confidence-hero-slide p {
+  margin-top: 0;
+  margin-bottom: 37px;
+
+  font-size: 22px;
+  line-height: 1.2;
+
+  color: $slide-alternative-slogan-color;
+
+  @include tablet {
+    margin-bottom: 34px;
+
+    font-size: 18px;
+  }
+
+  @include mobile {
+    margin-bottom: 28px;
+    max-width: 140px;
+
+    font-size: 16px;
+  }
+}

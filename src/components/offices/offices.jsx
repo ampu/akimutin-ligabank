@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Offices = () => {
-  return <>Offices</>;
+  return (
+    <div>Offices</div>
+  );
 };
 
 export {Offices};

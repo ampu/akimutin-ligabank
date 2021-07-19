@@ -10,15 +10,15 @@
 
 .logo img {
   width: 150px;
-  height: 27px;
+  height: auto;
 
   @include tablet {
     width: 133px;
-    height: 24px;
+    height: auto;
   }
 
   @include mobile {
     width: 115px;
-    height: 21px;
+    height: auto;
   }
 }
