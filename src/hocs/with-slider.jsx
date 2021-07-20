@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
-import {useSwipe} from "../hooks/use-swipe";
+import {useSwipe} from '../hooks/use-swipe';
 
 export const withSlider = (Component, slidesCount, switchSlideInterval) => {
   const WithSlider = (props) => {

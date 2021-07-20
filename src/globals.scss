@@ -12,6 +12,10 @@
 
   color: $primary-color;
 
+  &--modal {
+    overflow: hidden;
+  }
+
   &--mobile-modal {
     @include mobile {
       overflow: hidden;

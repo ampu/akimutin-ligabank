@@ -2,15 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
-import {MediaQuery} from "../../constants/media-query";
+import {MediaQuery} from '../../constants/media-query';
 
-import ensurancePosterMobile from "../../images/services-ensurance-poster--mobile.jpg";
-import ensurancePosterTablet from "../../images/services-ensurance-poster--tablet.jpg";
-import ensurancePosterDesktop from "../../images/services-ensurance-poster--desktop.jpg";
+import ensurancePosterMobile from '../../images/services-ensurance-poster--mobile.jpg';
+import ensurancePosterTablet from '../../images/services-ensurance-poster--tablet.jpg';
+import ensurancePosterDesktop from '../../images/services-ensurance-poster--desktop.jpg';
 
-import retinaEnsurancePosterMobile from "../../images/services-ensurance-poster--mobile@2x.jpg";
-import retinaEnsurancePosterTablet from "../../images/services-ensurance-poster--tablet@2x.jpg";
-import retinaEnsurancePosterDesktop from "../../images/services-ensurance-poster--desktop@2x.jpg";
+import retinaEnsurancePosterMobile from '../../images/services-ensurance-poster--mobile@2x.jpg';
+import retinaEnsurancePosterTablet from '../../images/services-ensurance-poster--tablet@2x.jpg';
+import retinaEnsurancePosterDesktop from '../../images/services-ensurance-poster--desktop@2x.jpg';
 
 const ServicesEnsurance = () => {
   return (

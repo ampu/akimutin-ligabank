@@ -2,14 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
-import {MediaQuery} from "../../constants/media-query";
+import {MediaQuery} from '../../constants/media-query';
 
-import depositsPosterMobile from "../../images/services-deposits-poster--mobile.jpg";
-import depositsPosterTablet from "../../images/services-deposits-poster--tablet.jpg";
-import depositsPosterDesktop from "../../images/services-deposits-poster--desktop.jpg";
+import depositsPosterMobile from '../../images/services-deposits-poster--mobile.jpg';
+import depositsPosterTablet from '../../images/services-deposits-poster--tablet.jpg';
+import depositsPosterDesktop from '../../images/services-deposits-poster--desktop.jpg';
 
-import retinaDepositsPosterTablet from "../../images/services-deposits-poster--tablet@2x.jpg";
-import retinaDepositsPosterDesktop from "../../images/services-deposits-poster--desktop@2x.jpg";
+import retinaDepositsPosterTablet from '../../images/services-deposits-poster--tablet@2x.jpg';
+import retinaDepositsPosterDesktop from '../../images/services-deposits-poster--desktop@2x.jpg';
 
 const ServicesDeposits = () => {
   return (

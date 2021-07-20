@@ -10,22 +10,30 @@ import desktopLogo from '../../images/logo--desktop.svg';
 import tabletLogo from '../../images/logo--tablet.svg';
 import mobileLogo from '../../images/logo--mobile.svg';
 
-const Logo = ({className}) => {
+import extendedDesktopLogo from '../../images/logo--extended-desktop.svg';
+
+const Logo = ({isExtended, className}) => {
   return (
     <NavLink exact to={LocalPath.INDEX}
-      className={getClassName(`logo`, className)}
+      className={getClassName(`logo`, isExtended && `logo--extended`, className)}
       activeClassName="logo--active"
     >
-      <picture>
-        <source media={MediaQuery.MOBILE} srcSet={mobileLogo}/>
-        <source media={MediaQuery.TABLET} srcSet={tabletLogo}/>
-        <img src={desktopLogo} alt="Логотип «ЛИГА Банк»"/>
-      </picture>
+      {isExtended && (
+        <img src={extendedDesktopLogo}/>
+      )}
+      {isExtended || (
+        <picture>
+          <source media={MediaQuery.MOBILE} srcSet={mobileLogo}/>
+          <source media={MediaQuery.TABLET} srcSet={tabletLogo}/>
+          <img src={desktopLogo} alt="Логотип «ЛИГА Банк»"/>
+        </picture>
+      )}
     </NavLink>
   );
 };
 
 Logo.propTypes = {
+  isExtended: PropTypes.bool,
   className: PropTypes.string,
 };
 

@@ -7,6 +7,7 @@ export const LocalPath = {
   CONTACTS: `/contacts`,
 
   SIGN_IN: `/sign-in`,
+  FORGOTTEN_PASSWORD: `/forgotten-password`,
   ASK_QUESTION: `/ask-question`,
 
   DEPOSITS: `/deposits`,

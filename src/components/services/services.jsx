@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import getClassName from "classnames";
+import PropTypes from 'prop-types';
+import getClassName from 'classnames';
 
 import {withSlider} from '../../hocs/with-slider';
 

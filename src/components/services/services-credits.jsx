@@ -8,8 +8,8 @@ import creditsPosterMobile from '../../images/services-credits-poster--mobile.jp
 import creditsPosterTablet from '../../images/services-credits-poster--tablet.jpg';
 import creditsPosterDesktop from '../../images/services-credits-poster--desktop.jpg';
 
-import retinaCreditsPosterTablet from "../../images/services-credits-poster--tablet@2x.jpg";
-import retinaCreditsPosterDesktop from "../../images/services-credits-poster--desktop@2x.jpg";
+import retinaCreditsPosterTablet from '../../images/services-credits-poster--tablet@2x.jpg';
+import retinaCreditsPosterDesktop from '../../images/services-credits-poster--desktop@2x.jpg';
 
 const ServicesCredits = () => {
   return (

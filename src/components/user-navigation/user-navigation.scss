@@ -58,7 +58,7 @@
   fill: $primary-active-color;
 }
 
-.user-navigation__link--login svg {
+.user-navigation__link--sign-in svg {
   width: 20px;
   height: 22px;
 
@@ -68,7 +68,7 @@
   }
 }
 
-.user-navigation.active .user-navigation__link--login svg {
+.user-navigation.active .user-navigation__link--sign-in svg {
   @include mobile {
     width: 20px;
     height: 22px;

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
-import {MediaQuery} from "../../constants/media-query";
+import {MediaQuery} from '../../constants/media-query';
 
 import onlineServicesPosterMobile from '../../images/services-online-poster--mobile.jpg';
 import onlineServicesPosterTablet from '../../images/services-online-poster--tablet.jpg';
