@@ -1,0 +1,43 @@
+.credit-calculator {
+  display: flex;
+  flex-flow: column;
+
+  margin-top: 110px;
+  margin-bottom: 110px;
+
+  @include tablet-mobile {
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+
+  @include mobile {
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+}
+
+.credit-calculator__container {
+  @include container;
+}
+
+.credit-calculator h2 {
+  margin: 0;
+  margin-bottom: 70px;
+  padding: 0;
+
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 1.4;
+
+  @include tablet-mobile {
+    margin-bottom: 45px;
+
+    font-size: 32px;
+  }
+
+  @include mobile {
+    margin-bottom: 35px;
+
+    font-size: 22px;
+  }
+}

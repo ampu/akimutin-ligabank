@@ -1,0 +1,75 @@
+.offices {
+  display: flex;
+  flex-flow: column;
+
+  margin-bottom: 110px;
+
+  @include tablet {
+    margin-bottom: 80px;
+  }
+
+  @include mobile {
+    margin-bottom: 60px;
+  }
+}
+
+.offices__header {
+  @include container;
+}
+
+.offices h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 70px;
+
+  font-weight: bold;
+  font-size: 41px;
+
+  @include tablet {
+    margin-bottom: 45px;
+
+    font-size: 32px;
+  }
+
+  @include mobile {
+    margin-bottom: 35px;
+
+    font-size: 22px;
+  }
+}
+
+.offices__map {
+  @include container;
+
+  display: grid;
+  align-items: start;
+
+  @include mobile {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.offices__map picture,
+.offices__map img,
+.offices__map > div {
+  grid-area: 1 / 1;
+}
+
+.offices__map img {
+  display: flex;
+  margin: 0 auto;
+  width: rubber(1170px);
+  height: rubber(462px);
+
+  @include tablet {
+    width: 678px;
+    height: 462px;
+  }
+
+  @include mobile {
+    margin: 0 auto;
+    width: 320px;
+    height: 381px;
+  }
+}
