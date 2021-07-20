@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import FocusTrap from 'focus-trap-react';
 
 import {LocalPath} from '../../constants/local-path';
 
 import {withSignInState} from '../../hocs/with-sign-in-state';
 import {Logo} from '../logo/logo';
-import {ReactComponent as SignInCloseButtonIcon} from '../../images/sign-in-close-button-icon.svg';
+import {ReactComponent as PopupCloseButtonIcon} from '../../images/popup-close-button-icon.svg';
 import {ReactComponent as SignInPasswordToggleButtonIcon} from '../../images/sign-in-password-toggle-button-icon.svg';
 
 const SignIn = ({
@@ -18,54 +19,56 @@ const SignIn = ({
 }) => {
   return (
     <div className="sign-in">
-      <form>
-        <Logo isExtended className="sign-in__logo"/>
+      <FocusTrap>
+        <form>
+          <Logo isExtended className="sign-in__logo"/>
 
-        <label htmlFor="sign-in-login">
-          Логин
+          <label htmlFor="sign-in-login">
+            Логин
 
-          <input
-            id="sign-in-login"
-            type="text"
-            name="login"
-            autoComplete="username"
-            autoFocus
-          />
-        </label>
+            <input
+              id="sign-in-login"
+              type="text"
+              name="login"
+              autoComplete="username"
+              autoFocus
+            />
+          </label>
 
-        <label htmlFor="sign-in-password">
-          Пароль
+          <label htmlFor="sign-in-password">
+            Пароль
 
-          <input
-            id="sign-in-password"
-            className="sign-in__password-input"
-            type={isPasswordVisible ? `text` : `password`}
-            name="password"
-            autoComplete="current-password"
-          />
+            <input
+              id="sign-in-password"
+              className="sign-in__password-input"
+              type={isPasswordVisible ? `text` : `password`}
+              name="password"
+              autoComplete="current-password"
+            />
 
-          <button
-            type="button"
-            className="sign-in__password-toggle-button"
-            onMouseDown={onPasswordToggleButtonMouseDown}
-            onKeyDown={onPasswordToggleKeyDown}
-          >
-            <SignInPasswordToggleButtonIcon/>
-            <span>Показать пароль</span>
+            <button
+              type="button"
+              className="sign-in__password-toggle-button"
+              onMouseDown={onPasswordToggleButtonMouseDown}
+              onKeyDown={onPasswordToggleKeyDown}
+            >
+              <SignInPasswordToggleButtonIcon/>
+              <span>Показать пароль</span>
+            </button>
+          </label>
+
+          <button type="submit" onClick={onSubmitButtonClick}>Войти</button>
+
+          <Link className="sign-in__forgotten-password" to={LocalPath.FORGOTTEN_PASSWORD}>
+            Забыли пароль?
+          </Link>
+
+          <button className="sign-in__close-button" type="button" onClick={onCloseButtonClick}>
+            <PopupCloseButtonIcon/>
+            <span>Закрыть</span>
           </button>
-        </label>
-
-        <button type="submit" onClick={onSubmitButtonClick}>Войти</button>
-
-        <Link className="sign-in__forgotten-password" to={LocalPath.FORGOTTEN_PASSWORD}>
-          Забыли пароль?
-        </Link>
-
-        <button className="sign-in__close-button" type="button" onClick={onCloseButtonClick}>
-          <SignInCloseButtonIcon/>
-          <span>Закрыть</span>
-        </button>
-      </form>
+        </form>
+      </FocusTrap>
     </div>
   );
 };
