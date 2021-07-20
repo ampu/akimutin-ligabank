@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.ec717fa8.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.b8ec547e.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.b8ec547e.chunk.js.map",
+    "main.css": "/akimutin-ligabank/static/css/main.b0ab48eb.chunk.css",
+    "main.js": "/akimutin-ligabank/static/js/main.e8ff4453.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.e8ff4453.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
-    "static/js/2.0c2bd08a.chunk.js": "/akimutin-ligabank/static/js/2.0c2bd08a.chunk.js",
-    "static/js/2.0c2bd08a.chunk.js.map": "/akimutin-ligabank/static/js/2.0c2bd08a.chunk.js.map",
+    "static/js/2.33860c10.chunk.js": "/akimutin-ligabank/static/js/2.33860c10.chunk.js",
+    "static/js/2.33860c10.chunk.js.map": "/akimutin-ligabank/static/js/2.33860c10.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
-    "static/css/main.ec717fa8.chunk.css.map": "/akimutin-ligabank/static/css/main.ec717fa8.chunk.css.map",
-    "static/js/2.0c2bd08a.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.0c2bd08a.chunk.js.LICENSE.txt",
+    "static/css/main.b0ab48eb.chunk.css.map": "/akimutin-ligabank/static/css/main.b0ab48eb.chunk.css.map",
+    "static/js/2.33860c10.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.33860c10.chunk.js.LICENSE.txt",
     "static/media/credit-cards--mobile@1x.7418e5a9.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.7418e5a9.png",
     "static/media/credit-cards--mobile@2x.47923c05.png": "/akimutin-ligabank/static/media/credit-cards--mobile@2x.47923c05.png",
     "static/media/credit-cards@1x.488f2688.webp": "/akimutin-ligabank/static/media/credit-cards@1x.488f2688.webp",
@@ -26,6 +26,13 @@
     "static/media/logo--desktop.65ddc6c9.svg": "/akimutin-ligabank/static/media/logo--desktop.65ddc6c9.svg",
     "static/media/logo--mobile.d8ac653e.svg": "/akimutin-ligabank/static/media/logo--mobile.d8ac653e.svg",
     "static/media/logo--tablet.1e22d91b.svg": "/akimutin-ligabank/static/media/logo--tablet.1e22d91b.svg",
+    "static/media/office-pin.9f6b9e0c.svg": "/akimutin-ligabank/static/media/office-pin.9f6b9e0c.svg",
+    "static/media/offices-map--desktop.b8741622.jpg": "/akimutin-ligabank/static/media/offices-map--desktop.b8741622.jpg",
+    "static/media/offices-map--desktop@2x.f0095447.jpg": "/akimutin-ligabank/static/media/offices-map--desktop@2x.f0095447.jpg",
+    "static/media/offices-map--mobile.d4b4b890.jpg": "/akimutin-ligabank/static/media/offices-map--mobile.d4b4b890.jpg",
+    "static/media/offices-map--mobile@2x.e9d10393.jpg": "/akimutin-ligabank/static/media/offices-map--mobile@2x.e9d10393.jpg",
+    "static/media/offices-map--tablet.bbf99482.jpg": "/akimutin-ligabank/static/media/offices-map--tablet.bbf99482.jpg",
+    "static/media/offices-map--tablet@2x.d2f738bf.jpg": "/akimutin-ligabank/static/media/offices-map--tablet@2x.d2f738bf.jpg",
     "static/media/services-credits-icon.86419587.svg": "/akimutin-ligabank/static/media/services-credits-icon.86419587.svg",
     "static/media/services-credits-poster--desktop.8dec3122.jpg": "/akimutin-ligabank/static/media/services-credits-poster--desktop.8dec3122.jpg",
     "static/media/services-credits-poster--desktop@2x.1f50db2e.jpg": "/akimutin-ligabank/static/media/services-credits-poster--desktop@2x.1f50db2e.jpg",
@@ -58,8 +65,8 @@
   "entrypoints": [
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
-    "static/js/2.0c2bd08a.chunk.js",
-    "static/css/main.ec717fa8.chunk.css",
-    "static/js/main.b8ec547e.chunk.js"
+    "static/js/2.33860c10.chunk.js",
+    "static/css/main.b0ab48eb.chunk.css",
+    "static/js/main.e8ff4453.chunk.js"
   ]
 }
