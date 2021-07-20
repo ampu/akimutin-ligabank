@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.a1f305bc.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.5c938c46.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.5c938c46.chunk.js.map",
+    "main.css": "/akimutin-ligabank/static/css/main.117972b2.chunk.css",
+    "main.js": "/akimutin-ligabank/static/js/main.8340fa51.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.8340fa51.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
-    "static/js/2.33860c10.chunk.js": "/akimutin-ligabank/static/js/2.33860c10.chunk.js",
-    "static/js/2.33860c10.chunk.js.map": "/akimutin-ligabank/static/js/2.33860c10.chunk.js.map",
+    "static/js/2.b8b378bd.chunk.js": "/akimutin-ligabank/static/js/2.b8b378bd.chunk.js",
+    "static/js/2.b8b378bd.chunk.js.map": "/akimutin-ligabank/static/js/2.b8b378bd.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
-    "static/css/main.a1f305bc.chunk.css.map": "/akimutin-ligabank/static/css/main.a1f305bc.chunk.css.map",
-    "static/js/2.33860c10.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.33860c10.chunk.js.LICENSE.txt",
+    "static/css/main.117972b2.chunk.css.map": "/akimutin-ligabank/static/css/main.117972b2.chunk.css.map",
+    "static/js/2.b8b378bd.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.b8b378bd.chunk.js.LICENSE.txt",
     "static/media/credit-cards--mobile@1x.7418e5a9.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.7418e5a9.png",
     "static/media/credit-cards--mobile@2x.47923c05.png": "/akimutin-ligabank/static/media/credit-cards--mobile@2x.47923c05.png",
     "static/media/credit-cards@1x.488f2688.webp": "/akimutin-ligabank/static/media/credit-cards@1x.488f2688.webp",
@@ -34,6 +34,7 @@
     "static/media/offices-map--mobile@2x.e9d10393.jpg": "/akimutin-ligabank/static/media/offices-map--mobile@2x.e9d10393.jpg",
     "static/media/offices-map--tablet.bbf99482.jpg": "/akimutin-ligabank/static/media/offices-map--tablet.bbf99482.jpg",
     "static/media/offices-map--tablet@2x.d2f738bf.jpg": "/akimutin-ligabank/static/media/offices-map--tablet@2x.d2f738bf.jpg",
+    "static/media/popup-close-button-icon.a580fbc1.svg": "/akimutin-ligabank/static/media/popup-close-button-icon.a580fbc1.svg",
     "static/media/services-credits-icon.86419587.svg": "/akimutin-ligabank/static/media/services-credits-icon.86419587.svg",
     "static/media/services-credits-poster--desktop.8dec3122.jpg": "/akimutin-ligabank/static/media/services-credits-poster--desktop.8dec3122.jpg",
     "static/media/services-credits-poster--desktop@2x.1f50db2e.jpg": "/akimutin-ligabank/static/media/services-credits-poster--desktop@2x.1f50db2e.jpg",
@@ -59,7 +60,6 @@
     "static/media/services-online-poster--mobile@2x.e706e055.jpg": "/akimutin-ligabank/static/media/services-online-poster--mobile@2x.e706e055.jpg",
     "static/media/services-online-poster--tablet.7b78dee4.jpg": "/akimutin-ligabank/static/media/services-online-poster--tablet.7b78dee4.jpg",
     "static/media/services-online-poster--tablet@2x.fc8d36dd.jpg": "/akimutin-ligabank/static/media/services-online-poster--tablet@2x.fc8d36dd.jpg",
-    "static/media/sign-in-close-button-icon.a580fbc1.svg": "/akimutin-ligabank/static/media/sign-in-close-button-icon.a580fbc1.svg",
     "static/media/sign-in-icon.d0b8d1c2.svg": "/akimutin-ligabank/static/media/sign-in-icon.d0b8d1c2.svg",
     "static/media/sign-in-password-toggle-button-icon.8e3986fb.svg": "/akimutin-ligabank/static/media/sign-in-password-toggle-button-icon.8e3986fb.svg",
     "static/media/twitter-icon.5ba01cc6.svg": "/akimutin-ligabank/static/media/twitter-icon.5ba01cc6.svg",
@@ -68,8 +68,8 @@
   "entrypoints": [
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
-    "static/js/2.33860c10.chunk.js",
-    "static/css/main.a1f305bc.chunk.css",
-    "static/js/main.5c938c46.chunk.js"
+    "static/js/2.b8b378bd.chunk.js",
+    "static/css/main.117972b2.chunk.css",
+    "static/js/main.8340fa51.chunk.js"
   ]
 }
