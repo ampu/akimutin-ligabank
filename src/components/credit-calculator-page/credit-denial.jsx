@@ -1,18 +1,24 @@
 import React from 'react';
 
-import {withPopup} from '../../hocs/with-popup';
+import {formatInteger, findCreditGoalByValue} from '../../helpers/credit-calculator-helpers';
+import {creditGoalType} from '../../types/form-data-types';
 
-const CreditDenial = () => {
+const CreditDenial = ({creditGoal}) => {
+  const creditGoalObject = findCreditGoalByValue(creditGoal);
+
   return (
     <div className="credit-denial">
-      <div className="credit-denial__popup">
-        <strong>Наш банк не выдаёт ипотечные кредиты меньше 500 000 рублей.</strong>
-        <p>Попробуйте использовать другие параметры&nbsp;для&nbsp;расчёта.</p>
-      </div>
+      <strong>
+        Наш банк не выдаёт {creditGoalObject.denialTitle}
+        меньше {formatInteger(creditGoalObject.denialAmount)} рублей.
+      </strong>
+      <p>Попробуйте использовать другие параметры&nbsp;для&nbsp;расчёта.</p>
     </div>
   );
 };
 
-const CreditDenialWithPopup = withPopup(CreditDenial);
+CreditDenial.propTypes = {
+  creditGoal: creditGoalType.isRequired,
+};
 
-export {CreditDenial, CreditDenialWithPopup};
+export {CreditDenial};

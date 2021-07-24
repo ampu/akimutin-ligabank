@@ -1,19 +1,4 @@
 .credit-denial {
-  position: fixed;
-  z-index: 3;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-
-  background-color: $overlay-color;
-}
-
-.credit-denial__popup {
   display: flex;
   flex-flow: column;
   box-sizing: border-box;

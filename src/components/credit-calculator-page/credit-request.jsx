@@ -1,6 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CreditRequest = () => {
+import {formDataShape} from '../../types/form-data-types';
+import {findCreditGoalByValue, formatInteger, calculateInitialPayment} from "../../helpers/credit-calculator-helpers";
+
+const CreditRequest = ({formData, onSubmit}) => {
   return (
     <section className="credit-request">
       <h3>Шаг 3. Оформление заявки</h3>
@@ -8,49 +12,56 @@ const CreditRequest = () => {
       <dl>
         <div>
           <dt>Номер заявки</dt>
-          <dd>№ 0010</dd>
+          <dd>№ {formData.id}</dd>
         </div>
 
         <div>
           <dt>Цель кредита</dt>
-          <dd>Ипотека</dd>
+          <dd>{formData.creditGoal.value
+            ? findCreditGoalByValue(formData.creditGoal).title
+            : `-`}</dd>
         </div>
 
         <div>
           <dt>Стоимость недвижимости</dt>
-          <dd>2 000 000 рублей</dd>
+          <dd>{formatInteger(formData.propertyValue)} рублей</dd>
         </div>
 
         <div>
           <dt>Первоначальный взнос</dt>
-          <dd>200 000 рублей</dd>
+          <dd>{formatInteger(calculateInitialPayment(formData))} рублей</dd>
         </div>
 
         <div>
           <dt>Срок кредитования</dt>
-          <dd>5 лет</dd>
+          <dd>{formatInteger(formData.creditPeriod)} лет</dd>
         </div>
       </dl>
 
-      <form>
-        <input type="hidden" name="id" value="0010"/>
+      <form onSubmit={onSubmit}>
+        <input type="hidden" name="id" value={formData.id}/>
 
         <label className="credit-request__name">
-          <input type="text" name="name" placeholder="ФИО" autoComplete="username"/>
+          <input type="text" name="name" placeholder="ФИО" autoComplete="username" required/>
         </label>
 
         <label className="credit-request__phone">
-          <input type="text" name="phone" placeholder="Телефон" autoComplete="tel"/>
+          <input type="tel" name="phone" placeholder="Телефон" autoComplete="tel" required/>
         </label>
 
         <label className="credit-request__email">
-          <input type="text" name="email" placeholder="E-mail" autoComplete="email"/>
+          <input type="email" name="email" placeholder="E-mail" autoComplete="email" required/>
         </label>
 
         <button type="submit">Отправить</button>
       </form>
     </section>
   );
+};
+
+CreditRequest.propTypes = {
+  formData: formDataShape.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export {CreditRequest};

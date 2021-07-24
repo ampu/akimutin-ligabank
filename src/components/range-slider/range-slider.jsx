@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {clamp} from 'lodash';
 
-const PERCENTAGE_CONSTRAINT = {min: 0, max: 100};
+import {PERCENTAGE_CONSTRAINT} from '../../constants/percentage-constraint';
 
 const getRatio = (min, max, value) => {
   return clamp((value - min) / (max - min) * PERCENTAGE_CONSTRAINT.max, PERCENTAGE_CONSTRAINT.max);

@@ -1,28 +1,32 @@
 import React, {useEffect, useState, useCallback, useRef} from 'react';
+import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 import {clamp} from 'lodash';
 
-import {CreditGoal} from '../../constants/credit-goal';
+import {CreditGoal, CREDIT_GOALS} from '../../constants/credit-goal';
 import {KeyboardKey} from '../../constants/keyboard-key';
 import {MouseButton} from '../../constants/mouse-button';
+import {PROPERTY_VALUE_CONSTRAINT} from '../../constants/property-value-constraint';
+import {INITIAL_PAYMENT_PERCENTAGE_CONSTRAINT} from '../../constants/initial-payment-percentage-constraint';
+import {CREDIT_PERIOD_CONSTRAINT} from '../../constants/credit-period-constraint';
+
+import {
+  formatInteger,
+  calculateInitialPayment,
+  calculateInitialPaymentPercentage,
+  calculateCreditPeriod,
+  isValidPropertyValue,
+} from '../../helpers/credit-calculator-helpers';
 
 import {NumberInput} from '../number-input/number-input';
 import {RangeSlider} from '../range-slider/range-slider';
-
 import {ReactComponent as PlusIcon} from '../../images/plus-icon.svg';
 import {ReactComponent as MinusIcon} from '../../images/minus-icon.svg';
 
-const FORM_DATA_MOCK = {
-  creditGoal: CreditGoal.MORTGAGE.value,
-  propertyValue: 2000000,
-  initialPayment: 10,
-  creditPeriod: 5,
-};
+import {formDataShape} from '../../types/form-data-types';
 
-const CreditParameters = () => {
+const CreditParameters = ({formData, onSetFormData}) => {
   const containerRef = useRef(null);
-
-  const [formData, setFormData] = useState(FORM_DATA_MOCK);
 
   const [isGoalActive, setGoalActive] = useState(false);
 
@@ -34,33 +38,41 @@ const CreditParameters = () => {
   }, []);
 
   const creditGoalClassName = getClassName({
-    [`credit-parameters__goal credit-parameters__step`]: true,
+    [`credit-parameters__goal`]: true,
+    [`credit-parameters__step`]: true,
     [`active`]: isGoalActive,
   });
 
+  const propertyValueClassName = getClassName({
+    [`credit-parameters__property-value`]: true,
+    [`error`]: !isValidPropertyValue(formData.propertyValue),
+  });
+
   const onCreditGoalSelectChange = (evt) => {
-    setFormData({
+    onSetFormData({
       ...formData,
       creditGoal: evt.currentTarget.value,
     });
   };
 
   const onCreditGoalItemClick = useCallback((evt) => {
-    setFormData({
+    onSetFormData({
       ...formData,
       creditGoal: evt.currentTarget.dataset.value,
     });
     setGoalActive(false);
-  }, [formData]);
+  }, [formData, onSetFormData]);
 
   useEffect(() => {
+    if (!isGoalActive) {
+      return () => {
+      };
+    }
     const onDocumentKeyDown = (evt) => {
       if (evt.key === KeyboardKey.ESCAPE) {
-        if (isGoalActive) {
-          evt.preventDefault();
-          evt.stopPropagation();
-          setGoalActive(false);
-        }
+        evt.preventDefault();
+        evt.stopPropagation();
+        setGoalActive(false);
       }
     };
     document.addEventListener(`keydown`, onDocumentKeyDown);
@@ -71,12 +83,14 @@ const CreditParameters = () => {
   }, [isGoalActive]);
 
   useEffect(() => {
+    if (!isGoalActive) {
+      return () => {
+      };
+    }
     const onDocumentMouseDown = (evt) => {
       if (evt.button === MouseButton.PRIMARY) {
-        if (isGoalActive) {
-          if (!containerRef.current.contains(evt.target)) {
-            setGoalActive(false);
-          }
+        if (!containerRef.current.contains(evt.target)) {
+          setGoalActive(false);
         }
       }
     };
@@ -88,53 +102,75 @@ const CreditParameters = () => {
   }, [isGoalActive]);
 
   const onPropertyValueInputValueChange = useCallback(({floatValue}) => {
-    setFormData((previousFormData) => ({
+    const propertyValue = floatValue || 0;
+
+    onSetFormData((previousFormData) => ({
       ...previousFormData,
-      propertyValue: floatValue || 0,
+      propertyValue,
     }));
-  }, []);
+  }, [onSetFormData]);
 
   const onPropertyValueDecrementClick = () => {
-    setFormData({
+    const propertyValue = formData.propertyValue - PROPERTY_VALUE_CONSTRAINT.step;
+
+    onSetFormData({
       ...formData,
-      propertyValue: clamp(formData.propertyValue - 200000, 1200000, 25000000),
+      propertyValue: clamp(propertyValue, PROPERTY_VALUE_CONSTRAINT.min, PROPERTY_VALUE_CONSTRAINT.max),
     });
   };
 
   const onPropertyValueIncrementClick = () => {
-    setFormData({
+    const propertyValue = formData.propertyValue + PROPERTY_VALUE_CONSTRAINT.step;
+
+    onSetFormData({
       ...formData,
-      propertyValue: clamp(formData.propertyValue + 200000, 1200000, 25000000),
+      propertyValue: clamp(propertyValue, PROPERTY_VALUE_CONSTRAINT.min, PROPERTY_VALUE_CONSTRAINT.max),
     });
   };
 
   const onInitialPaymentInputValueChange = useCallback(({floatValue}) => {
-    setFormData((previousFormData) => ({
-      ...previousFormData,
-      initialPayment: (floatValue || 0) / previousFormData.propertyValue * 100,
-    }));
-  }, []);
+    const initialPayment = floatValue || 0;
 
-  const onInitialPaymentSliderChange = useCallback((initialPayment) => {
-    setFormData((previousFormData) => ({
+    onSetFormData((previousFormData) => ({
       ...previousFormData,
-      initialPayment,
+      initialPaymentPercentage: calculateInitialPaymentPercentage({...previousFormData, initialPayment}),
     }));
-  }, []);
+  }, [onSetFormData]);
+
+  const onInitialPaymentSliderChange = useCallback((initialPaymentPercentage) => {
+    onSetFormData((previousFormData) => ({
+      ...previousFormData,
+      initialPaymentPercentage,
+    }));
+  }, [onSetFormData]);
 
   const onCreditPeriodInputValueChange = ({floatValue}) => {
-    setFormData((previousFormData) => ({
+    const creditPeriod = calculateCreditPeriod(floatValue);
+
+    onSetFormData((previousFormData) => ({
       ...previousFormData,
-      creditPeriod: floatValue || 0,
+      creditPeriod,
     }));
   };
 
   const onCreditPeriodSliderChange = useCallback((creditPeriod) => {
-    setFormData((previousFormData) => ({
+    onSetFormData((previousFormData) => ({
       ...previousFormData,
       creditPeriod,
     }));
-  }, []);
+  }, [onSetFormData]);
+
+  const onMaternityCapitalInputChange = useCallback((evt) => {
+    onSetFormData((previousFormData) => ({
+      ...previousFormData,
+      isMaternityCapital: evt.target.checked,
+    }));
+  }, [onSetFormData]);
+
+  const initialPayment = calculateInitialPayment(formData);
+
+  const {log} = console;
+  log(formData);
 
   return (
     <form ref={containerRef} className="credit-parameters">
@@ -147,7 +183,7 @@ const CreditParameters = () => {
             onChange={onCreditGoalSelectChange}
             onMouseDown={onGoalMouseDown}
           >
-            {Object.values(CreditGoal).map((creditGoal) => (
+            {CREDIT_GOALS.map((creditGoal) => (
               <option
                 key={creditGoal.value}
                 value={creditGoal.value}
@@ -173,10 +209,9 @@ const CreditParameters = () => {
       </div>
 
       <div className="credit-parameters__step">
-        <h3>Шаг 2. Введите параметры
-          кредита</h3>
+        <h3>Шаг 2. Введите параметры кредита</h3>
 
-        <div className="credit-parameters__property-value">
+        <fieldset className={propertyValueClassName}>
           <label htmlFor="credit-parameters-property-value">Стоимость недвижимости</label>
           <div>
             <button
@@ -191,10 +226,8 @@ const CreditParameters = () => {
               id="credit-parameters-property-value"
               name="property-value"
               suffix=" рублей"
-              min={1200000}
-              max={25000000}
-              step={200000}
               value={formData.propertyValue}
+              max={PROPERTY_VALUE_CONSTRAINT.max}
               onValueChange={onPropertyValueInputValueChange}
             />
             <button
@@ -206,8 +239,10 @@ const CreditParameters = () => {
               <span className="visually-hidden">Увеличить</span>
             </button>
           </div>
-          <span className="credit-parameters__legend">От 1 200 000  до 25 000 000 рублей</span>
-        </div>
+          <span className="credit-parameters__legend">
+            От {formatInteger(PROPERTY_VALUE_CONSTRAINT.min)}&nbsp;&nbsp;до {formatInteger(PROPERTY_VALUE_CONSTRAINT.max)} рублей
+          </span>
+        </fieldset>
 
         <fieldset className="credit-parameters__initial-payment">
           <label htmlFor="credit-parameters-initial-payment">Первоначальный взнос</label>
@@ -215,20 +250,18 @@ const CreditParameters = () => {
             id="credit-parameters-initial-payment"
             name="initial-payment"
             suffix=" рублей"
-            min={10}
-            max={100}
-            step={10}
-            value={Math.round(formData.propertyValue * formData.initialPayment / 100)}
+            value={initialPayment}
+            max={PROPERTY_VALUE_CONSTRAINT.max * initialPayment}
             onValueChange={onInitialPaymentInputValueChange}
           />
           <RangeSlider
-            min={10}
-            max={100}
-            step={10}
-            value={formData.initialPayment}
+            min={INITIAL_PAYMENT_PERCENTAGE_CONSTRAINT.min}
+            max={INITIAL_PAYMENT_PERCENTAGE_CONSTRAINT.max}
+            step={INITIAL_PAYMENT_PERCENTAGE_CONSTRAINT.step}
+            value={formData.initialPaymentPercentage}
             onChange={onInitialPaymentSliderChange}
           />
-          <span className="credit-parameters__legend">10%</span>
+          <span className="credit-parameters__legend">{formatInteger(INITIAL_PAYMENT_PERCENTAGE_CONSTRAINT.min)}%</span>
         </fieldset>
 
         <fieldset className="credit-parameters__credit-period">
@@ -237,32 +270,35 @@ const CreditParameters = () => {
             id="credit-parameters-credit-period"
             name="credit-period"
             suffix=" лет"
-            min={5}
-            max={30}
-            step={1}
             value={formData.creditPeriod}
+            max={CREDIT_PERIOD_CONSTRAINT.max}
             onValueChange={onCreditPeriodInputValueChange}
           />
           <RangeSlider
-            min={5}
-            max={30}
-            step={1}
+            min={CREDIT_PERIOD_CONSTRAINT.min}
+            max={CREDIT_PERIOD_CONSTRAINT.max}
+            step={CREDIT_PERIOD_CONSTRAINT.step}
             value={formData.creditPeriod}
             onChange={onCreditPeriodSliderChange}
           />
           <span className="credit-parameters__legend">
-            <span>5 лет</span>
-            <span>30 лет</span>
+            <span>{formatInteger(CREDIT_PERIOD_CONSTRAINT.min)} лет</span>
+            <span>{formatInteger(CREDIT_PERIOD_CONSTRAINT.max)} лет</span>
           </span>
         </fieldset>
 
         <label className="credit-parameters__maternity-capital">
-          <input type="checkbox"/>
+          <input type="checkbox" checked={formData.isMaternityCapital} onChange={onMaternityCapitalInputChange}/>
           <span>Использовать материнский капитал</span>
         </label>
       </div>
     </form>
   );
+};
+
+CreditParameters.propTypes = {
+  formData: formDataShape.isRequired,
+  onSetFormData: PropTypes.func.isRequired,
 };
 
 export {CreditParameters};

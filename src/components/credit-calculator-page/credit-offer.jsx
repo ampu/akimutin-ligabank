@@ -3,7 +3,16 @@ import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
 
-const CreditOffer = () => {
+import {
+  formatInteger,
+  formatFloat,
+  calculateCreditAmount,
+  calculateInterestRate
+} from '../../helpers/credit-calculator-helpers';
+
+import {formDataShape} from '../../types/form-data-types';
+
+const CreditOffer = ({formData}) => {
   return (
     <section className="credit-offer">
       <h3>Наше предложение</h3>
@@ -11,12 +20,12 @@ const CreditOffer = () => {
       <dl>
         <div>
           <dt>Сумма ипотеки</dt>
-          <dd>1 330 000 рублей</dd>
+          <dd>{formatInteger(calculateCreditAmount(formData))} рублей</dd>
         </div>
 
         <div>
           <dt>Процентная ставка</dt>
-          <dd>9,40%</dd>
+          <dd>{formatFloat(calculateInterestRate(formData.initialPaymentPercentage))}%</dd>
         </div>
 
         <div>
@@ -33,6 +42,10 @@ const CreditOffer = () => {
       <Link to={LocalPath.CREDIT_REQUEST}>Оформить заявку</Link>
     </section>
   );
+};
+
+CreditOffer.propTypes = {
+  formData: formDataShape.isRequired,
 };
 
 export {CreditOffer};

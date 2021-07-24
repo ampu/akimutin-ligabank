@@ -93,3 +93,7 @@
 @mixin thin-outline {
   box-shadow: 0 0 0 1px $primary-outline-color, 0 0 0 2px $secondary-outline-color;
 }
+
+@mixin dangerous-outline {
+  box-shadow: 0 0 0 2px $dangerous-outline-color, 0 0 0 3px $secondary-outline-color;
+}
