@@ -1,3 +1,4 @@
+/** @enum */
 export const LocalPath = {
   INDEX: `/`,
 
@@ -13,6 +14,7 @@ export const LocalPath = {
   DEPOSITS: `/deposits`,
   ENSURANCE: `/ensurance`,
   ONLINE_SERVICES: `/online-services`,
+  CREDIT_REQUEST: `/credit-request`,
 };
 
 export const CREDIT_CALCULATOR_PAGE_PATHS = [

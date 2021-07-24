@@ -1,0 +1,39 @@
+.range-slider {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: calc(100% - 14px);
+  height: 14px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: calc(100% + 14px);
+    height: 50%;
+    display: flex;
+
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.range-slider__pin {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  padding: 3px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: $primary-active-color;
+  background-clip: content-box;
+}

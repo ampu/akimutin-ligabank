@@ -10,6 +10,7 @@ $side-padding--tablet: 45px;
 $viewport--mobile: 320px;
 $side-padding--mobile: 15px;
 
+$white-color: #ffffff;
 $black-color: #000000;
 $red-color: #ff0000;
 $pastel-red-color: rgba(255, 0, 0, 0.1);
@@ -28,7 +29,9 @@ $decoration-gradient-color-1: rgba(56, 65, 255, 0);
 $decoration-gradient-color-2: #3841ff;
 
 $border-color: #c1c2ca;
+$alternative-border-color: #c4c4c4;
 $border-shadow-color: rgba(0, 0, 0, 0.25);
+$calculator-border-color: #0a1e32;
 
 $slider-control-color: #2028b6;
 $slider-control-active-color: #f6f7ff;
@@ -44,3 +47,6 @@ $offices-slide-background-color-right: #eef3fd;
 
 $overlay-color: rgba(0, 0, 0, 0.5);
 $label-color: #394959;
+
+$primary-outline-color: #005fcc;
+$secondary-outline-color: #ffffff;

@@ -72,8 +72,6 @@
 
 @mixin visually-hidden {
   position: absolute;
-  left: 1px;
-  top: 1px;
   z-index: -1;
   width: 1px;
   height: 1px;
@@ -90,4 +88,8 @@
 
 @mixin outline {
   box-shadow: 0 0 0 2px $primary-outline-color, 0 0 0 3px $secondary-outline-color;
+}
+
+@mixin thin-outline {
+  box-shadow: 0 0 0 1px $primary-outline-color, 0 0 0 2px $secondary-outline-color;
 }

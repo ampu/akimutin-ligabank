@@ -1,8 +1,10 @@
+/** @enum */
 const Viewport = {
   TABLET: 768,
   MIN_DESKTOP: 1024,
 };
 
+/** @enum */
 export const MediaQuery = {
   TABLET: `(min-width: ${Viewport.TABLET}px) and (max-width: ${Viewport.MIN_DESKTOP - 1}px)`,
   TABLET_MOBILE: `(max-width: ${Viewport.MIN_DESKTOP - 1}px)`,

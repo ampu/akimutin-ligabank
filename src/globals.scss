@@ -12,6 +12,10 @@
 
   color: $primary-color;
 
+  &--active {
+    cursor: pointer;
+  }
+
   &--modal {
     overflow: hidden;
   }
