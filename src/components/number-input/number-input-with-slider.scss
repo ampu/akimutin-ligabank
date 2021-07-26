@@ -1,0 +1,49 @@
+.number-input-with-slider {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  border: none;
+  color: $label-color;
+
+  @include tablet-mobile {
+    margin-bottom: 13px;
+  }
+
+  @include mobile {
+    margin-bottom: 9px;
+  }
+}
+
+.number-input-with-slider .range-slider {
+  margin-top: 14px;
+}
+
+.number-input-with-slider label {
+  margin-bottom: 10px;
+  display: flex;
+
+  @include tablet-mobile {
+    margin-bottom: 8px;
+  }
+}
+
+.number-input-with-slider p {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+
+  user-select: none;
+  color: $primary-legend-color;
+}

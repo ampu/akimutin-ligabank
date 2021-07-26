@@ -6,3 +6,33 @@
   justify-content: center;
   align-items: center;
 }
+
+.not-found-page h1 {
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 1.4;
+
+  @include mobile {
+    margin-top: 0;
+
+    font-size: 26px;
+  }
+}
+
+.not-found-page a {
+  @include button;
+
+  display: flex;
+  justify-content: center;
+  padding: 20px 40px;
+
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+
+  @include mobile {
+    padding: 12px 24px;
+
+    font-size: 14px;
+  }
+}

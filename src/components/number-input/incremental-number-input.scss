@@ -1,0 +1,157 @@
+.incremental-number-input {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  border: none;
+  color: $label-color;
+
+  @include tablet-mobile {
+    margin-bottom: 14px;
+  }
+
+  @include tablet-mobile {
+    margin-bottom: 12px;
+  }
+}
+
+.incremental-number-input label {
+  margin-bottom: 10px;
+  display: flex;
+
+  @include tablet-mobile {
+    margin-bottom: 8px;
+  }
+
+  @include tablet-mobile {
+    margin-bottom: 9px;
+  }
+}
+
+.incremental-number-input div {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  border-radius: 4px;
+}
+
+.incremental-number-input.error input:not(:focus) {
+  @include dangerous-outline;
+
+  border-color: $dangerous-outline-color;
+}
+
+.incremental-number-input input:not(:focus) + .incremental-number-input__error {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+
+  color: $dangerous-outline-color;
+  font-size: 14px;
+
+  transform: translateX(-50%);
+
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+.incremental-number-input__increment {
+  position: absolute;
+  right: 19px;
+  top: 16px;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 5px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  @include tablet-mobile {
+    top: 18px;
+  }
+
+  @include mobile {
+    top: 17px;
+    right: 10px;
+  }
+}
+
+.incremental-number-input__increment svg {
+  width: 16px;
+  height: 16px;
+}
+
+.incremental-number-input__increment:hover path {
+  stroke-width: 3px;
+}
+
+.incremental-number-input__increment:active path {
+  stroke-opacity: 0.5;
+}
+
+.incremental-number-input__decrement {
+  position: absolute;
+  left: 19px;
+  top: 16px;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 5px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  @include tablet-mobile {
+    top: 18px;
+  }
+
+  @include mobile {
+    top: 17px;
+  }
+}
+
+.incremental-number-input__decrement svg {
+  width: 16px;
+  height: 16px;
+}
+
+.incremental-number-input__decrement:hover line {
+  stroke-width: 3px;
+}
+
+.incremental-number-input__decrement:active line {
+  stroke-opacity: 0.5;
+}
+
+.incremental-number-input p {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+
+  user-select: none;
+  color: $primary-legend-color;
+}

@@ -1,0 +1,92 @@
+.select {
+  position: relative;
+}
+
+.select select {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 18px 24px;
+  padding-right: (24px + 18px + 24px);
+  width: 100%;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  background: transparent url("../../images/select-icon.svg") no-repeat calc(100% - 22px) center / 18px 11px;
+
+  @include mobile {
+    padding-left: 14px;
+    padding-right: (13px + 18px + 13px);
+
+    background-position: calc(100% - 13px) center;
+  }
+}
+
+.select ul {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-flow: column;
+
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  background-color: $white-color;
+}
+
+.select select:focus + ul {
+  @include thin-outline;
+}
+
+.select.active ul {
+  display: flex;
+}
+
+.select li {
+  padding: 18px 24px;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  cursor: pointer;
+  border-bottom: 1px solid $border-color;
+
+  &:first-of-type {
+    position: relative;
+    padding-right: (24px + 18px + 24px);
+
+    border-color: $calculator-border-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      background: transparent url("../../images/select-icon.svg") no-repeat calc(22px) center / 18px 11px;
+
+      transform: rotate(180deg);
+    }
+  }
+
+  &.active {
+    font-weight: 500;
+  }
+
+  &:hover {
+    font-weight: 500;
+  }
+}

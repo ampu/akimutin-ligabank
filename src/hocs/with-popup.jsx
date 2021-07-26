@@ -1,17 +1,27 @@
-import React, {useCallback} from 'react';
+import React, {useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import {KeyboardKey} from '../constants/keyboard-key';
+import {MouseButton} from '../constants/mouse-button';
 
 import {useModal} from '../hooks/use-modal';
 import {useKeyDownStack} from '../hooks/use-key-down-stack';
 
 export const withPopup = (Component) => {
   const WithPopup = ({onClose, ...props}) => {
+    const popupRef = useRef(null);
+
     useModal();
 
-    const onCloseButtonClick = useCallback(() => {
-      onClose();
+    const onContainerMouseDown = useCallback((evt) => {
+      /* eslint-disable */
+      console.log(popupRef);
+
+      if (evt.button === MouseButton.PRIMARY) {
+        if (!popupRef.current.contains(evt.target)) {
+          onClose();
+        }
+      }
     }, [onClose]);
 
     const onDocumentKeyDown = useCallback((evt) => {
@@ -26,7 +36,9 @@ export const withPopup = (Component) => {
 
     return (
       <Component
-        onCloseButtonClick={onCloseButtonClick}
+        popupRef={popupRef}
+        onContainerMouseDown={onContainerMouseDown}
+        onClose={onClose}
         {...props}
       />
     );

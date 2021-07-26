@@ -1,16 +1,13 @@
 import React from 'react';
 
-import {formatInteger, findCreditGoalByValue} from '../../helpers/credit-calculator-helpers';
-import {creditGoalType} from '../../types/form-data-types';
+import {formatInteger} from '../../helpers/number-helpers';
+import {creditGoalValueType} from '../../types/credit-goal-value-types';
 
 const CreditDenial = ({creditGoal}) => {
-  const creditGoalObject = findCreditGoalByValue(creditGoal);
-
   return (
     <div className="credit-denial">
       <strong>
-        Наш банк не выдаёт {creditGoalObject.denialTitle}
-        меньше {formatInteger(creditGoalObject.denialAmount)} рублей.
+        Наш банк не выдаёт {creditGoal.denialTitle} меньше {formatInteger(creditGoal.denialAmount)} рублей.
       </strong>
       <p>Попробуйте использовать другие параметры&nbsp;для&nbsp;расчёта.</p>
     </div>
@@ -18,7 +15,7 @@ const CreditDenial = ({creditGoal}) => {
 };
 
 CreditDenial.propTypes = {
-  creditGoal: creditGoalType.isRequired,
+  creditGoal: creditGoalValueType.isRequired,
 };
 
 export {CreditDenial};

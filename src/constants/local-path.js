@@ -12,7 +12,7 @@ export const LocalPath = {
   ASK_QUESTION: `/ask-question`,
 
   DEPOSITS: `/deposits`,
-  ENSURANCE: `/ensurance`,
+  INSURANCE: `/insurance`,
   ONLINE_SERVICES: `/online-services`,
   CREDIT_REQUEST: `/credit-request`,
 };

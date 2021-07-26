@@ -4,7 +4,12 @@
 @import "./mixins";
 @import "./animations";
 @import "./globals";
+@import "./components/select/select";
+@import "./components/number-input/number-input";
+@import "./components/number-input/incremental-number-input";
+@import "./components/number-input/number-input-with-slider";
 @import "./components/range-slider/range-slider";
+@import "./components/checkbox/checkbox";
 @import "./components/logo/logo";
 @import "./components/site-navigation/site-navigation";
 @import "./components/user-navigation/user-navigation";
@@ -19,7 +24,9 @@
 @import "./components/offices/offices";
 @import "./components/footer/footer";
 @import "./components/sign-in/sign-in";
-@import "./components/credit-calculator-page/credit-parameters";
+@import "./components/credit-calculator-page/credit-goal-select";
+@import "components/credit-calculator-page/mortgage-credit-parameters";
+@import "components/credit-calculator-page/car-credit-parameters";
 @import "./components/credit-calculator-page/credit-offer";
 @import "./components/credit-calculator-page/credit-request";
 @import "./components/credit-calculator-page/credit-denial";

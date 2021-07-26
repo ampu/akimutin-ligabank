@@ -5,7 +5,6 @@ import {KeyboardKey} from '../constants/keyboard-key';
 import {MouseButton} from '../constants/mouse-button';
 
 import {useModal} from '../hooks/use-modal';
-import {useKeyDownStack} from '../hooks/use-key-down-stack';
 
 export const withSignInState = (Component) => {
   const WithSignInState = ({onClose, ...props}) => {
@@ -17,20 +16,6 @@ export const withSignInState = (Component) => {
       evt.preventDefault();
       onClose();
     }, [onClose]);
-
-    const onCloseButtonClick = useCallback(() => {
-      onClose();
-    }, [onClose]);
-
-    const onDocumentKeyDown = useCallback((evt) => {
-      if (evt.key === KeyboardKey.ESCAPE) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        onClose();
-      }
-    }, [onClose]);
-
-    useKeyDownStack(onDocumentKeyDown);
 
     const onPasswordToggleButtonMouseDown = (evt) => {
       if (evt.button === MouseButton.PRIMARY) {
@@ -59,10 +44,10 @@ export const withSignInState = (Component) => {
     return (
       <Component
         onSubmitButtonClick={onSubmitButtonClick}
-        onCloseButtonClick={onCloseButtonClick}
         isPasswordVisible={isPasswordVisible}
         onPasswordToggleButtonMouseDown={onPasswordToggleButtonMouseDown}
         onPasswordToggleKeyDown={onPasswordToggleKeyDown}
+        onClose={onClose}
         {...props}
       />
     );

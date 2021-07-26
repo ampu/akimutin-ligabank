@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 
-import {formatInteger} from '../../helpers/credit-calculator-helpers';
+import {formatInteger} from '../../helpers/number-helpers';
 
 const NumberInput = ({
   suffix,
@@ -13,6 +13,7 @@ const NumberInput = ({
 }) => {
   return (
     <NumberFormat
+      className="number-input"
       allowNegative={false}
       allowLeadingZeros={false}
       decimalScale={0}

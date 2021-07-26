@@ -1,0 +1,35 @@
+.credit-goal-select {
+  margin: 0;
+  margin-bottom: 33px;
+  padding: 0;
+
+  border: none;
+  background-color: transparent;
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+}
+
+.credit-goal-select h3 {
+  margin: 0;
+  margin-bottom: 22px;
+  padding: 0;
+  display: flex;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+
+  @include tablet-mobile {
+    margin-bottom: 19px;
+
+    font-size: 18px;
+  }
+
+  @include mobile {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+  }
+}

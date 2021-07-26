@@ -1,0 +1,51 @@
+.mortgage-credit-parameters {
+  margin: 0;
+  margin-bottom: 33px;
+  padding: 0;
+
+  border: none;
+  background-color: transparent;
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+}
+
+.mortgage-credit-parameters h3 {
+  margin: 0;
+  margin-bottom: 17px;
+  padding: 0;
+  display: flex;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+
+  @include tablet-mobile {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+  }
+
+  @include mobile {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+  }
+}
+
+.mortgage-credit-parameters__credit-period {
+  margin-bottom: 20px;
+
+  @include tablet-mobile {
+    margin-bottom: 16px;
+  }
+
+  @include mobile {
+    margin-bottom: 13px;
+  }
+}
+
+.mortgage-credit-parameters__credit-period .range-slider {
+  margin-top: 10px;
+}

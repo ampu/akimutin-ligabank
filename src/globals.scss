@@ -14,6 +14,7 @@
 
   &--active {
     cursor: pointer;
+    user-select: none;
   }
 
   &--modal {
@@ -46,31 +47,14 @@
   }
 }
 
-.page-title {
-  margin-top: 46px;
-  margin-bottom: 49px;
-
-  font-weight: 700;
-  font-size: 41px;
-  line-height: 1.4;
-}
-
-.page-link {
-  @include button;
-
-  display: inline-block;
-  vertical-align: middle;
-  padding: 24px 100px 26px;
-
-  font-weight: 700;
-  font-size: 16px;
-  text-decoration: none;
-}
-
 .container {
   @include container;
 }
 
 .visually-hidden {
   @include visually-hidden;
+}
+
+.shake {
+  animation: shake 0.6s;
 }

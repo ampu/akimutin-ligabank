@@ -1,14 +1,17 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {clamp} from 'lodash';
 
+import {KeyboardKey} from '../../constants/keyboard-key';
 import {PERCENTAGE_CONSTRAINT} from '../../constants/percentage-constraint';
+import {coerceByConstraint} from '../../helpers/number-helpers';
 
-const getRatio = (min, max, value) => {
-  return clamp((value - min) / (max - min) * PERCENTAGE_CONSTRAINT.max, PERCENTAGE_CONSTRAINT.max);
+import {constraintShape} from '../../types/constraint-types';
+
+const getRatio = (value, {min, max}) => {
+  return coerceByConstraint((value - min) / (max - min) * PERCENTAGE_CONSTRAINT.max, PERCENTAGE_CONSTRAINT);
 };
 
-const RangeSlider = ({min, max, step, value, onChange}) => {
+const RangeSlider = ({valueConstraint, value, onValueChange}) => {
   const [isActive, setActive] = useState(false);
 
   useEffect(() => {
@@ -18,6 +21,18 @@ const RangeSlider = ({min, max, step, value, onChange}) => {
   const slideRef = useRef();
 
   const containerRef = useRef(null);
+
+  const onPinKeyDown = useCallback((evt) => {
+    switch (evt.key) {
+      case KeyboardKey.ARROW_LEFT:
+        onValueChange(coerceByConstraint(value - valueConstraint.step, valueConstraint));
+        break;
+
+      case KeyboardKey.ARROW_RIGHT:
+        onValueChange(coerceByConstraint(value + valueConstraint.step, valueConstraint));
+        break;
+    }
+  }, [valueConstraint, value, onValueChange]);
 
   const onPinMouseDown = useCallback((evt) => {
     slideRef.current = {
@@ -36,13 +51,13 @@ const RangeSlider = ({min, max, step, value, onChange}) => {
       const maxOffset = minOffset + containerRef.current.offsetWidth;
 
       const ratioDifference = (endX - startX) / (maxOffset - minOffset);
-      const valueDifference = ratioDifference * (max - min);
-      const stepDifference = Math.round(valueDifference / step);
-      const newValue = clamp(startValue + stepDifference * step, min, max);
+      const valueDifference = ratioDifference * (valueConstraint.max - valueConstraint.min);
+      const stepDifference = Math.round(valueDifference / valueConstraint.step);
+      const newValue = coerceByConstraint(startValue + stepDifference * valueConstraint.step, valueConstraint);
 
-      onChange(newValue);
+      onValueChange(newValue);
     }
-  }, [min, max, step, onChange]);
+  }, [valueConstraint, onValueChange]);
 
   const onDocumentMouseUp = useCallback(() => {
     if (slideRef.current) {
@@ -67,7 +82,8 @@ const RangeSlider = ({min, max, step, value, onChange}) => {
       <div
         className="range-slider__pin"
         tabIndex="0"
-        style={{left: `${clamp(getRatio(min, max, value), PERCENTAGE_CONSTRAINT.min, PERCENTAGE_CONSTRAINT.max)}%`}}
+        style={{left: `${coerceByConstraint(getRatio(value, valueConstraint), PERCENTAGE_CONSTRAINT)}%`}}
+        onKeyDown={onPinKeyDown}
         onMouseDown={onPinMouseDown}
       ></div>
     </div>
@@ -75,11 +91,9 @@ const RangeSlider = ({min, max, step, value, onChange}) => {
 };
 
 RangeSlider.propTypes = {
-  min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
-  step: PropTypes.number.isRequired,
+  valueConstraint: constraintShape.isRequired,
   value: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onValueChange: PropTypes.func.isRequired,
 };
 
 export {RangeSlider};

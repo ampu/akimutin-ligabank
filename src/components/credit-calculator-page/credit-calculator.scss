@@ -29,6 +29,18 @@
   }
 }
 
+.credit-calculator__parameters-form {
+  margin-bottom: (38px - 33px);
+  width: rubber(600px);
+  display: flex;
+  flex-flow: column;
+
+  @include tablet-mobile {
+    margin-bottom: (10px - 33px);
+    width: 100%;
+  }
+}
+
 .credit-calculator h2 {
   margin: 0;
   margin-bottom: 53px;

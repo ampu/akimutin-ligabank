@@ -6,21 +6,26 @@ import FocusTrap from 'focus-trap-react';
 import {LocalPath} from '../../constants/local-path';
 
 import {withSignInState} from '../../hocs/with-sign-in-state';
+import {withPopup} from '../../hocs/with-popup';
 import {Logo} from '../logo/logo';
 import {ReactComponent as PopupCloseButtonIcon} from '../../images/popup-close-button-icon.svg';
 import {ReactComponent as SignInPasswordToggleButtonIcon} from '../../images/sign-in-password-toggle-button-icon.svg';
 
+import {refShape} from '../../types/ref-types';
+
 const SignIn = ({
+  popupRef,
+  onContainerMouseDown,
+  onClose,
   onSubmitButtonClick,
-  onCloseButtonClick,
   isPasswordVisible,
   onPasswordToggleButtonMouseDown,
   onPasswordToggleKeyDown,
 }) => {
   return (
-    <div className="sign-in">
+    <div className="sign-in" onMouseDown={onContainerMouseDown}>
       <FocusTrap>
-        <form>
+        <form ref={popupRef}>
           <Logo isExtended className="sign-in__logo"/>
 
           <label htmlFor="sign-in-login">
@@ -59,11 +64,15 @@ const SignIn = ({
 
           <button type="submit" onClick={onSubmitButtonClick}>Войти</button>
 
-          <Link className="sign-in__forgotten-password" to={LocalPath.FORGOTTEN_PASSWORD}>
+          <Link
+            className="sign-in__forgotten-password"
+            to={LocalPath.FORGOTTEN_PASSWORD}
+            onClick={onClose}
+          >
             Забыли пароль?
           </Link>
 
-          <button className="sign-in__close-button" type="button" onClick={onCloseButtonClick}>
+          <button className="sign-in__close-button" type="button" onClick={onClose}>
             <PopupCloseButtonIcon/>
             <span>Закрыть</span>
           </button>
@@ -74,13 +83,15 @@ const SignIn = ({
 };
 
 SignIn.propTypes = {
+  popupRef: refShape.isRequired,
+  onContainerMouseDown: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   onSubmitButtonClick: PropTypes.func.isRequired,
-  onCloseButtonClick: PropTypes.func.isRequired,
   isPasswordVisible: PropTypes.bool.isRequired,
   onPasswordToggleButtonMouseDown: PropTypes.func.isRequired,
   onPasswordToggleKeyDown: PropTypes.func.isRequired,
 };
 
-const SignInWithSignInState = withSignInState(SignIn);
+const SignInWithSignInState = withSignInState(withPopup(SignIn));
 
 export {SignIn, SignInWithSignInState};

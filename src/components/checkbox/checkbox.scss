@@ -1,0 +1,56 @@
+.checkbox {
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  cursor: pointer;
+  color: $label-color;
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+.checkbox:last-of-type {
+  margin-bottom: 30px;
+}
+
+.checkbox span {
+  padding: 0 3px;
+  margin: 0 -3px;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+
+  border-radius: 4px;
+
+  &::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    display: flex;
+
+    border-radius: 2px;
+    border: 1px solid $primary-color;
+  }
+}
+
+.checkbox input {
+  @include visually-hidden;
+}
+
+.checkbox input:checked + span {
+  &::before {
+    border-color: $primary-active-color;
+    background: $primary-active-color url("../../images/checkbox-icon.svg") no-repeat center center / 8px 6px;
+  }
+}
+
+.checkbox input:focus + span {
+  @include outline;
+}

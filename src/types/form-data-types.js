@@ -1,19 +1,14 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import {CREDIT_GOAL_VALUES} from "../constants/credit-goal";
+import {creditGoalValueType} from './credit-goal-value-types';
 
-const creditGoalType = PropTypes.oneOf(CREDIT_GOAL_VALUES);
-
-const formDataShape = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  creditGoal: creditGoalType.isRequired,
-  propertyValue: PropTypes.number.isRequired,
+export const formDataShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  creditGoalValue: creditGoalValueType.isRequired,
+  propertyAmount: PropTypes.number.isRequired,
   initialPaymentPercentage: PropTypes.number.isRequired,
   creditPeriod: PropTypes.number.isRequired,
-  isMaternityCapital: PropTypes.bool.isRequired,
+  isMaternityCapital: PropTypes.bool,
+  isCasco: PropTypes.bool,
+  isLifeInsurance: PropTypes.bool,
 });
-
-export {
-  creditGoalType,
-  formDataShape,
-};

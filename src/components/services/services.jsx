@@ -6,18 +6,18 @@ import {withSlider} from '../../hocs/with-slider';
 
 import {ServicesDeposits} from './services-deposits';
 import {ServicesCredits} from './services-credits';
-import {ServicesEnsurance} from './services-ensurance';
+import {ServicesInsurance} from './services-insurance';
 import {ServicesOnline} from './services-online';
 
 import {ReactComponent as DepositsIcon} from '../../images/services-deposits-icon.svg';
 import {ReactComponent as CreditsIcon} from '../../images/services-credits-icon.svg';
-import {ReactComponent as EnsuranceIcon} from '../../images/services-ensurance-icon.svg';
+import {ReactComponent as InsuranceIcon} from '../../images/services-insurance-icon.svg';
 import {ReactComponent as OnlineIcon} from '../../images/services-online-icon.svg';
 
 const SERVICES = [
   {key: `deposits`, title: `Вклады`, iconComponent: DepositsIcon, component: ServicesDeposits},
   {key: `credits`, title: `Кредиты`, iconComponent: CreditsIcon, component: ServicesCredits},
-  {key: `ensurance`, title: `Страхование`, iconComponent: EnsuranceIcon, component: ServicesEnsurance},
+  {key: `insurance`, title: `Страхование`, iconComponent: InsuranceIcon, component: ServicesInsurance},
   {key: `online`, title: `Онлайн-сервисы`, iconComponent: OnlineIcon, component: ServicesOnline},
 ];
 
