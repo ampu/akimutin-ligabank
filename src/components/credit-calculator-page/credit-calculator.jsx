@@ -31,9 +31,7 @@ const CreditCalculator = () => {
     setCreditRequestActive(true);
   }, []);
 
-  const onCreditRequestSubmit = useCallback((evt) => {
-    evt.preventDefault();
-
+  const onCreditRequestSubmit = useCallback(() => {
     setThankYouActive(true);
 
     const newCreditRequestData = {

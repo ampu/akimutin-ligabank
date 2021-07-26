@@ -52,7 +52,9 @@ const CreditRequest = ({
       if (isMountedRef.current) {
         if (!formRef.current.reportValidity()) {
           setError(true);
+          return;
         }
+        onSubmit();
       }
     });
   }, [isMountedRef]);
