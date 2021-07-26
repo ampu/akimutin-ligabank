@@ -14,9 +14,6 @@ export const withPopup = (Component) => {
     useModal();
 
     const onContainerMouseDown = useCallback((evt) => {
-      /* eslint-disable */
-      console.log(popupRef);
-
       if (evt.button === MouseButton.PRIMARY) {
         if (!popupRef.current.contains(evt.target)) {
           onClose();

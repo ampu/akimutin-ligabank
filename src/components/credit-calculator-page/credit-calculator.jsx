@@ -1,5 +1,4 @@
-/* eslint-disable */
-import React, {useState, useEffect, useCallback, useMemo} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import {CreditGoal} from '../../constants/credit-goal';
 import {calculateCreditAmount, findCreditGoalByValue, isValidFormData} from '../../helpers/credit-calculator-helpers';
@@ -11,21 +10,12 @@ import {CreditOffer} from './credit-offer';
 import {CreditRequest} from './credit-request';
 import {ThankYouWithPopup as ThankYou} from './thank-you';
 
-const Render = {
-  GOAL: true,
-  PARAMETERS: true,
-  OFFER: true,
-  REQUEST: true,
-};
-
 const CreditCalculator = () => {
   const [creditGoal, setCreditGoal] = useState(CreditGoal.DEFAULT);
   const [creditRequestData, setCreditRequestData] = useState({});
   const [formData, setFormData] = useState();
   const [isCreditRequestActive, setCreditRequestActive] = useState(false);
   const [isThankYouActive, setThankYouActive] = useState(false);
-
-  console.log(`form`, creditRequestData, formData);
 
   const onSetFormData = useCallback((newFormData) => {
     setCreditRequestActive(false);
@@ -34,7 +24,7 @@ const CreditCalculator = () => {
 
   const onCreditGoalSelectValueChange = useCallback((creditGoalValue) => {
     setCreditGoal(findCreditGoalByValue(creditGoalValue));
-  }, [onSetFormData]);
+  }, []);
 
   const onCreditRequestClick = useCallback((evt) => {
     evt.preventDefault();
@@ -72,7 +62,7 @@ const CreditCalculator = () => {
     onSetFormData(creditGoal.defaultFormData
       ? {...creditGoal.defaultFormData, ...creditRequestData}
       : undefined);
-  }, [creditGoal, creditRequestData]);
+  }, [creditGoal, creditRequestData, onSetFormData]);
 
   const creditAmount = formData && calculateCreditAmount(formData);
 

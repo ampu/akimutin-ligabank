@@ -23,8 +23,6 @@ const CreditRequest = ({
   const [isError, setError] = useState(false);
 
   const onNameInputChange = useCallback((evt) => {
-    setError(false);
-
     onSetFormData({
       ...formData,
       name: evt.currentTarget.value
@@ -32,8 +30,6 @@ const CreditRequest = ({
   }, [formData, onSetFormData]);
 
   const onPhoneInputChange = useCallback((evt) => {
-    setError(false);
-
     onSetFormData({
       ...formData,
       phone: evt.currentTarget.value
@@ -41,26 +37,25 @@ const CreditRequest = ({
   }, [formData, onSetFormData]);
 
   const onEmailInputChange = useCallback((evt) => {
-    setError(false);
-
     onSetFormData({
       ...formData,
       email: evt.currentTarget.value
     });
   }, [formData, onSetFormData]);
 
-  /* eslint-disable */
   const onSubmitButtonClick = useCallback((evt) => {
+    evt.preventDefault();
+
     setError(false);
 
     setTimeout(() => {
       if (isMountedRef.current) {
-        if (!formRef.current.checkValidity()) {
+        if (!formRef.current.reportValidity()) {
           setError(true);
         }
       }
     });
-  }, []);
+  }, [isMountedRef]);
 
   return (
     <section className={getClassName(`credit-request`, isError && `shake`)}>

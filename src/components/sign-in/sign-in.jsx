@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import getClassName from 'classnames';
 import FocusTrap from 'focus-trap-react';
 
 import {LocalPath} from '../../constants/local-path';
@@ -21,11 +22,13 @@ const SignIn = ({
   isPasswordVisible,
   onPasswordToggleButtonMouseDown,
   onPasswordToggleKeyDown,
+  isBounce,
+  isError,
 }) => {
   return (
     <div className="sign-in" onMouseDown={onContainerMouseDown}>
       <FocusTrap>
-        <form ref={popupRef}>
+        <form ref={popupRef} className={getClassName(isBounce && `bounce`, isError && `shake`)}>
           <Logo isExtended className="sign-in__logo"/>
 
           <label htmlFor="sign-in-login">
@@ -36,6 +39,7 @@ const SignIn = ({
               type="text"
               name="login"
               autoComplete="username"
+              required
               autoFocus
             />
           </label>
@@ -49,6 +53,7 @@ const SignIn = ({
               type={isPasswordVisible ? `text` : `password`}
               name="password"
               autoComplete="current-password"
+              required
             />
 
             <button
@@ -90,8 +95,10 @@ SignIn.propTypes = {
   isPasswordVisible: PropTypes.bool.isRequired,
   onPasswordToggleButtonMouseDown: PropTypes.func.isRequired,
   onPasswordToggleKeyDown: PropTypes.func.isRequired,
+  isBounce: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
 };
 
-const SignInWithSignInState = withSignInState(withPopup(SignIn));
+const SignInWithSignInState = withPopup(withSignInState(SignIn));
 
 export {SignIn, SignInWithSignInState};
