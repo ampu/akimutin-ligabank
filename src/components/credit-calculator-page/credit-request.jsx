@@ -57,7 +57,7 @@ const CreditRequest = ({
         onSubmit();
       }
     });
-  }, [isMountedRef]);
+  }, [isMountedRef, onSubmit]);
 
   return (
     <section className={getClassName(`credit-request`, isError && `shake`)}>
