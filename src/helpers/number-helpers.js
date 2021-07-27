@@ -20,6 +20,10 @@ const formatYearsSuffix = (numberOfYears) => {
     .replace(/^\s*/, ` `);
 };
 
+const coerceArrayIndex = (index, items) => {
+  return clamp(index, 0, items.length - 1);
+};
+
 const coerceByConstraint = (value, {min, max}) => {
   return clamp(value, min, max);
 };
@@ -38,6 +42,7 @@ dayjs.locale(`ru`);
 export {
   formatInteger,
   formatFloat,
+  coerceArrayIndex,
   coerceByConstraint,
   isValidByConstraint,
   formatYearsSuffix,

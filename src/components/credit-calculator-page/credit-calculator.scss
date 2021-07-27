@@ -7,12 +7,12 @@
 
   @include tablet-mobile {
     margin-top: 68px;
-    margin-bottom: 22px;
+    margin-bottom: 80px;
   }
 
   @include mobile {
     margin-top: 53px;
-    margin-bottom: 12px;
+    margin-bottom: 60px;
   }
 }
 
@@ -30,13 +30,11 @@
 }
 
 .credit-calculator__parameters-form {
-  margin-bottom: (38px - 33px);
   width: rubber(600px);
   display: flex;
   flex-flow: column;
 
   @include tablet-mobile {
-    margin-bottom: (10px - 33px);
     width: 100%;
   }
 }

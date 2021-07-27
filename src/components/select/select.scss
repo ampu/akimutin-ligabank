@@ -17,7 +17,11 @@
   cursor: pointer;
   border: 1px solid $primary-color;
   border-radius: 4px;
-  background: transparent url("../../images/select-icon.svg") no-repeat calc(100% - 22px) center / 18px 11px;
+  background: transparent url($select-icon) no-repeat calc(100% - 22px) center / 18px 11px;
+
+  &:hover {
+    background-image: url($select-icon--active);
+  }
 
   @include mobile {
     padding-left: 14px;
@@ -36,7 +40,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: none;
+  display: flex;
   flex-flow: column;
 
   border: 1px solid $primary-color;
@@ -48,39 +52,19 @@
   @include thin-outline;
 }
 
-.select.active ul {
-  display: flex;
-}
-
-.select li {
+.select button {
+  margin: 0;
   padding: 18px 24px;
+  display: flex;
+  width: 100%;
 
   font-size: 16px;
   line-height: 1.4;
 
   cursor: pointer;
+  border: none;
   border-bottom: 1px solid $border-color;
-
-  &:first-of-type {
-    position: relative;
-    padding-right: (24px + 18px + 24px);
-
-    border-color: $calculator-border-color;
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-
-      background: transparent url("../../images/select-icon.svg") no-repeat calc(22px) center / 18px 11px;
-
-      transform: rotate(180deg);
-    }
-  }
+  background-color: transparent;
 
   &.active {
     font-weight: 500;
@@ -88,5 +72,36 @@
 
   &:hover {
     font-weight: 500;
+  }
+
+  &:focus {
+    @include outline;
+  }
+}
+
+.select li:first-of-type button {
+  position: relative;
+  padding-right: (24px + 18px + 24px);
+
+  border-color: $calculator-border-color;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background: transparent url($select-icon) no-repeat calc(22px) center / 18px 11px;
+
+    transform: rotate(180deg);
+  }
+}
+
+.select:hover li:first-of-type button {
+  &::before {
+    background-image: url($select-icon--active);
   }
 }
