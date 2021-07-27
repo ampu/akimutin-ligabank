@@ -46,7 +46,7 @@ const ZOOM_PROPS = {
     size: `small`,
     position: {
       right: 15,
-      top: 200,
+      top: 210,
     },
   },
 };
@@ -55,7 +55,7 @@ const GEO_PROPS = {
   options: {
     position: {
       right: 15,
-      top: 280,
+      top: 285,
     },
   },
 };

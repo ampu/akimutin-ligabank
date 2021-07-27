@@ -2,17 +2,17 @@
   display: flex;
   flex-flow: column;
 
-  margin-top: 100px;
+  margin-top: 95px;
   margin-bottom: 110px;
 
   @include tablet-mobile {
-    margin-top: 60px;
-    margin-bottom: 80px;
+    margin-top: 68px;
+    margin-bottom: 22px;
   }
 
   @include mobile {
-    margin-top: 80px;
-    margin-bottom: 60px;
+    margin-top: 53px;
+    margin-bottom: 12px;
   }
 }
 
@@ -43,7 +43,7 @@
 
 .credit-calculator h2 {
   margin: 0;
-  margin-bottom: 53px;
+  margin-bottom: 50px;
   padding: 0;
   width: 100%;
 

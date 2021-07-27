@@ -20,7 +20,7 @@
 .header__navigation {
   @include container;
 
-  margin-bottom: 35px;
+  margin-bottom: 32px;
   display: grid;
   grid-template-columns: rubber(150px + 109px - 30px) auto 1fr;
   grid-column-gap: 30px;
@@ -34,7 +34,7 @@
   }
 
   @include mobile {
-    margin-bottom: 11px;
+    margin-bottom: 13px;
     grid-column-gap: 14px;
   }
 }

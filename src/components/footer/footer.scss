@@ -59,14 +59,16 @@
 
 .footer__logo {
   margin-top: -12px;
-  margin-bottom: 13px;
+  margin-bottom: 10px;
 
   @include tablet-mobile {
     order: -1;
+    margin-top: -10px;
     margin-bottom: 34px;
   }
 
   @include mobile {
+    margin-top: -14px;
     margin-bottom: 25px;
   }
 }

@@ -29,7 +29,7 @@ const isValidByConstraint = (value, {min, max}) => {
 };
 
 const integerFormat = new Intl.NumberFormat(`ru`, {maximumFractionDigits: 0});
-const floatFormat = new Intl.NumberFormat(`ru`, {maximumFractionDigits: 2});
+const floatFormat = new Intl.NumberFormat(`ru`, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
