@@ -1,6 +1,7 @@
 import React from 'react';
 import {Map, Placemark, YMaps, ZoomControl, GeolocationControl} from 'react-yandex-maps';
 
+import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
 import officePin from '../../images/office-pin.svg';
@@ -78,41 +79,32 @@ const PLACEMARKS_PROPS = Object.keys(PinLocation).map((cityKey) => (
   }
 ));
 
-const Render = {
-  IMAGE: true,
-  YANDEX_MAPS: true,
-};
-
 const Offices = () => {
   return (
-    <section className="offices">
+    <section className="offices" id={LocalPath.CONTACTS}>
       <header className="offices__header">
         <h2>Отделения Лига Банка</h2>
       </header>
       <div className="offices__map">
-        {Render.IMAGE && (
-          <picture>
-            <source media={MediaQuery.MOBILE} srcSet={`${retinaOfficesMapMobile} 2x, ${officesMapMobile} 1x`}/>
-            <source media={MediaQuery.TABLET} srcSet={`${retinaOfficesMapTablet} 2x, ${officesMapTablet} 1x`}/>
-            <img
-              src={officesMapDesktop}
-              srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}
-              alt="Карта отделений Лига Банка."
-            />
-          </picture>
-        )}
+        <picture>
+          <source media={MediaQuery.MOBILE} srcSet={`${retinaOfficesMapMobile} 2x, ${officesMapMobile} 1x`}/>
+          <source media={MediaQuery.TABLET} srcSet={`${retinaOfficesMapTablet} 2x, ${officesMapTablet} 1x`}/>
+          <img
+            src={officesMapDesktop}
+            srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}
+            alt="Карта отделений Лига Банка."
+          />
+        </picture>
 
-        {Render.YANDEX_MAPS && (
-          <YMaps>
-            <Map {...MAP_PROPS}>
-              <ZoomControl {...ZOOM_PROPS}/>
-              <GeolocationControl {...GEO_PROPS}/>
-              {PLACEMARKS_PROPS.map((placemarkProps) => (
-                <Placemark key={placemarkProps.cityKey} {...placemarkProps}/>
-              ))}
-            </Map>
-          </YMaps>
-        )}
+        <YMaps>
+          <Map {...MAP_PROPS}>
+            <ZoomControl {...ZOOM_PROPS}/>
+            <GeolocationControl {...GEO_PROPS}/>
+            {PLACEMARKS_PROPS.map((placemarkProps) => (
+              <Placemark key={placemarkProps.cityKey} {...placemarkProps}/>
+            ))}
+          </Map>
+        </YMaps>
       </div>
     </section>
   );

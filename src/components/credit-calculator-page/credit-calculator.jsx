@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {LocalPath} from '../../constants/local-path';
 import {isValidFormData} from '../../helpers/credit-calculator-helpers';
 
 import {withCreditCalculatorState} from '../../hocs/with-credit-calculator-state';
@@ -32,7 +33,7 @@ const CreditCalculator = ({
   onThankYouClose,
 }) => {
   return (
-    <section ref={containerRef} className="credit-calculator" id="credit-calculator">
+    <section ref={containerRef} className="credit-calculator" id={LocalPath.CREDIT_CALCULATOR}>
       <div className="credit-calculator__container">
         <h2>Кредитный калькулятор</h2>
         <form className="credit-calculator__parameters-form">

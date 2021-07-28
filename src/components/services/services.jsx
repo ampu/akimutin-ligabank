@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
+import {LocalPath} from '../../constants/local-path';
+
 import {withSlider} from '../../hocs/with-slider';
 
 import {ServicesDeposits} from './services-deposits';
@@ -29,7 +31,7 @@ const Services = ({
   onButtonClick,
 }) => {
   return (
-    <section className="services" id="services">
+    <section className="services" id={LocalPath.SERVICES}>
       <div className="services__container">
         <h2 className="visually-hidden">Услуги</h2>
 
