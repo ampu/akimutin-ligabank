@@ -2,13 +2,16 @@
   display: flex;
   flex-flow: column;
 
+  margin-top: 93px;
   margin-bottom: 110px;
 
   @include tablet {
-    margin-bottom: 75px;
+    margin-top: 67px;
+    margin-bottom: 80px;
   }
 
   @include mobile {
+    margin-top: 53px;
     margin-bottom: 60px;
   }
 }
@@ -20,19 +23,19 @@
 .offices h2 {
   margin: 0;
   padding: 0;
-  margin-bottom: 63px;
+  margin-bottom: 57px;
 
   font-weight: bold;
   font-size: 41px;
 
   @include tablet {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 
     font-size: 32px;
   }
 
   @include mobile {
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 
     font-size: 22px;
   }

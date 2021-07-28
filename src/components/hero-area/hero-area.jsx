@@ -7,7 +7,7 @@ import {ConfidenceHeroSlide} from './confidence-hero-slide';
 import {OfficesHeroSlide} from './offices-hero-slide';
 import {withSlider} from '../../hocs/with-slider';
 
-const SWITCH_SLIDE_INTERVAL = 4000;
+const SWITCH_SLIDE_INTERVAL = 400000;
 
 const HERO_AREA_SLIDES = [
   {key: `credit`, component: CreditHeroSlide, isAlternativeButton: false},

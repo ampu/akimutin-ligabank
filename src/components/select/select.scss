@@ -9,9 +9,8 @@
   padding-right: (24px + 18px + 24px);
   width: 100%;
 
+  font: inherit;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.4;
 
   appearance: none;
   cursor: pointer;
@@ -58,8 +57,7 @@
   display: flex;
   width: 100%;
 
-  font-size: 16px;
-  line-height: 1.4;
+  font: inherit;
 
   cursor: pointer;
   border: none;

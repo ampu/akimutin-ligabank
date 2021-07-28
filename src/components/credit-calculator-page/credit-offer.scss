@@ -1,6 +1,6 @@
 .credit-offer {
   box-sizing: border-box;
-  margin-bottom: 5px;
+  margin: 0;
   padding: 60px 58px;
   width: rubber(500px);
   display: flex;
@@ -10,13 +10,14 @@
   background-color: $alternative-color;
 
   @include tablet-mobile {
-    margin-bottom: 0;
+    margin-top: 42px;
     padding: 53px 60px 60px;
     width: 100%;
   }
 
   @include mobile {
-    padding: 34px 15px;
+    margin-top: 16px;
+    padding: 34px 15px 40px;
   }
 }
 
@@ -27,7 +28,6 @@
 
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.4;
 
   @include tablet-mobile {
     margin-bottom: 25px;
@@ -72,9 +72,6 @@
   margin: 0;
   padding: 0;
 
-  font-size: 16px;
-  line-height: 1.4;
-
   color: $label-color;
 }
 
@@ -86,7 +83,6 @@
 
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.4;
 
   @include tablet-mobile {
     margin-bottom: 2px;
@@ -102,7 +98,7 @@
 .credit-offer a {
   @include button;
 
-  padding: 17px 24px 18px;
+  padding: 14px 24px 15px;
   display: flex;
   justify-content: center;
 
@@ -111,7 +107,7 @@
   text-decoration: none;
 
   @include mobile {
-    padding: 19px;
+    padding: 16px;
 
     font-size: 14px;
   }

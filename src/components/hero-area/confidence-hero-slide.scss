@@ -18,7 +18,7 @@
 
   position: relative;
   box-sizing: border-box;
-  padding-top: 104px;
+  padding-top: 95px;
   padding-left: 215px;
   display: flex;
   flex-flow: column;
@@ -27,21 +27,20 @@
   min-height: 400px;
 
   @include tablet {
-    padding-top: 67px;
+    padding-top: 59px;
     padding-left: (41px + $side-padding--tablet);
     min-height: 300px;
   }
 
   @include mobile {
-    padding-top: 42px;
+    padding-top: 34px;
     padding-left: $side-padding--mobile;
     min-height: 226px;
   }
 }
 
-.confidence-hero-slide h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
+.confidence-hero-slide h1 {
+  margin: 0;
 
   font-weight: 700;
   font-size: 54px;
@@ -50,18 +49,16 @@
 
   @include tablet {
     font-size: 46px;
-    margin-bottom: 12px;
   }
 
   @include mobile {
     font-size: 38px;
-    margin-bottom: 12px;
   }
 }
 
 .confidence-hero-slide p {
   margin-top: 0;
-  margin-bottom: 37px;
+  margin-bottom: 33px;
 
   font-size: 22px;
   line-height: 1.2;
@@ -69,13 +66,13 @@
   color: $slide-alternative-slogan-color;
 
   @include tablet {
-    margin-bottom: 34px;
+    margin-bottom: 28px;
 
     font-size: 18px;
   }
 
   @include mobile {
-    margin-bottom: 28px;
+    margin-bottom: 26px;
     max-width: 140px;
 
     font-size: 16px;

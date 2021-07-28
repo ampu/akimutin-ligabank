@@ -1,6 +1,7 @@
 .mortgage-credit-parameters {
   margin: 0;
   margin-top: 33px;
+  margin-bottom: -30px;
   padding: 0;
 
   border: none;
@@ -8,6 +9,7 @@
 
   @include mobile {
     margin-top: 24px;
+    margin-bottom: (15px - 30px);
   }
 }
 
@@ -19,7 +21,6 @@
 
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.4;
 
   @include tablet-mobile {
     margin-bottom: 15px;
@@ -35,14 +36,14 @@
 }
 
 .mortgage-credit-parameters__credit-period {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
 
   @include tablet-mobile {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   @include mobile {
-    margin-bottom: 13px;
+    margin-bottom: 16px;
   }
 }
 

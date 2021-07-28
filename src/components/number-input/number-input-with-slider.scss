@@ -5,18 +5,15 @@
   display: flex;
   flex-flow: column;
 
-  font-size: 16px;
-  line-height: 1.4;
-
   border: none;
   color: $label-color;
 
   @include tablet-mobile {
-    margin-bottom: 13px;
+    margin-bottom: 16px;
   }
 
   @include mobile {
-    margin-bottom: 9px;
+    margin-bottom: 14px;
   }
 }
 
@@ -29,21 +26,28 @@
   display: flex;
 
   @include tablet-mobile {
+    margin-bottom: 10px;
+  }
+
+  @include mobile {
     margin-bottom: 8px;
   }
 }
 
 .number-input-with-slider p {
   margin: 0;
-  margin-top: 5px;
+  margin-top: 4px;
   padding: 0;
   display: flex;
   justify-content: space-between;
 
   font-size: 14px;
-  line-height: 1.4;
   white-space: pre-wrap;
 
   user-select: none;
   color: $primary-legend-color;
+
+  @include tablet-mobile {
+    margin-top: 2px;
+  }
 }

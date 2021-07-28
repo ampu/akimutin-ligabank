@@ -17,7 +17,7 @@
 .credit-hero-slide__inner {
   position: relative;
   box-sizing: border-box;
-  padding-top: 104px;
+  padding-top: 95px;
   padding-left: rubber(170px);
   display: flex;
   flex-flow: column;
@@ -50,7 +50,7 @@
   }
 
   @include tablet {
-    padding-top: 67px;
+    padding-top: 59px;
     padding-left: 41px;
     min-height: 300px;
 
@@ -72,7 +72,7 @@
   }
 
   @include mobile {
-    padding-top: 42px;
+    padding-top: 34px;
     padding-left: 0;
     min-height: 226px;
 
@@ -106,9 +106,8 @@
   }
 }
 
-.credit-hero-slide h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
+.credit-hero-slide h1 {
+  margin: 0;
 
   font-weight: 700;
   font-size: 54px;
@@ -117,38 +116,36 @@
 
   @include tablet {
     font-size: 46px;
-    margin-bottom: 12px;
   }
 
   @include mobile {
     font-size: 38px;
-    margin-bottom: 12px;
   }
 }
 
 .credit-hero-slide p {
   margin-top: 0;
-  margin-bottom: 37px;
+  margin-bottom: 33px;
 
   font-size: 22px;
 
   color: $alternative-legend-color;
 
   @include tablet {
-    margin-bottom: 34px;
+    margin-bottom: 28px;
 
     font-size: 18px;
   }
 
   @include mobile {
-    margin-bottom: 28px;
+    margin-bottom: 26px;
 
     font-size: 16px;
   }
 }
 
 .credit-hero-slide a {
-  padding: 17px 36px 18px;
+  padding: 14px 36px;
 
   font-weight: 500;
   font-size: 18px;
@@ -168,13 +165,13 @@
   }
 
   @include tablet {
-    padding: 16px 31px 16px;
+    padding: 13px 31px;
 
     font-size: 16px;
   }
 
   @include mobile {
-    padding: 14px 31px 15px;
+    padding: 12px 31px;
 
     font-size: 14px;
   }

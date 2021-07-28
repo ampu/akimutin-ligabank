@@ -16,7 +16,7 @@ const CreditHeroSlide = () => {
     <section className="credit-hero-slide">
       <div className="credit-hero-slide__container">
         <div className="credit-hero-slide__inner">
-          <h2>Лига Банк</h2>
+          <h1>Лига Банк</h1>
           <p>Кредиты на любой случай</p>
           <Link to={LocalPath.CREDIT_CALCULATOR}>Рассчитать кредит</Link>
         </div>

@@ -169,7 +169,6 @@
 
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.4;
 
   @include tablet-mobile {
     margin-bottom: 25px;
@@ -232,7 +231,7 @@
 .services__list section > a {
   @include button;
 
-  padding: 17px 31px 18px;
+  padding: 14px 31px;
   display: flex;
 
   font-weight: 500;
@@ -240,12 +239,12 @@
   text-decoration: none;
 
   @include tablet-mobile {
-    padding: 16px 30px 16px;
+    padding: 13px 30px;
   }
 
   @include mobile {
     box-sizing: border-box;
-    padding: 15px 37px 14px;
+    padding: 12px 37px;
     width: 100%;
     justify-content: center;
 
@@ -261,7 +260,6 @@
 
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.4;
 
   @include tablet-mobile {
     font-size: 16px;

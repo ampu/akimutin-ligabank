@@ -20,7 +20,7 @@
 .header__navigation {
   @include container;
 
-  margin-bottom: 32px;
+  margin-bottom: 31px;
   display: grid;
   grid-template-columns: rubber(150px + 109px - 30px) auto 1fr;
   grid-column-gap: 30px;
@@ -29,12 +29,12 @@
 
   @include tablet-mobile {
     grid-template-columns: min-content auto 1fr;
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     grid-column-gap: 30px;
   }
 
   @include mobile {
-    margin-bottom: 13px;
+    margin-bottom: 10px;
     grid-column-gap: 14px;
   }
 }
@@ -78,7 +78,7 @@
 }
 
 .header__logo {
-  margin-top: 26px;
+  margin-top: 24px;
 
   @include tablet {
     margin-top: 23px;
@@ -92,16 +92,14 @@
 }
 
 .header__site-navigation-list {
-  margin-top: 37px;
+  margin-top: 34px;
   margin-left: -24px;
   margin-bottom: -10px;
 
-  font-size: 16px;
   font-weight: 500;
-  line-height: 1;
 
   @include tablet-mobile {
-    margin-top: 29px;
+    margin-top: 26px;
     margin-left: -20px;
 
     font-size: 14px;

@@ -5,8 +5,8 @@
 .footer__container {
   @include container;
 
-  padding-top: 60px;
-  padding-bottom: 40px;
+  padding-top: 58px;
+  padding-bottom: 54px;
   display: grid;
   grid-template-columns: 252px 144px 196px 155px 102px;
   grid-gap: 17px;
@@ -15,7 +15,7 @@
 
   @include tablet {
     display: grid;
-    grid-template-columns: 334px 1fr;
+    grid-template-columns: 337px 1fr;
     padding-bottom: 55px;
   }
 
@@ -63,13 +63,14 @@
 
   @include tablet-mobile {
     order: -1;
-    margin-top: -10px;
-    margin-bottom: 34px;
+    margin-top: -8px;
+    margin-bottom: 26px;
   }
 
   @include mobile {
-    margin-top: -14px;
-    margin-bottom: 25px;
+    margin-left: -2px;
+    margin-top: -12px;
+    margin-bottom: 20px;
   }
 }
 
@@ -92,28 +93,30 @@
 .footer__site-navigation-list {
   flex-flow: column wrap;
   margin: 0;
-  margin-bottom: -18px;
+  margin-bottom: -12px;
   margin-left: -18px;
 
-  font-size: 16px;
   font-weight: 500;
-  line-height: 1;
 
   @include tablet-mobile {
     order: -1;
-    margin-bottom: (29px - 18px);
+    margin-bottom: (32px - 18px);
   }
 
   @include mobile {
     font-size: 14px;
-    margin-bottom: (26px - 18px);
+    margin-bottom: (21px - 13px);
   }
 }
 
 .footer__site-navigation-item {
   margin-top: -3px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   margin-left: 18px;
+
+  @include mobile {
+    margin-bottom: 13px;
+  }
 }
 
 .footer__phones {
@@ -138,18 +141,25 @@
   }
 
   @include tablet-mobile {
-    margin-bottom: 27px;
+    margin-bottom: 25px;
+
+    &:last-of-type {
+      margin-bottom: 28px;
+    }
   }
 
   @include mobile {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+
+    &:last-of-type {
+      margin-bottom: 21px;
+    }
   }
 }
 
 .footer__phones dd {
   order: -1;
   margin: 0;
-  margin-bottom: 4px;
   padding: 0;
 
   font-size: 16px;
@@ -162,7 +172,6 @@
   padding: 0;
 
   font-size: 12px;
-  line-height: 1.4;
 
   color: $primary-legend-color;
 }
@@ -171,12 +180,12 @@
   width: 196px;
   padding-left: (10px + 19px);
 
-  background: transparent url("../../images/short-phone-icon.svg") no-repeat left top / 10px 16px;
+  background: transparent url("../../images/short-phone-icon.svg") no-repeat left 2px / 10px 16px;
 }
 
 .footer__mobile-number {
   width: 155px;
   padding-left: (16px + 17px);
 
-  background: transparent url("../../images/mobile-phone-icon.svg") no-repeat left top / 16px 16px;
+  background: transparent url("../../images/mobile-phone-icon.svg") no-repeat left 3px / 16px 16px;
 }

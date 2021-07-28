@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, {useRef, useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';

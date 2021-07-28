@@ -44,8 +44,7 @@ const IncrementalNumberInput = ({
   const containerClassName = getClassName({
     [`incremental-number-input`]: true,
     [`error`]: !isValidValue,
-    [className]: true,
-  });
+  }, className);
 
   return (
     <div className={containerClassName}>
