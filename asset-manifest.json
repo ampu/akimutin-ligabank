@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.673e0c9f.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.1cacea52.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.1cacea52.chunk.js.map",
+    "main.css": "/akimutin-ligabank/static/css/main.a6fb05d5.chunk.css",
+    "main.js": "/akimutin-ligabank/static/js/main.fc1d8eb2.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.fc1d8eb2.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
-    "static/js/2.c2693b62.chunk.js": "/akimutin-ligabank/static/js/2.c2693b62.chunk.js",
-    "static/js/2.c2693b62.chunk.js.map": "/akimutin-ligabank/static/js/2.c2693b62.chunk.js.map",
+    "static/js/2.1ff719c1.chunk.js": "/akimutin-ligabank/static/js/2.1ff719c1.chunk.js",
+    "static/js/2.1ff719c1.chunk.js.map": "/akimutin-ligabank/static/js/2.1ff719c1.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
-    "static/css/main.673e0c9f.chunk.css.map": "/akimutin-ligabank/static/css/main.673e0c9f.chunk.css.map",
-    "static/js/2.c2693b62.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.c2693b62.chunk.js.LICENSE.txt",
+    "static/css/main.a6fb05d5.chunk.css.map": "/akimutin-ligabank/static/css/main.a6fb05d5.chunk.css.map",
+    "static/js/2.1ff719c1.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.1ff719c1.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/akimutin-ligabank/static/media/short-phone-icon.4d4c8c64.svg",
     "static/media/credit-cards--mobile@1x.7418e5a9.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.7418e5a9.png",
     "static/media/credit-cards--mobile@2x.47923c05.png": "/akimutin-ligabank/static/media/credit-cards--mobile@2x.47923c05.png",
@@ -70,8 +70,8 @@
   "entrypoints": [
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
-    "static/js/2.c2693b62.chunk.js",
-    "static/css/main.673e0c9f.chunk.css",
-    "static/js/main.1cacea52.chunk.js"
+    "static/js/2.1ff719c1.chunk.js",
+    "static/css/main.a6fb05d5.chunk.css",
+    "static/js/main.fc1d8eb2.chunk.js"
   ]
 }
