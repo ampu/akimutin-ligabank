@@ -4,17 +4,15 @@ import {useMobileModal} from '../hooks/use-mobile-modal';
 
 export const withHeaderState = (Component) => {
   const WithHeaderState = (props) => {
-    const [isActive, setActive] = useState(false);
-
-    useMobileModal(isActive);
+    const [isActive, setActive] = useMobileModal();
 
     const onToggleButtonClick = useCallback(() => {
       setActive((previousActive) => !previousActive);
-    }, []);
+    }, [setActive]);
 
     const onCloseButtonClick = useCallback(() => {
       setActive(false);
-    }, []);
+    }, [setActive]);
 
     const [isSignInActive, setSignInActive] = useState(false);
 

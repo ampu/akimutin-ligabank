@@ -1,8 +1,4 @@
-/** @enum */
-const Viewport = {
-  TABLET: 768,
-  MIN_DESKTOP: 1024,
-};
+import {Viewport} from './viewport';
 
 /** @enum */
 export const MediaQuery = {

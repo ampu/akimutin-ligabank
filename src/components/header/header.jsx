@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
+import FocusTrap from 'focus-trap-react';
 
 import {Logo} from '../logo/logo';
 import {SiteNavigation} from '../site-navigation/site-navigation';
@@ -20,39 +21,40 @@ const Header = ({
   onSignInClose,
 }) => {
   return (
-    <header className={getClassName(`header`, isActive && `active`)}>
-      <nav className="header__navigation">
+    <FocusTrap active={isActive}>
+      <header className={getClassName(`header`, isActive && `active`)}>
+        <nav className="header__navigation">
+          <button className="header__toggle-button" type="button" onClick={onToggleButtonClick}>
+            <HeaderToggleButtonIcon/>
+            <span className="visually-hidden">Открыть меню</span>
+          </button>
 
-        <Logo className="header__logo"/>
+          <Logo className="header__logo"/>
 
-        <SiteNavigation
-          isHeader
-          listClassName="header__site-navigation-list"
-          itemClassName="header__site-navigation-item"
-        />
+          <SiteNavigation
+            isHeader
+            listClassName="header__site-navigation-list"
+            itemClassName="header__site-navigation-item"
+          />
 
-        <UserNavigation
-          isActive={isActive}
-          listClassName="header__user-navigation-list"
-          itemClassName="header__user-navigation-item"
-          onSignInLinkClick={onSignInLinkClick}
-        />
+          <UserNavigation
+            isActive={isActive}
+            listClassName="header__user-navigation-list"
+            itemClassName="header__user-navigation-item"
+            onSignInLinkClick={onSignInLinkClick}
+          />
 
-        <button className="header__toggle-button" type="button" onClick={onToggleButtonClick}>
-          <HeaderToggleButtonIcon/>
-          <span className="visually-hidden">Открыть меню</span>
-        </button>
+          <button className="header__close-button" type="button" onClick={onCloseButtonClick}>
+            <HeaderCloseButtonIcon/>
+            <span className="visually-hidden">Закрыть меню</span>
+          </button>
+        </nav>
 
-        <button className="header__close-button" type="button" onClick={onCloseButtonClick}>
-          <HeaderCloseButtonIcon/>
-          <span className="visually-hidden">Закрыть меню</span>
-        </button>
-      </nav>
-
-      {isSignInActive && (
-        <SignIn onClose={onSignInClose}/>
-      )}
-    </header>
+        {isSignInActive && (
+          <SignIn onClose={onSignInClose}/>
+        )}
+      </header>
+    </FocusTrap>
   );
 };
 
