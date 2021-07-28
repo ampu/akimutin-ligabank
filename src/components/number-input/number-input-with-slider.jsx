@@ -5,7 +5,7 @@ import getClassName from 'classnames';
 import {formatInteger} from '../../helpers/number-helpers';
 
 import {NumberInput} from './number-input';
-import {RangeSlider} from '../range-slider/range-slider';
+import {RangeSliderWithRangeSliderState as RangeSlider} from '../range-slider/range-slider';
 
 import {constraintShape} from '../../types/constraint-types';
 

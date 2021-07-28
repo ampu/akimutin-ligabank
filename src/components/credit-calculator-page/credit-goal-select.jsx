@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {CREDIT_GOALS} from '../../constants/credit-goal';
 
-import {Select} from '../select/select';
+import {SelectWithSelectState as Select} from '../select/select';
 
 import {creditGoalValueType} from '../../types/credit-goal-value-types';
 

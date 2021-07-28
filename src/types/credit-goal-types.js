@@ -4,7 +4,12 @@ import {creditGoalValueType} from './credit-goal-value-types';
 import {constraintShape} from './constraint-types';
 import {formDataShape} from './form-data-types';
 
-export const creditGoalShape = PropTypes.shape({
+const defaultCreditGoalShape = PropTypes.shape({
+  value: creditGoalValueType,
+  title: PropTypes.string.isRequired,
+});
+
+const selectedCreditGoalShape = PropTypes.shape({
   value: creditGoalValueType,
   title: PropTypes.string.isRequired,
   denialTitle: PropTypes.string.isRequired,
@@ -13,3 +18,8 @@ export const creditGoalShape = PropTypes.shape({
   constraints: PropTypes.objectOf(constraintShape.isRequired).isRequired,
   parametersComponent: PropTypes.func.isRequired,
 });
+
+export const creditGoalShape = PropTypes.oneOfType([
+  defaultCreditGoalShape.isRequired,
+  selectedCreditGoalShape.isRequired
+]);

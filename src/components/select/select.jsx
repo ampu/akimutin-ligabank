@@ -1,86 +1,27 @@
-import React, {useRef, useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
-import {MouseButton} from '../../constants/mouse-button';
-import {KeyboardKey} from '../../constants/keyboard-key';
-import {onNoop} from '../../helpers/callback-helpers';
-import {coerceArrayIndex} from '../../helpers/number-helpers';
+import {withSelectState} from '../../hocs/with-select-state';
 
-const Select = ({name, options, value, onValueChange, ...props}) => {
-  const containerRef = useRef(null);
-  const selectRef = useRef(null);
+import {refShape} from '../../types/ref-types';
 
-  const [isActive, setActive] = useState(false);
+const Select = ({
+  name,
+  options,
+  value,
+  onValueChange,
 
-  useEffect(() => {
-    if (!isActive) {
-      return onNoop;
-    }
-    const onDocumentKeyDown = (evt) => {
-      if (evt.key === KeyboardKey.ESCAPE) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        selectRef.current.focus();
-        setActive(false);
-      }
-    };
-    document.addEventListener(`keydown`, onDocumentKeyDown);
+  containerRef,
+  selectRef,
+  isActive,
+  onSelectMouseDown,
+  onSelectKeyDown,
+  onButtonClick,
+  onButtonKeyDown,
 
-    return () => {
-      document.removeEventListener(`keydown`, onDocumentKeyDown);
-    };
-  }, [isActive]);
-
-  useEffect(() => {
-    if (!isActive) {
-      return onNoop;
-    }
-    const onDocumentMouseDown = (evt) => {
-      if (evt.button === MouseButton.PRIMARY) {
-        if (!containerRef.current.contains(evt.target)) {
-          setActive(false);
-        }
-      }
-    };
-    document.addEventListener(`mousedown`, onDocumentMouseDown);
-
-    return () => {
-      document.removeEventListener(`mousedown`, onDocumentMouseDown);
-    };
-  }, [isActive]);
-
-  const onSelectMouseDown = useCallback((evt) => {
-    if (evt.button === MouseButton.PRIMARY) {
-      evt.preventDefault();
-      setActive(true);
-    }
-  }, []);
-
-  const onSelectKeyDown = useCallback((evt) => {
-    if (evt.key === KeyboardKey.SPACE) {
-      evt.preventDefault();
-      setActive(true);
-    }
-  }, []);
-
-  const onItemClick = useCallback((evt) => {
-    selectRef.current.focus();
-    setActive(false);
-    onValueChange(evt.currentTarget.dataset.value);
-  }, [onValueChange]);
-
-  const onItemKeyDown = useCallback((evt) => {
-    if (evt.key === KeyboardKey.ARROW_UP || evt.key === KeyboardKey.ARROW_DOWN) {
-      evt.preventDefault();
-
-      const rawNextOptionIndex = +evt.currentTarget.dataset.index + (evt.key === KeyboardKey.ARROW_UP ? -1 : 1);
-      const nextOptionIndex = coerceArrayIndex(rawNextOptionIndex, options);
-      const optionElement = containerRef.current.querySelector(`li:nth-of-type(${nextOptionIndex + 1}) button`);
-      optionElement.focus();
-    }
-  }, [options]);
-
+  ...props
+}) => {
   return (
     <div
       ref={containerRef}
@@ -115,8 +56,8 @@ const Select = ({name, options, value, onValueChange, ...props}) => {
                 type="button"
                 data-index={optionIndex}
                 data-value={option.value}
-                onClick={onItemClick}
-                onKeyDown={onItemKeyDown}
+                onClick={onButtonClick}
+                onKeyDown={onButtonKeyDown}
                 autoFocus={value === option.value}
               >
                 {option.title}
@@ -137,6 +78,16 @@ Select.propTypes = {
   }).isRequired).isRequired,
   value: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
+
+  containerRef: refShape.isRequired,
+  selectRef: refShape.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onSelectKeyDown: PropTypes.func.isRequired,
+  onSelectMouseDown: PropTypes.func.isRequired,
+  onButtonKeyDown: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
 };
 
-export {Select};
+const SelectWithSelectState = withSelectState(Select);
+
+export {Select, SelectWithSelectState};

@@ -1,64 +1,26 @@
-import React, {useCallback, useState, useRef} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
 import {formatInteger} from '../../helpers/number-helpers';
 import {formatRequestId, calculateInitialPayment} from '../../helpers/credit-calculator-helpers';
 
-import {useMountedRef} from '../../hooks/use-mounted-ref';
+import {withCreditRequestState} from '../../hocs/with-credit-request-state';
 
+import {refShape} from '../../types/ref-types';
 import {creditGoalShape} from '../../types/credit-goal-types';
 import {formDataShape} from '../../types/form-data-types';
 
 const CreditRequest = ({
   creditGoal,
   formData,
-  onSetFormData,
-  onSubmit,
+  onSubmitButtonClick,
+  isError,
+  formRef,
+  onNameInputChange,
+  onPhoneInputChange,
+  onEmailInputChange,
 }) => {
-  const isMountedRef = useMountedRef();
-
-  const formRef = useRef(null);
-
-  const [isError, setError] = useState(false);
-
-  const onNameInputChange = useCallback((evt) => {
-    onSetFormData({
-      ...formData,
-      name: evt.currentTarget.value
-    });
-  }, [formData, onSetFormData]);
-
-  const onPhoneInputChange = useCallback((evt) => {
-    onSetFormData({
-      ...formData,
-      phone: evt.currentTarget.value
-    });
-  }, [formData, onSetFormData]);
-
-  const onEmailInputChange = useCallback((evt) => {
-    onSetFormData({
-      ...formData,
-      email: evt.currentTarget.value
-    });
-  }, [formData, onSetFormData]);
-
-  const onSubmitButtonClick = useCallback((evt) => {
-    evt.preventDefault();
-
-    setError(false);
-
-    setTimeout(() => {
-      if (isMountedRef.current) {
-        if (!formRef.current.reportValidity()) {
-          setError(true);
-          return;
-        }
-        onSubmit();
-      }
-    });
-  }, [isMountedRef, onSubmit]);
-
   return (
     <section className={getClassName(`credit-request`, isError && `shake`)}>
       <h3>Шаг 3. Оформление заявки</h3>
@@ -90,7 +52,7 @@ const CreditRequest = ({
         </div>
       </dl>
 
-      <form ref={formRef} onSubmit={onSubmit}>
+      <form ref={formRef}>
         <input type="hidden" name="id" value={formData.id}/>
 
         <label className="credit-request__name">
@@ -139,8 +101,14 @@ const CreditRequest = ({
 CreditRequest.propTypes = {
   creditGoal: creditGoalShape.isRequired,
   formData: formDataShape.isRequired,
-  onSetFormData: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmitButtonClick: PropTypes.func.isRequired,
+  isError: PropTypes.bool.isRequired,
+  formRef: refShape.isRequired,
+  onNameInputChange: PropTypes.func.isRequired,
+  onPhoneInputChange: PropTypes.func.isRequired,
+  onEmailInputChange: PropTypes.func.isRequired,
 };
 
-export {CreditRequest};
+const CreditRequestWithCreditRequestState = withCreditRequestState(CreditRequest);
+
+export {CreditRequest, CreditRequestWithCreditRequestState};
