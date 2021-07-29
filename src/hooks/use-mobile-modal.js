@@ -16,7 +16,7 @@ export const useMobileModal = () => {
     window.addEventListener(`resize`, onWindowResize);
 
     return () => {
-      window.remoteEventListener(`resize`, onWindowResize);
+      window.removeEventListener(`resize`, onWindowResize);
     };
   }, []);
 

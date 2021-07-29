@@ -54,6 +54,10 @@ export const withSelectState = (Component) => {
       };
     }, [isActive]);
 
+    const onSelectChange = useCallback((evt) => {
+      onValueChange(evt.currentTarget.value);
+    }, []);
+
     const onSelectMouseDown = useCallback((evt) => {
       if (evt.button === MouseButton.PRIMARY) {
         evt.preventDefault();
@@ -88,11 +92,11 @@ export const withSelectState = (Component) => {
     return (
       <Component
         options={options}
-        onValueChange={onValueChange}
 
         containerRef={containerRef}
         selectRef={selectRef}
         isActive={isActive}
+        onSelectChange={onSelectChange}
         onSelectMouseDown={onSelectMouseDown}
         onSelectKeyDown={onSelectKeyDown}
         onButtonClick={onButtonClick}

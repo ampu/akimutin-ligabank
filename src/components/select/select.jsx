@@ -10,11 +10,11 @@ const Select = ({
   name,
   options,
   value,
-  onValueChange,
 
   containerRef,
   selectRef,
   isActive,
+  onSelectChange,
   onSelectMouseDown,
   onSelectKeyDown,
   onButtonClick,
@@ -32,7 +32,7 @@ const Select = ({
         ref={selectRef}
         name={name}
         value={value}
-        onChange={onValueChange}
+        onChange={onSelectChange}
         onMouseDown={onSelectMouseDown}
         onKeyDown={onSelectKeyDown}
       >
@@ -77,11 +77,11 @@ Select.propTypes = {
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   value: PropTypes.string.isRequired,
-  onValueChange: PropTypes.func.isRequired,
 
   containerRef: refShape.isRequired,
   selectRef: refShape.isRequired,
   isActive: PropTypes.bool.isRequired,
+  onSelectChange: PropTypes.func.isRequired,
   onSelectKeyDown: PropTypes.func.isRequired,
   onSelectMouseDown: PropTypes.func.isRequired,
   onButtonKeyDown: PropTypes.func.isRequired,
