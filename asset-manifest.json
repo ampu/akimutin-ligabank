@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/akimutin-ligabank/static/css/main.01ee17c5.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.61bb3388.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.61bb3388.chunk.js.map",
+    "main.js": "/akimutin-ligabank/static/js/main.885c6c98.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.885c6c98.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
-    "static/js/2.46dcfc70.chunk.js": "/akimutin-ligabank/static/js/2.46dcfc70.chunk.js",
-    "static/js/2.46dcfc70.chunk.js.map": "/akimutin-ligabank/static/js/2.46dcfc70.chunk.js.map",
+    "static/js/2.352bb77f.chunk.js": "/akimutin-ligabank/static/js/2.352bb77f.chunk.js",
+    "static/js/2.352bb77f.chunk.js.map": "/akimutin-ligabank/static/js/2.352bb77f.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
     "static/css/main.01ee17c5.chunk.css.map": "/akimutin-ligabank/static/css/main.01ee17c5.chunk.css.map",
-    "static/js/2.46dcfc70.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.46dcfc70.chunk.js.LICENSE.txt",
+    "static/js/2.352bb77f.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.352bb77f.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/akimutin-ligabank/static/media/short-phone-icon.186c1e77.svg",
     "static/media/credit-cards--mobile@1x.e205a4c4.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.e205a4c4.png",
     "static/media/credit-cards--mobile@2x.b7f411de.png": "/akimutin-ligabank/static/media/credit-cards--mobile@2x.b7f411de.png",
@@ -63,8 +63,8 @@
   "entrypoints": [
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
-    "static/js/2.46dcfc70.chunk.js",
+    "static/js/2.352bb77f.chunk.js",
     "static/css/main.01ee17c5.chunk.css",
-    "static/js/main.61bb3388.chunk.js"
+    "static/js/main.885c6c98.chunk.js"
   ]
 }
