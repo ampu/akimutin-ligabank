@@ -6,7 +6,7 @@ import {withPopup} from '../../hocs/with-popup';
 
 import {ReactComponent as PopupCloseButtonIcon} from '../../images/popup-close-button-icon.svg';
 
-import {refShape} from '../../types/ref-types';
+import {refType} from '../../types/ref-types';
 
 const ThankYou = ({popupRef, onContainerMouseDown, onClose}) => {
   return (
@@ -28,7 +28,7 @@ const ThankYou = ({popupRef, onContainerMouseDown, onClose}) => {
 };
 
 ThankYou.propTypes = {
-  popupRef: refShape.isRequired,
+  popupRef: refType.isRequired,
   onContainerMouseDown: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 };

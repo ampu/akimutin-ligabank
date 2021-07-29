@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
 
-export const refShape = PropTypes.shape({
+export const refType = PropTypes.shape({
   current: PropTypes.instanceOf(HTMLElement)
 });

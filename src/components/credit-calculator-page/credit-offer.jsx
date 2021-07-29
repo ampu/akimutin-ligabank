@@ -12,8 +12,8 @@ import {
   calculateMonthlyIncome
 } from '../../helpers/credit-calculator-helpers';
 
-import {creditGoalShape} from '../../types/credit-goal-types';
-import {formDataShape} from '../../types/form-data-types';
+import {creditSettingType} from '../../types/credit-setting-types';
+import {formDataType} from '../../types/form-data-types';
 
 const CreditOffer = ({creditGoal, formData, onCreditRequestClick}) => {
   return (
@@ -48,8 +48,8 @@ const CreditOffer = ({creditGoal, formData, onCreditRequestClick}) => {
 };
 
 CreditOffer.propTypes = {
-  creditGoal: creditGoalShape.isRequired,
-  formData: formDataShape.isRequired,
+  creditGoal: creditSettingType.isRequired,
+  formData: formDataType.isRequired,
   onCreditRequestClick: PropTypes.func.isRequired,
 };
 

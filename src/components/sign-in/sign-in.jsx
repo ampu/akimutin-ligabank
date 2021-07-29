@@ -12,7 +12,7 @@ import {Logo} from '../logo/logo';
 import {ReactComponent as PopupCloseButtonIcon} from '../../images/popup-close-button-icon.svg';
 import {ReactComponent as SignInPasswordToggleButtonIcon} from '../../images/sign-in-password-toggle-button-icon.svg';
 
-import {refShape} from '../../types/ref-types';
+import {refType} from '../../types/ref-types';
 
 const SignIn = ({
   popupRef,
@@ -94,7 +94,7 @@ const SignIn = ({
 };
 
 SignIn.propTypes = {
-  popupRef: refShape.isRequired,
+  popupRef: refType.isRequired,
   onContainerMouseDown: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   onSubmitButtonClick: PropTypes.func.isRequired,

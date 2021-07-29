@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {CREDIT_GOALS} from '../../constants/credit-goal';
+import {CREDIT_GOALS} from '../../constants/credit-setting';
 
 import {SelectWithSelectState as Select} from '../select/select';
 
-import {creditGoalValueType} from '../../types/credit-goal-value-types';
+import {creditGoalType} from '../../types/credit-goal-types';
 
 const CreditGoalSelect = ({value, onValueChange}) => {
   return (
@@ -22,7 +22,7 @@ const CreditGoalSelect = ({value, onValueChange}) => {
 };
 
 CreditGoalSelect.propTypes = {
-  value: creditGoalValueType.isRequired,
+  value: creditGoalType.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 

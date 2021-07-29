@@ -8,9 +8,9 @@ import {formatRequestId, calculateInitialPayment} from '../../helpers/credit-cal
 
 import {withCreditRequestState} from '../../hocs/with-credit-request-state';
 
-import {refShape} from '../../types/ref-types';
-import {creditGoalShape} from '../../types/credit-goal-types';
-import {formDataShape} from '../../types/form-data-types';
+import {refType} from '../../types/ref-types';
+import {creditSettingType} from '../../types/credit-setting-types';
+import {formDataType} from '../../types/form-data-types';
 
 const CreditRequest = ({
   creditGoal,
@@ -103,12 +103,12 @@ const CreditRequest = ({
 };
 
 CreditRequest.propTypes = {
-  creditGoal: creditGoalShape.isRequired,
-  formData: formDataShape.isRequired,
+  creditGoal: creditSettingType.isRequired,
+  formData: formDataType.isRequired,
   onSubmitButtonClick: PropTypes.func.isRequired,
   onFormSubmit: PropTypes.func.isRequired,
   isError: PropTypes.bool.isRequired,
-  formRef: refShape.isRequired,
+  formRef: refType.isRequired,
   onNameInputChange: PropTypes.func.isRequired,
   onPhoneInputChange: PropTypes.func.isRequired,
   onEmailInputChange: PropTypes.func.isRequired,

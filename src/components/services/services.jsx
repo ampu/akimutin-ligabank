@@ -16,7 +16,7 @@ import {ReactComponent as CreditsIcon} from '../../images/services-credits-icon.
 import {ReactComponent as InsuranceIcon} from '../../images/services-insurance-icon.svg';
 import {ReactComponent as OnlineIcon} from '../../images/services-online-icon.svg';
 
-import {refShape} from '../../types/ref-types';
+import {refType} from '../../types/ref-types';
 
 const SERVICES = [
   {key: `deposits`, title: `Вклады`, iconComponent: DepositsIcon, component: ServicesDeposits},
@@ -90,8 +90,8 @@ Services.propTypes = {
   onSlideTouchStart: PropTypes.func.isRequired,
   onSlideTouchMove: PropTypes.func.isRequired,
   onSlideTouchEnd: PropTypes.func.isRequired,
-  controlsRef: refShape.isRequired,
-  itemsRef: refShape.isRequired,
+  controlsRef: refType.isRequired,
+  itemsRef: refType.isRequired,
   onControlButtonClick: PropTypes.func.isRequired,
   onControlButtonFocus: PropTypes.func.isRequired,
   onControlButtonKeyDown: PropTypes.func.isRequired,

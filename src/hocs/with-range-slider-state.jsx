@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {KeyboardKey} from '../constants/keyboard-key';
 import {coerceByConstraint} from '../helpers/number-helpers';
-import {constraintShape} from '../types/constraint-types';
+import {constraintType} from '../types/constraint-types';
 
 export const withRangeSliderState = (Component) => {
   const WithRangeSliderState = ({
@@ -91,7 +91,7 @@ export const withRangeSliderState = (Component) => {
   };
 
   WithRangeSliderState.propTypes = {
-    valueConstraint: constraintShape.isRequired,
+    valueConstraint: constraintType.isRequired,
     value: PropTypes.number.isRequired,
     onValueChange: PropTypes.func.isRequired,
   };

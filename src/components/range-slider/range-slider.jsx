@@ -5,8 +5,8 @@ import {PERCENTAGE_CONSTRAINT} from '../../constants/percentage-constraint';
 import {coerceByConstraint} from '../../helpers/number-helpers';
 
 import {withRangeSliderState} from '../../hocs/with-range-slider-state';
-import {refShape} from '../../types/ref-types';
-import {constraintShape} from '../../types/constraint-types';
+import {refType} from '../../types/ref-types';
+import {constraintType} from '../../types/constraint-types';
 
 const getRatio = (value, {min, max}) => {
   return coerceByConstraint((value - min) / (max - min) * PERCENTAGE_CONSTRAINT.max, PERCENTAGE_CONSTRAINT);
@@ -34,10 +34,10 @@ const RangeSlider = ({
 };
 
 RangeSlider.propTypes = {
-  valueConstraint: constraintShape.isRequired,
+  valueConstraint: constraintType.isRequired,
   value: PropTypes.number.isRequired,
 
-  containerRef: refShape.isRequired,
+  containerRef: refType.isRequired,
   onPinKeyDown: PropTypes.func.isRequired,
   onPinMouseDown: PropTypes.func.isRequired,
 };

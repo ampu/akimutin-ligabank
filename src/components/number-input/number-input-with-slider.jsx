@@ -1,13 +1,13 @@
-import React, {useRef} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
-import {formatInteger} from '../../helpers/number-helpers';
+import {formatInteger, coerceByConstraint} from '../../helpers/number-helpers';
 
 import {NumberInput} from './number-input';
 import {RangeSliderWithRangeSliderState as RangeSlider} from '../range-slider/range-slider';
 
-import {constraintShape} from '../../types/constraint-types';
+import {constraintType} from '../../types/constraint-types';
 
 const NumberInputWithSlider = ({
   inputId,
@@ -25,19 +25,26 @@ const NumberInputWithSlider = ({
   onValueParse,
   onValueChange,
 }) => {
-  const currentValueRef = useRef(value);
+  const [currentValue, setCurrentValue] = useState(value);
 
-  const onNumberInputValueChange = (state) => {
-    currentValueRef.current = state.floatValue || 0;
-  };
+  useEffect(() => {
+    setCurrentValue(value);
+  }, [value]);
 
-  const onNumberInputBlur = () => {
-    onValueChange(onValueParse ? onValueParse(currentValueRef.current) : currentValueRef.current);
-  };
+  const onNumberInputValueChange = useCallback((state) => {
+    const rawValue = state.floatValue || 0;
+    setCurrentValue(onValueParse ? onValueParse(rawValue) : rawValue);
+  }, [onValueParse]);
 
-  const onRangeSliderValueChange = (newValue) => {
+  const onNumberInputBlur = useCallback(() => {
+    const newValue = coerceByConstraint(currentValue, valueConstraint);
+    setCurrentValue(newValue);
     onValueChange(newValue);
-  };
+  }, [onValueChange, currentValue, valueConstraint]);
+
+  const onRangeSliderValueChange = useCallback((newValue) => {
+    onValueChange(newValue);
+  }, [onValueChange]);
 
   return (
     <div className={getClassName(`number-input-with-slider`, className)}>
@@ -45,15 +52,15 @@ const NumberInputWithSlider = ({
       <NumberInput
         id={inputId}
         name={inputName}
-        suffix={onGetValueSuffix ? onGetValueSuffix(value) : valueSuffix}
-        value={onValueFormat ? onValueFormat(value) : value}
+        suffix={onGetValueSuffix ? onGetValueSuffix(onValueFormat ? onValueFormat(currentValue) : currentValue) : valueSuffix}
+        value={onValueFormat ? onValueFormat(currentValue) : currentValue}
         max={onValueFormat ? onValueFormat(valueConstraint.max) : valueConstraint.max}
         onValueChange={onNumberInputValueChange}
         onBlur={onNumberInputBlur}
       />
       <RangeSlider
         valueConstraint={valueConstraint}
-        value={value}
+        value={currentValue}
         onValueChange={onRangeSliderValueChange}
       />
       {skipMaxLegend
@@ -82,7 +89,7 @@ NumberInputWithSlider.propTypes = {
   onGetLegendSuffix: PropTypes.func,
   skipMaxLegend: PropTypes.bool,
   value: PropTypes.number.isRequired,
-  valueConstraint: constraintShape.isRequired,
+  valueConstraint: constraintType.isRequired,
   onValueFormat: PropTypes.func,
   onValueParse: PropTypes.func,
   onValueChange: PropTypes.func.isRequired,

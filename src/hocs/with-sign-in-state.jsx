@@ -10,7 +10,7 @@ import {useModal} from '../hooks/use-modal';
 import {useBounce} from '../hooks/use-bounce';
 import {useMountedRef} from '../hooks/use-mounted-ref';
 
-import {refShape} from '../types/ref-types';
+import {refType} from '../types/ref-types';
 
 export const withSignInState = (Component) => {
   const WithSignInState = ({onClose, popupRef, ...props}) => {
@@ -120,7 +120,7 @@ export const withSignInState = (Component) => {
 
   WithSignInState.propTypes = {
     onClose: PropTypes.func.isRequired,
-    popupRef: refShape.isRequired,
+    popupRef: refType.isRequired,
   };
 
   WithSignInState.displayName = `${Component.name}${WithSignInState.name}`;

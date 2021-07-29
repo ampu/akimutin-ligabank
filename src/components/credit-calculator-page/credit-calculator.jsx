@@ -11,9 +11,9 @@ import {CreditOffer} from './credit-offer';
 import {CreditRequestWithCreditRequestState as CreditRequest} from './credit-request';
 import {ThankYouWithPopup as ThankYou} from './thank-you';
 
-import {refShape} from '../../types/ref-types';
-import {creditGoalShape} from '../../types/credit-goal-types';
-import {formDataShape} from '../../types/form-data-types';
+import {refType} from '../../types/ref-types';
+import {creditSettingType} from '../../types/credit-setting-types';
+import {formDataType} from '../../types/form-data-types';
 
 const CreditCalculator = ({
   containerRef,
@@ -85,12 +85,12 @@ const CreditCalculator = ({
 };
 
 CreditCalculator.propTypes = {
-  containerRef: refShape.isRequired,
+  containerRef: refType.isRequired,
 
-  creditGoal: creditGoalShape.isRequired,
+  creditGoal: creditSettingType.isRequired,
   onCreditGoalSelectValueChange: PropTypes.func.isRequired,
 
-  formData: formDataShape,
+  formData: formDataType,
   onSetFormData: PropTypes.func.isRequired,
   onSetFormDataAndDeactivateCreditRequest: PropTypes.func.isRequired,
   onFormSubmit: PropTypes.func.isRequired,

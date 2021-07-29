@@ -1,7 +1,7 @@
-import {CreditGoalValue} from '../constants/credit-goal-value';
-import {CREDIT_GOALS} from '../constants/credit-goal';
+import {CreditGoal} from '../constants/credit-goal';
+import {CREDIT_GOALS} from '../constants/credit-setting';
 import {PERCENTAGE_CONSTRAINT} from '../constants/percentage-constraint';
-import {coerceByConstraint, isValidByConstraint} from './number-helpers';
+import {isValidByConstraint} from './number-helpers';
 
 const MATERNITY_CAPITAL_AMOUNT = 470000;
 
@@ -38,7 +38,7 @@ const calculateInitialPayment = ({propertyAmount, initialPaymentPercentage}) => 
 const calculateInitialPaymentPercentage = (initialPaymentPercentageConstraint, {propertyAmount, initialPayment}) => {
   return propertyAmount === 0
     ? initialPaymentPercentageConstraint.min
-    : coerceByConstraint(initialPayment / propertyAmount * PERCENTAGE_CONSTRAINT.max, initialPaymentPercentageConstraint);
+    : initialPayment / propertyAmount * PERCENTAGE_CONSTRAINT.max;
 };
 
 const calculateCreditAmount = ({
@@ -50,10 +50,10 @@ const calculateCreditAmount = ({
   const initialPayment = propertyAmount / PERCENTAGE_CONSTRAINT.max * initialPaymentPercentage;
 
   switch (creditGoalValue) {
-    case CreditGoalValue.MORTGAGE:
+    case CreditGoal.MORTGAGE:
       return propertyAmount - initialPayment - (isMaternityCapital && MATERNITY_CAPITAL_AMOUNT);
 
-    case CreditGoalValue.CAR:
+    case CreditGoal.CAR:
       return propertyAmount - initialPayment;
   }
   return 0;
@@ -67,12 +67,12 @@ const calculateInterestRate = ({
   isLifeInsurance
 }) => {
   switch (creditGoalValue) {
-    case CreditGoalValue.MORTGAGE:
+    case CreditGoal.MORTGAGE:
       return initialPaymentPercentage < MORTGAGE_INTEREST_RATE.initialPaymentPercentageThreshold
         ? MORTGAGE_INTEREST_RATE.lowerBound
         : MORTGAGE_INTEREST_RATE.upperBound;
 
-    case CreditGoalValue.CAR:
+    case CreditGoal.CAR:
       return ((isCasco && isLifeInsurance) && CAR_INTEREST_RATE.withCascoAndLifeInsurance)
         || ((isCasco || isLifeInsurance) && CAR_INTEREST_RATE.withCascoOrLifeInsurance)
         || (propertyAmount < CAR_INTEREST_RATE.propertyAmountThreshold
@@ -96,19 +96,19 @@ const calculateMonthlyIncome = (formData) => {
   const {creditGoalValue} = formData;
 
   switch (creditGoalValue) {
-    case CreditGoalValue.MORTGAGE:
+    case CreditGoal.MORTGAGE:
       return calculateMonthlyPayment(formData) / MORTGAGE_INCOME_THRESHOLD;
 
-    case CreditGoalValue.CAR:
+    case CreditGoal.CAR:
       return calculateMonthlyPayment(formData) / CAR_INCOME_THRESHOLD;
   }
   return 0;
 };
 
-const isValidFormData = ({constraints}, {propertyAmount, initialPaymentPercentage, creditPeriod}) => {
-  return isValidByConstraint(propertyAmount, constraints.propertyAmount)
-    && isValidByConstraint(initialPaymentPercentage, constraints.initialPaymentPercentage)
-    && isValidByConstraint(creditPeriod, constraints.creditPeriod);
+const isValidFormData = ({FieldConstraint}, {propertyAmount, initialPaymentPercentage, creditPeriod}) => {
+  return isValidByConstraint(propertyAmount, FieldConstraint.PROPERTY_AMOUNT)
+    && isValidByConstraint(initialPaymentPercentage, FieldConstraint.INITIAL_PAYMENT_PERCENTAGE)
+    && isValidByConstraint(creditPeriod, FieldConstraint.CREDIT_PERIOD);
 };
 
 const findCreditGoalByValue = (creditGoal) => {

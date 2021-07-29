@@ -4,7 +4,7 @@ import getClassName from 'classnames';
 
 import {withSelectState} from '../../hocs/with-select-state';
 
-import {refShape} from '../../types/ref-types';
+import {refType} from '../../types/ref-types';
 
 const Select = ({
   name,
@@ -78,8 +78,8 @@ Select.propTypes = {
   }).isRequired).isRequired,
   value: PropTypes.string.isRequired,
 
-  containerRef: refShape.isRequired,
-  selectRef: refShape.isRequired,
+  containerRef: refType.isRequired,
+  selectRef: refType.isRequired,
   isActive: PropTypes.bool.isRequired,
   onSelectChange: PropTypes.func.isRequired,
   onSelectKeyDown: PropTypes.func.isRequired,

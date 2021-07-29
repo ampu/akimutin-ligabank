@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback, useRef} from 'react';
 
-import {CreditGoal} from '../constants/credit-goal';
+import {CreditSetting} from '../constants/credit-setting';
 import {calculateCreditAmount, findCreditGoalByValue} from '../helpers/credit-calculator-helpers';
 import {creditRequestStore} from '../helpers/credit-request-store';
 
@@ -9,7 +9,7 @@ export const withCreditCalculatorState = (Component) => {
     const containerRef = useRef(null);
     const newCreditRequestDataRef = useRef();
 
-    const [creditGoal, setCreditGoal] = useState(CreditGoal.DEFAULT);
+    const [creditGoal, setCreditGoal] = useState(CreditSetting.DEFAULT);
     const [creditRequestData, setCreditRequestData] = useState({});
     const [formData, setFormData] = useState();
     const [isCreditRequestActive, setCreditRequestActive] = useState(false);
@@ -47,7 +47,7 @@ export const withCreditCalculatorState = (Component) => {
 
       setThankYouActive(false);
       setCreditRequestActive(false);
-      setCreditGoal(CreditGoal.DEFAULT);
+      setCreditGoal(CreditSetting.DEFAULT);
 
       containerRef.current.scrollIntoView();
     }, []);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {formatInteger} from '../../helpers/number-helpers';
-import {creditGoalShape} from '../../types/credit-goal-types';
+import {creditSettingType} from '../../types/credit-setting-types';
 
 const CreditDenial = ({creditGoal}) => {
   return (
@@ -15,7 +15,7 @@ const CreditDenial = ({creditGoal}) => {
 };
 
 CreditDenial.propTypes = {
-  creditGoal: creditGoalShape.isRequired,
+  creditGoal: creditSettingType.isRequired,
 };
 
 export {CreditDenial};

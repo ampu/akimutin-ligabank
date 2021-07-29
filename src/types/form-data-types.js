@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-import {creditGoalValueType} from './credit-goal-value-types';
+import {creditGoalType} from './credit-goal-types';
 
-export const formDataShape = PropTypes.shape({
+export const formDataType = PropTypes.shape({
   id: PropTypes.number.isRequired,
-  creditGoalValue: creditGoalValueType.isRequired,
+  creditGoalValue: creditGoalType.isRequired,
   propertyAmount: PropTypes.number.isRequired,
   initialPaymentPercentage: PropTypes.number.isRequired,
   creditPeriod: PropTypes.number.isRequired,

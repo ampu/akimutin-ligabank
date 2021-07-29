@@ -2,14 +2,14 @@ import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import {calculateInitialPayment, calculateInitialPaymentPercentage} from '../../helpers/credit-calculator-helpers';
-import {formatYearsSuffix} from '../../helpers/number-helpers';
+import {formatRublesSuffix, formatYearsSuffix} from '../../helpers/number-helpers';
 
 import {IncrementalNumberInput} from '../number-input/incremental-number-input';
 import {NumberInputWithSlider} from '../number-input/number-input-with-slider';
 import {Checkbox} from '../checkbox/checkbox';
 
-import {formDataShape} from '../../types/form-data-types';
-import {creditGoalShape} from '../../types/credit-goal-types';
+import {formDataType} from '../../types/form-data-types';
+import {creditSettingType} from '../../types/credit-setting-types';
 
 const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
   const onPropertyAmountInputValueChange = useCallback((propertyAmount) => {
@@ -47,6 +47,20 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
     }));
   }, [onSetFormData]);
 
+  const onInitialPaymentFormat = useCallback((initialPaymentPercentage) => {
+    return calculateInitialPayment({
+      ...formData,
+      initialPaymentPercentage
+    });
+  }, [formData]);
+
+  const onInitialPaymentParse = useCallback((initialPayment) => {
+    return calculateInitialPaymentPercentage(creditGoal.FieldConstraint.INITIAL_PAYMENT_PERCENTAGE, {
+      ...formData,
+      initialPayment
+    });
+  }, [creditGoal, formData]);
+
   return (
     <section className="car-credit-parameters">
       <h3>Шаг 2. Введите параметры кредита</h3>
@@ -56,9 +70,9 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
         inputId="car-credit-parameters-property-amount"
         inputName="property-amount"
         labelText={creditGoal.propertyAmountTitle}
-        suffix=" рублей"
+        onGetSuffix={formatRublesSuffix}
         value={formData.propertyAmount}
-        valueConstraint={creditGoal.constraints.propertyAmount}
+        valueConstraint={creditGoal.FieldConstraint.PROPERTY_AMOUNT}
         onValueChange={onPropertyAmountInputValueChange}
       />
 
@@ -67,16 +81,13 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
         inputId="car-credit-parameters-initial-payment"
         inputName="initial-payment"
         labelText="Первоначальный взнос"
-        valueSuffix=" рублей"
+        onGetValueSuffix={formatRublesSuffix}
         legendSuffix="%"
         skipMaxLegend
         value={formData.initialPaymentPercentage}
-        valueConstraint={creditGoal.constraints.initialPaymentPercentage}
-        onValueFormat={(initialPaymentPercentage) => calculateInitialPayment({...formData, initialPaymentPercentage})}
-        onValueParse={(initialPayment) => calculateInitialPaymentPercentage(creditGoal.constraints.initialPaymentPercentage, {
-          ...formData,
-          initialPayment
-        })}
+        valueConstraint={creditGoal.FieldConstraint.INITIAL_PAYMENT_PERCENTAGE}
+        onValueFormat={onInitialPaymentFormat}
+        onValueParse={onInitialPaymentParse}
         onValueChange={onInitialPaymentInputValueChange}
       />
 
@@ -88,7 +99,7 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
         onGetValueSuffix={formatYearsSuffix}
         onGetLegendSuffix={formatYearsSuffix}
         value={formData.creditPeriod}
-        valueConstraint={creditGoal.constraints.creditPeriod}
+        valueConstraint={creditGoal.FieldConstraint.CREDIT_PERIOD}
         onValueChange={onCreditPeriodInputValueChange}
       />
 
@@ -110,8 +121,8 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
 };
 
 CarCreditParameters.propTypes = {
-  creditGoal: creditGoalShape.isRequired,
-  formData: formDataShape.isRequired,
+  creditGoal: creditSettingType.isRequired,
+  formData: formDataType.isRequired,
   onSetFormData: PropTypes.func.isRequired,
 };
 

@@ -2,7 +2,7 @@ import React, {useState, useCallback, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 import {useMountedRef} from '../hooks/use-mounted-ref';
-import {formDataShape} from '../types/form-data-types';
+import {formDataType} from '../types/form-data-types';
 
 export const withCreditRequestState = (Component) => {
   const WithCreditRequestState = ({
@@ -74,7 +74,7 @@ export const withCreditRequestState = (Component) => {
   };
 
   WithCreditRequestState.propTypes = {
-    formData: formDataShape.isRequired,
+    formData: formDataType.isRequired,
     onSetFormData: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
   };

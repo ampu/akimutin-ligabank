@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
@@ -8,7 +8,7 @@ import {NumberInput} from './number-input';
 import {ReactComponent as MinusIcon} from '../../images/minus-icon.svg';
 import {ReactComponent as PlusIcon} from '../../images/plus-icon.svg';
 
-import {constraintShape} from '../../types/constraint-types';
+import {constraintType} from '../../types/constraint-types';
 
 const IncrementalNumberInput = ({
   autoFocus,
@@ -16,30 +16,35 @@ const IncrementalNumberInput = ({
   inputName,
   labelText,
   suffix,
+  onGetSuffix,
   className,
   value,
   valueConstraint,
   onValueChange,
 }) => {
-  const currentValueRef = useRef(value);
+  const [currentValue, setCurrentValue] = useState(value);
+
+  useEffect(() => {
+    setCurrentValue(value);
+  }, [value]);
 
   const isValidValue = isValidByConstraint(value, valueConstraint);
 
   const onNumberInputValueChange = useCallback((state) => {
-    currentValueRef.current = state.floatValue || 0;
+    setCurrentValue(state.floatValue || 0);
   }, []);
 
   const onNumberInputBlur = useCallback(() => {
-    onValueChange(currentValueRef.current);
-  }, [onValueChange]);
+    onValueChange(currentValue);
+  }, [onValueChange, currentValue]);
 
   const onDecrementClick = useCallback(() => {
-    onValueChange(value < valueConstraint.step ? 0 : value - valueConstraint.step);
-  }, [value, valueConstraint, onValueChange]);
+    onValueChange(currentValue < valueConstraint.step ? 0 : currentValue - valueConstraint.step);
+  }, [currentValue, valueConstraint, onValueChange]);
 
   const onIncrementClick = useCallback(() => {
-    onValueChange(value + valueConstraint.step);
-  }, [value, valueConstraint, onValueChange]);
+    onValueChange(currentValue + valueConstraint.step);
+  }, [currentValue, valueConstraint, onValueChange]);
 
   const containerClassName = getClassName({
     [`incremental-number-input`]: true,
@@ -63,8 +68,8 @@ const IncrementalNumberInput = ({
           autoFocus={autoFocus}
           id={inputId}
           name={inputName}
-          suffix={suffix}
-          value={value}
+          suffix={onGetSuffix ? onGetSuffix(currentValue) : suffix}
+          value={currentValue}
           max={valueConstraint.max}
           onValueChange={onNumberInputValueChange}
           onBlur={onNumberInputBlur}
@@ -93,10 +98,11 @@ IncrementalNumberInput.propTypes = {
   inputId: PropTypes.string.isRequired,
   inputName: PropTypes.string,
   labelText: PropTypes.string.isRequired,
-  suffix: PropTypes.string.isRequired,
+  suffix: PropTypes.string,
+  onGetSuffix: PropTypes.func,
   className: PropTypes.string,
   value: PropTypes.number.isRequired,
-  valueConstraint: constraintShape.isRequired,
+  valueConstraint: constraintType.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 

@@ -7,6 +7,14 @@ import 'dayjs/locale/ru';
 
 const FORMAT_FLOOR_CEILING_MULTIPLIER = 100;
 
+const RUBLES_SUFFIX_DATA = {
+  hundredDivisor: 100,
+  hundredRange: {min: 11, max: 14},
+  tenDivisor: 10,
+  singularTenRange: {min: 1, max: 1},
+  exceptionalTenRange: {min: 2, max: 4},
+};
+
 const formatInteger = (value) => {
   return integerFormat.format(Math.ceil(value));
 };
@@ -16,10 +24,29 @@ const formatFloat = (value) => {
 };
 
 const formatYearsSuffix = (numberOfYears) => {
+  if (!numberOfYears) {
+    return ` лет`;
+  }
   return dayjs.duration(numberOfYears, `years`)
     .humanize()
     .replace(/\d+/, ``)
     .replace(/^\s*/, ` `);
+};
+
+const formatRublesSuffix = (value) => {
+  const hundredRemainder = value % RUBLES_SUFFIX_DATA.hundredDivisor;
+  if (RUBLES_SUFFIX_DATA.hundredRange.min <= hundredRemainder && hundredRemainder <= RUBLES_SUFFIX_DATA.hundredRange.max) {
+    return ` рублей`;
+  }
+
+  const tenRemainder = value % RUBLES_SUFFIX_DATA.tenDivisor;
+  if (RUBLES_SUFFIX_DATA.singularTenRange.min <= tenRemainder && tenRemainder <= RUBLES_SUFFIX_DATA.singularTenRange.max) {
+    return ` рубль`;
+  }
+  if (RUBLES_SUFFIX_DATA.exceptionalTenRange.min <= tenRemainder && tenRemainder <= RUBLES_SUFFIX_DATA.exceptionalTenRange.max) {
+    return ` рубля`;
+  }
+  return ` рублей`;
 };
 
 const coerceArrayIndex = (index, items) => {
@@ -44,8 +71,9 @@ dayjs.locale(`ru`);
 export {
   formatInteger,
   formatFloat,
+  formatYearsSuffix,
+  formatRublesSuffix,
   coerceArrayIndex,
   coerceByConstraint,
   isValidByConstraint,
-  formatYearsSuffix,
 };
