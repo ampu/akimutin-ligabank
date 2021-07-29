@@ -24,6 +24,7 @@ const SignIn = ({
   onPasswordToggleKeyDown,
   isBounce,
   isError,
+  signInData
 }) => {
   return (
     <div className="sign-in" onMouseDown={onContainerMouseDown}>
@@ -38,6 +39,7 @@ const SignIn = ({
               id="sign-in-login"
               type="text"
               name="login"
+              defaultValue={signInData.login}
               autoComplete="username"
               required
               autoFocus
@@ -52,6 +54,7 @@ const SignIn = ({
               className="sign-in__password-input"
               type={isPasswordVisible ? `text` : `password`}
               name="password"
+              defaultValue={signInData.password}
               autoComplete="current-password"
               required
             />
@@ -97,6 +100,10 @@ SignIn.propTypes = {
   onPasswordToggleKeyDown: PropTypes.func.isRequired,
   isBounce: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
+  signInData: PropTypes.shape({
+    login: PropTypes.string,
+    password: PropTypes.string,
+  }).isRequired,
 };
 
 const SignInWithSignInState = withPopup(withSignInState(SignIn));

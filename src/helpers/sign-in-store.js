@@ -1,9 +1,6 @@
-const CREDIT_REQUEST_DATA = {
-  storeKey: `akimutin-ligabank__credit-request`,
-  defaultMap: {id: 1},
-};
+const SIGN_IN_STORE_KEY = `akimutin-ligabank__sign-in`;
 
-class CreditRequestStore {
+class SignInStore {
   /**
    * @param {Storage} storage
    * @param {string} mapKey
@@ -14,10 +11,10 @@ class CreditRequestStore {
   }
 
   /**
-   * @param {{id: number}} defaultMap
-   * @return {{id: number}}
+   * @param {object} defaultMap
+   * @return {object}
    */
-  getMap(defaultMap = CREDIT_REQUEST_DATA.defaultMap) {
+  getMap(defaultMap = {}) {
     try {
       return JSON.parse(this._storage.getItem(this._mapKey)) || defaultMap;
     } catch (_error) {
@@ -40,4 +37,4 @@ class CreditRequestStore {
   }
 }
 
-export const creditRequestStore = new CreditRequestStore(localStorage, CREDIT_REQUEST_DATA.storeKey);
+export const signInStore = new SignInStore(localStorage, SIGN_IN_STORE_KEY);
