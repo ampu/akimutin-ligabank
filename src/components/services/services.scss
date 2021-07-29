@@ -213,7 +213,7 @@
   margin-bottom: 15px;
   padding-left: 21px;
 
-  background: url("data:image/svg+xml,%3Csvg width='13' height='10' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L6.2381 9L12 1' stroke='%231F1E25' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat left 7px / 11px 8px;
+  background: url($check-icon) no-repeat left 7px / 11px 8px;
 
   @include tablet-mobile {
     margin-bottom: 17px;
