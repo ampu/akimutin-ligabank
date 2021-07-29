@@ -30,6 +30,10 @@ const Services = ({
   onSlideTouchEnd,
   onButtonClick,
 }) => {
+  const onButtonFocus = (evt) => {
+    evt.currentTarget.click();
+  };
+
   return (
     <section className="services" id={LocalPath.SERVICES}>
       <div className="services__container">
@@ -48,6 +52,7 @@ const Services = ({
                   className={buttonClassName}
                   data-index={serviceIndex}
                   onClick={onButtonClick}
+                  onFocus={onButtonFocus}
                 >
                   <service.iconComponent/>
                   <span>{service.title}</span>

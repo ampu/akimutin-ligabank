@@ -45,7 +45,7 @@
   }
 }
 
-.sign-in label {
+.sign-in__field {
   position: relative;
   margin-bottom: 24px;
   display: flex;
@@ -56,21 +56,26 @@
 
   color: $label-color;
 
-  &:last-of-type {
+  &--password {
     margin-bottom: 6px;
   }
 
   @include mobile {
     margin-bottom: 19px;
 
-    &:last-of-type {
+    &--password {
       margin-bottom: 30px;
     }
   }
 }
 
+.sign-in label {
+  margin-bottom: 5px;
+  display: flex;
+}
+
 .sign-in input {
-  margin-top: 5px;
+  margin: 0;
   padding: 19px;
   box-sizing: border-box;
   width: 100%;

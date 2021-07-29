@@ -26,22 +26,20 @@ const Footer = () => {
         </div>
 
         <div className="footer__right-column">
-          <dl className="footer__phones">
-            <a className="footer__short-number" href="tel:*0904">
-              <dt>
-                Бесплатно для абонентов<br/>
-                МТС, Билайн, Мегафон, Теле2
-              </dt>
-              <dd>*0904</dd>
-            </a>
+          <a className="footer__phone footer__phone--short-number" href="tel:*0904">
+            <strong>*0904</strong>
+            <span>
+              Бесплатно для абонентов<br/>
+              МТС, Билайн, Мегафон, Теле2
+            </span>
+          </a>
 
-            <a className="footer__mobile-number" href="tel:+78001112233">
-              <dt>
-                Бесплатный для всех городов России
-              </dt>
-              <dd>8 800 111 22 33</dd>
-            </a>
-          </dl>
+          <a className="footer__phone footer__phone--mobile-number footer__phone--last" href="tel:+78001112233">
+            <strong>8 800 111 22 33</strong>
+            <span>
+              Бесплатный для всех городов России
+            </span>
+          </a>
 
           <SocialNavigation/>
         </div>

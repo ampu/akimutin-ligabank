@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
+import InputMask from 'react-input-mask';
 
 import {formatInteger} from '../../helpers/number-helpers';
 import {formatRequestId, calculateInitialPayment} from '../../helpers/credit-calculator-helpers';
@@ -69,7 +70,9 @@ const CreditRequest = ({
         </label>
 
         <label className="credit-request__phone">
-          <input
+          <InputMask
+            mask="+7 (999) 999-99-99"
+            pattern="[+]7 [(]\d{3}[)] \d{3}-\d{2}-\d{2}"
             type="tel"
             name="phone"
             value={formData.phone}

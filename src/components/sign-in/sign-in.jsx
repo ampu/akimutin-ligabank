@@ -32,9 +32,8 @@ const SignIn = ({
         <form ref={popupRef} className={getClassName(isBounce && `bounce`, isError && `shake`)}>
           <Logo isExtended className="sign-in__logo"/>
 
-          <label htmlFor="sign-in-login">
-            Логин
-
+          <div className="sign-in__field sign-in__field--login">
+            <label htmlFor="sign-in-login">Логин</label>
             <input
               id="sign-in-login"
               type="text"
@@ -44,11 +43,10 @@ const SignIn = ({
               required
               autoFocus
             />
-          </label>
+          </div>
 
-          <label htmlFor="sign-in-password">
-            Пароль
-
+          <div className="sign-in__field sign-in__field--password">
+            <label htmlFor="sign-in-password">Пароль</label>
             <input
               id="sign-in-password"
               className="sign-in__password-input"
@@ -68,7 +66,7 @@ const SignIn = ({
               <SignInPasswordToggleButtonIcon/>
               <span>Показать пароль</span>
             </button>
-          </label>
+          </div>
 
           <button type="submit" onClick={onSubmitButtonClick}>Войти</button>
 

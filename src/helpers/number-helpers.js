@@ -5,12 +5,14 @@ import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ru';
 
+const FORMAT_FLOOR_CEILING_MULTIPLIER = 100;
+
 const formatInteger = (value) => {
   return integerFormat.format(Math.ceil(value));
 };
 
 const formatFloat = (value) => {
-  return floatFormat.format(value);
+  return floatFormat.format(Math.ceil(value * FORMAT_FLOOR_CEILING_MULTIPLIER) / FORMAT_FLOOR_CEILING_MULTIPLIER);
 };
 
 const formatYearsSuffix = (numberOfYears) => {
