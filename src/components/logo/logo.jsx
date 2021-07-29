@@ -19,7 +19,7 @@ const Logo = ({isExtended, className}) => {
       activeClassName="logo--active"
     >
       {isExtended && (
-        <img src={extendedDesktopLogo} alt="Логотип «ЛИГА Банк»"/>
+        <img src={extendedDesktopLogo} alt="Логотип «ЛИГА Банк»" width="150" height="31"/>
       )}
       {isExtended || (
         <picture>

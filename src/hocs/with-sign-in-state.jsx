@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {KeyboardKey} from '../constants/keyboard-key';
 import {MouseButton} from '../constants/mouse-button';
-import {signInStore} from "../helpers/sign-in-store";
+import {signInStore} from '../helpers/sign-in-store';
 
 import {useModal} from '../hooks/use-modal';
 import {useBounce} from '../hooks/use-bounce';
