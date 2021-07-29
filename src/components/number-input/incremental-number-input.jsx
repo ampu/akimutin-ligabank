@@ -72,7 +72,10 @@ const IncrementalNumberInput = ({
           <span className="visually-hidden">Увеличить</span>
         </button>
       </div>
-      <p>От {formatInteger(valueConstraint.min)}&nbsp;&nbsp;до {formatInteger(valueConstraint.max)}{suffix}</p>
+      <p>
+        От {formatInteger(valueConstraint.min)}&nbsp;&nbsp;до {formatInteger(valueConstraint.max)}
+        {onGetSuffix ? onGetSuffix(valueConstraint.max) : suffix}
+      </p>
     </div>
   );
 };

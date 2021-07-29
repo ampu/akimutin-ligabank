@@ -76,7 +76,7 @@
 
 .sign-in input {
   margin: 0;
-  padding: 19px;
+  padding: 16px 19px 17px;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -85,6 +85,7 @@
 
   font-weight: 500;
   font-size: 18px;
+  line-height: 1.4;
 
   border: 1px solid $primary-color;
   border-radius: 4px;
@@ -92,10 +93,10 @@
 }
 
 .sign-in__password-input {
-  padding-right: (19px + 22px + 19px);
+  padding-right: (22px + 19px);
 
   @include mobile {
-    padding-right: (15px + 22px + 15px);
+    padding-right: (22px + 15px);
   }
 
   &::-webkit-credentials-auto-fill-button {
