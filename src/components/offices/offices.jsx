@@ -38,8 +38,8 @@ const MAP_PROPS = {
   options: {
     avoidFractionalZoom: false,
   },
-  width: `100%`,
-  height: `100%`,
+  style: {},
+  className: `offices__map-container`
 };
 
 const ZOOM_PROPS = {

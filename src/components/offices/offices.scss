@@ -55,7 +55,7 @@
 
 .offices__map picture,
 .offices__map img,
-.offices__map > div {
+.offices__map-container {
   grid-area: 1 / 1;
 }
 
@@ -73,6 +73,21 @@
   @include mobile {
     margin: 0 auto;
     width: 320px;
+    height: 381px;
+  }
+}
+
+.offices__map-container {
+  display: flex;
+  width: rubber(1170px);
+  height: 462px;
+
+  @include tablet {
+    width: 678px;
+    height: 462px;
+  }
+
+  @include mobile {
     height: 381px;
   }
 }

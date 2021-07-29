@@ -22,7 +22,7 @@ const HeroArea = ({
   onSlideTouchStart,
   onSlideTouchMove,
   onSlideTouchEnd,
-  onButtonClick,
+  onControlButtonClick,
 }) => {
   const onLinkClick = useCallback((evt) => {
     scrollIntoViewById(evt.target.href.replace(/^.*#/, ``));
@@ -42,7 +42,7 @@ const HeroArea = ({
                 type="button"
                 className={buttonClassName}
                 data-index={slideIndex}
-                onClick={onButtonClick}
+                onClick={onControlButtonClick}
               >
                 <span className="visually-hidden">Слайд №${slideIndex + 1}</span>
               </button>
@@ -72,7 +72,7 @@ HeroArea.propTypes = {
   onSlideTouchStart: PropTypes.func.isRequired,
   onSlideTouchMove: PropTypes.func.isRequired,
   onSlideTouchEnd: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
+  onControlButtonClick: PropTypes.func.isRequired,
 };
 
 const HeroAreaWithSlider = withSlider(HeroArea, HERO_AREA_SLIDES.length, SWITCH_SLIDE_INTERVAL);

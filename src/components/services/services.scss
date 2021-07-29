@@ -107,9 +107,13 @@
   box-sizing: border-box;
   padding: 53px 70px;
   min-height: 410px;
-  display: flex;
+  display: none;
 
   background-color: $alternative-color;
+
+  &.active {
+    display: flex;
+  }
 
   @include tablet-mobile {
     padding: 53px 0;
@@ -279,9 +283,14 @@
 
   color: inherit;
 
-  &:hover,
-  &:focus {
+  &:hover {
     text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+
+    @include outline;
   }
 
   &:active {

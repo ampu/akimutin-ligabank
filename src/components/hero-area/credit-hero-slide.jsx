@@ -35,7 +35,7 @@ const CreditHeroSlide = ({onLinkClick}) => {
         <img
           src={creditCardsPng}
           srcSet={`${retinaCreditCardsPng} 2x, ${creditCardsPng} 1x`}
-          alt="Кредитные карты «ЛИГА Банк»"
+          alt="Кредитные карты «ЛИГА Банк»."
         />
       </picture>
     </section>

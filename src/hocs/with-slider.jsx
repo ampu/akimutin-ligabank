@@ -28,7 +28,7 @@ export const withSlider = (Component, slidesCount, switchSlideInterval) => {
       };
     }, [activeSlideIndex, onNextSlide]);
 
-    const onButtonClick = (evt) => {
+    const onControlButtonClick = (evt) => {
       setActiveSlideIndex(+evt.currentTarget.dataset.index);
     };
 
@@ -38,7 +38,7 @@ export const withSlider = (Component, slidesCount, switchSlideInterval) => {
         onSlideTouchStart={onSlideTouchStart}
         onSlideTouchMove={onSlideTouchMove}
         onSlideTouchEnd={onSlideTouchEnd}
-        onButtonClick={onButtonClick}
+        onControlButtonClick={onControlButtonClick}
         {...props}
       />
     );

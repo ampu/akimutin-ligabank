@@ -19,13 +19,13 @@ const Logo = ({isExtended, className}) => {
       activeClassName="logo--active"
     >
       {isExtended && (
-        <img src={extendedDesktopLogo} alt="Логотип «ЛИГА Банк»" width="150" height="31"/>
+        <img src={extendedDesktopLogo} alt="Логотип «ЛИГА Банк»." width="150" height="31"/>
       )}
       {isExtended || (
         <picture>
           <source media={MediaQuery.MOBILE} srcSet={mobileLogo}/>
           <source media={MediaQuery.TABLET} srcSet={tabletLogo}/>
-          <img src={desktopLogo} alt="Логотип «ЛИГА Банк»"/>
+          <img src={desktopLogo} alt="Логотип «ЛИГА Банк»."/>
         </picture>
       )}
     </NavLink>

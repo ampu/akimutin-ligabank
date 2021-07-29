@@ -5,16 +5,18 @@ import getClassName from 'classnames';
 import {LocalPath} from '../../constants/local-path';
 
 import {withSlider} from '../../hocs/with-slider';
+import {withTabs} from '../../hocs/with-tabs';
 
 import {ServicesDeposits} from './services-deposits';
 import {ServicesCredits} from './services-credits';
 import {ServicesInsurance} from './services-insurance';
 import {ServicesOnline} from './services-online';
-
 import {ReactComponent as DepositsIcon} from '../../images/services-deposits-icon.svg';
 import {ReactComponent as CreditsIcon} from '../../images/services-credits-icon.svg';
 import {ReactComponent as InsuranceIcon} from '../../images/services-insurance-icon.svg';
 import {ReactComponent as OnlineIcon} from '../../images/services-online-icon.svg';
+
+import {refShape} from '../../types/ref-types';
 
 const SERVICES = [
   {key: `deposits`, title: `Вклады`, iconComponent: DepositsIcon, component: ServicesDeposits},
@@ -28,18 +30,19 @@ const Services = ({
   onSlideTouchStart,
   onSlideTouchMove,
   onSlideTouchEnd,
-  onButtonClick,
+  controlsRef,
+  itemsRef,
+  onControlButtonClick,
+  onControlButtonFocus,
+  onControlButtonKeyDown,
+  onItemKeyDown,
 }) => {
-  const onButtonFocus = (evt) => {
-    evt.currentTarget.click();
-  };
-
   return (
     <section className="services" id={LocalPath.SERVICES}>
       <div className="services__container">
         <h2 className="visually-hidden">Услуги</h2>
 
-        <ul className="services__controls">
+        <ul ref={controlsRef} className="services__controls">
           {SERVICES.map((service, serviceIndex) => {
             const buttonClassName = getClassName({
               active: serviceIndex === activeSlideIndex,
@@ -51,8 +54,9 @@ const Services = ({
                   type="button"
                   className={buttonClassName}
                   data-index={serviceIndex}
-                  onClick={onButtonClick}
-                  onFocus={onButtonFocus}
+                  onClick={onControlButtonClick}
+                  onFocus={onControlButtonFocus}
+                  onKeyDown={onControlButtonKeyDown}
                 >
                   <service.iconComponent/>
                   <span>{service.title}</span>
@@ -62,13 +66,15 @@ const Services = ({
           })}
         </ul>
 
-        <ul className="services__list">
-          {SERVICES.map((service, serviceIndex) => serviceIndex === activeSlideIndex && (
+        <ul ref={itemsRef} className="services__list">
+          {SERVICES.map((service, serviceIndex) => (
             <li
               key={service.key}
+              className={getClassName(serviceIndex === activeSlideIndex && `active`)}
               onTouchStart={onSlideTouchStart}
               onTouchMove={onSlideTouchMove}
               onTouchEnd={onSlideTouchEnd}
+              onKeyDown={onItemKeyDown}
             >
               <service.component/>
             </li>
@@ -84,9 +90,14 @@ Services.propTypes = {
   onSlideTouchStart: PropTypes.func.isRequired,
   onSlideTouchMove: PropTypes.func.isRequired,
   onSlideTouchEnd: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
+  controlsRef: refShape.isRequired,
+  itemsRef: refShape.isRequired,
+  onControlButtonClick: PropTypes.func.isRequired,
+  onControlButtonFocus: PropTypes.func.isRequired,
+  onControlButtonKeyDown: PropTypes.func.isRequired,
+  onItemKeyDown: PropTypes.func.isRequired,
 };
 
-const ServicesWithSlider = withSlider(Services, SERVICES.length);
+const ServicesWithTabsAndSlider = withSlider(withTabs(Services, SERVICES.length), SERVICES.length);
 
-export {Services, ServicesWithSlider};
+export {Services, ServicesWithTabsAndSlider};

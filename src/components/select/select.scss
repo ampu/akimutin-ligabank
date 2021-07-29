@@ -6,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 18px 24px;
-  padding-right: (24px + 18px + 24px);
+  padding-right: (18px + 24px);
   width: 100%;
 
   font: inherit;
@@ -24,7 +24,7 @@
 
   @include mobile {
     padding-left: 14px;
-    padding-right: (13px + 18px + 13px);
+    padding-right: (18px + 13px);
 
     background-position: calc(100% - 13px) center;
   }
@@ -77,11 +77,15 @@
 
     outline: none;
   }
+
+  @include mobile {
+    padding: 18px 14px;
+  }
 }
 
 .select li:first-of-type button {
   position: relative;
-  padding-right: (24px + 18px + 24px);
+  padding-right: (18px + 24px);
 
   border-color: $calculator-border-color;
 
@@ -94,9 +98,17 @@
     width: 100%;
     height: 100%;
 
-    background: transparent url($select-icon) no-repeat calc(22px) center / 18px 11px;
+    background: transparent url($select-icon) no-repeat 22px center / 18px 11px;
 
     transform: rotate(180deg);
+  }
+
+  @include mobile {
+    padding-right: (18px + 14px);
+
+    &::before {
+      background-position: 14px center;
+    }
   }
 }
 
