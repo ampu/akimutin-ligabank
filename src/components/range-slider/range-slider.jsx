@@ -19,6 +19,7 @@ const RangeSlider = ({
   containerRef,
   onPinKeyDown,
   onPinMouseDown,
+  onPinTouchStart,
 }) => {
   return (
     <div className="range-slider" ref={containerRef}>
@@ -28,6 +29,7 @@ const RangeSlider = ({
         style={{left: `${coerceByConstraint(getRatio(value, valueConstraint), PERCENTAGE_CONSTRAINT)}%`}}
         onKeyDown={onPinKeyDown}
         onMouseDown={onPinMouseDown}
+        onTouchStart={onPinTouchStart}
       ></div>
     </div>
   );
@@ -40,6 +42,7 @@ RangeSlider.propTypes = {
   containerRef: refType.isRequired,
   onPinKeyDown: PropTypes.func.isRequired,
   onPinMouseDown: PropTypes.func.isRequired,
+  onPinTouchStart: PropTypes.func.isRequired,
 };
 
 const RangeSliderWithRangeSliderState = withRangeSliderState(RangeSlider);

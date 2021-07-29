@@ -3,7 +3,20 @@ import PropTypes from 'prop-types';
 
 import {KeyboardKey} from '../constants/keyboard-key';
 import {coerceByConstraint} from '../helpers/number-helpers';
+import {onNoop} from '../helpers/callback-helpers';
+
 import {constraintType} from '../types/constraint-types';
+
+const calculateNewValue = (container, {startValue, startX}, endX, valueConstraint) => {
+  const minOffset = container.offsetLeft;
+  const maxOffset = minOffset + container.offsetWidth;
+
+  const ratioDifference = (endX - startX) / (maxOffset - minOffset);
+  const valueDifference = ratioDifference * (valueConstraint.max - valueConstraint.min);
+  const stepDifference = Math.round(valueDifference / valueConstraint.step);
+
+  return coerceByConstraint(startValue + stepDifference * valueConstraint.step, valueConstraint);
+};
 
 export const withRangeSliderState = (Component) => {
   const WithRangeSliderState = ({
@@ -45,17 +58,7 @@ export const withRangeSliderState = (Component) => {
 
     const onDocumentMouseMove = useCallback((evt) => {
       if (slideRef.current) {
-        const {startValue, startX} = slideRef.current;
-        const endX = evt.clientX;
-        const minOffset = containerRef.current.offsetLeft;
-        const maxOffset = minOffset + containerRef.current.offsetWidth;
-
-        const ratioDifference = (endX - startX) / (maxOffset - minOffset);
-        const valueDifference = ratioDifference * (valueConstraint.max - valueConstraint.min);
-        const stepDifference = Math.round(valueDifference / valueConstraint.step);
-        const newValue = coerceByConstraint(startValue + stepDifference * valueConstraint.step, valueConstraint);
-
-        onValueChange(newValue);
+        onValueChange(calculateNewValue(containerRef.current, slideRef.current, evt.clientX, valueConstraint));
       }
     }, [valueConstraint, onValueChange]);
 
@@ -67,15 +70,45 @@ export const withRangeSliderState = (Component) => {
       }
     }, []);
 
+    const onPinTouchStart = useCallback((evt) => {
+      slideRef.current = {
+        startValue: value,
+        startX: evt.targetTouches[0].clientX,
+      };
+
+      setActive(true);
+    }, [value]);
+
+    const onDocumentTouchMove = useCallback((evt) => {
+      if (slideRef.current) {
+        onValueChange(calculateNewValue(containerRef.current, slideRef.current, evt.targetTouches[0].clientX, valueConstraint));
+      }
+    }, [valueConstraint, onValueChange]);
+
+    const onDocumentTouchEnd = useCallback(() => {
+      if (slideRef.current) {
+        slideRef.current = undefined;
+
+        setActive(false);
+      }
+    }, []);
+
     useEffect(() => {
+      if (!isActive) {
+        return onNoop;
+      }
       document.addEventListener(`mousemove`, onDocumentMouseMove);
       document.addEventListener(`mouseup`, onDocumentMouseUp);
+      document.addEventListener(`touchmove`, onDocumentTouchMove);
+      document.addEventListener(`touchend`, onDocumentTouchEnd);
 
       return () => {
         document.removeEventListener(`mousemove`, onDocumentMouseMove);
         document.removeEventListener(`mouseup`, onDocumentMouseUp);
+        document.removeEventListener(`touchmove`, onDocumentTouchMove);
+        document.removeEventListener(`touchend`, onDocumentTouchEnd);
       };
-    }, [onDocumentMouseMove, onDocumentMouseUp]);
+    }, [isActive, onDocumentMouseMove, onDocumentMouseUp, onDocumentTouchMove, onDocumentTouchEnd]);
 
     return (
       <Component
@@ -85,6 +118,7 @@ export const withRangeSliderState = (Component) => {
         containerRef={containerRef}
         onPinKeyDown={onPinKeyDown}
         onPinMouseDown={onPinMouseDown}
+        onPinTouchStart={onPinTouchStart}
         {...props}
       />
     );
