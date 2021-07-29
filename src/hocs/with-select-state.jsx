@@ -62,7 +62,7 @@ export const withSelectState = (Component) => {
     }, []);
 
     const onSelectKeyDown = useCallback((evt) => {
-      if (evt.key === KeyboardKey.SPACE) {
+      if ([KeyboardKey.SPACE, KeyboardKey.ARROW_UP, KeyboardKey.ARROW_DOWN].includes(evt.key)) {
         evt.preventDefault();
         setActive(true);
       }
@@ -75,7 +75,7 @@ export const withSelectState = (Component) => {
     }, [onValueChange]);
 
     const onButtonKeyDown = useCallback((evt) => {
-      if (evt.key === KeyboardKey.ARROW_UP || evt.key === KeyboardKey.ARROW_DOWN) {
+      if ([KeyboardKey.ARROW_UP, KeyboardKey.ARROW_DOWN].includes(evt.key)) {
         evt.preventDefault();
 
         const rawNextOptionIndex = +evt.currentTarget.dataset.index + (evt.key === KeyboardKey.ARROW_UP ? -1 : 1);
