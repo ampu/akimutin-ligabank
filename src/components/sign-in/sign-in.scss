@@ -97,6 +97,14 @@
   @include mobile {
     padding-right: (15px + 22px + 15px);
   }
+
+  &::-webkit-credentials-auto-fill-button {
+    margin-right: 35px;
+
+    @include mobile {
+      margin-right: 25px;
+    }
+  }
 }
 
 .sign-in__password-toggle-button {
