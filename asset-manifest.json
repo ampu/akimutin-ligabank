@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.50b64805.chunk.css",
+    "main.css": "/akimutin-ligabank/static/css/main.2476b11a.chunk.css",
     "main.js": "/akimutin-ligabank/static/js/main.1cde664e.chunk.js",
     "main.js.map": "/akimutin-ligabank/static/js/main.1cde664e.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
@@ -10,7 +10,7 @@
     "static/js/2.885639cf.chunk.js.map": "/akimutin-ligabank/static/js/2.885639cf.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
-    "static/css/main.50b64805.chunk.css.map": "/akimutin-ligabank/static/css/main.50b64805.chunk.css.map",
+    "static/css/main.2476b11a.chunk.css.map": "/akimutin-ligabank/static/css/main.2476b11a.chunk.css.map",
     "static/js/2.885639cf.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.885639cf.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/akimutin-ligabank/static/media/short-phone-icon.186c1e77.svg",
     "static/media/credit-cards--mobile@1x.e205a4c4.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.e205a4c4.png",
@@ -64,7 +64,7 @@
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
     "static/js/2.885639cf.chunk.js",
-    "static/css/main.50b64805.chunk.css",
+    "static/css/main.2476b11a.chunk.css",
     "static/js/main.1cde664e.chunk.js"
   ]
 }
