@@ -52,6 +52,10 @@ export const withCreditCalculatorState = (Component) => {
       containerRef.current.scrollIntoView();
     }, []);
 
+    const onFormSubmit = useCallback((evt) => {
+      evt.preventDefault();
+    }, []);
+
     useEffect(() => {
       setCreditRequestData(creditRequestStore.getMap());
     }, []);
@@ -74,6 +78,7 @@ export const withCreditCalculatorState = (Component) => {
         formData={formData}
         onSetFormData={setFormData}
         onSetFormDataAndDeactivateCreditRequest={onSetFormDataAndDeactivateCreditRequest}
+        onFormSubmit={onFormSubmit}
 
         creditAmount={creditAmount}
         isCreditRequestActive={isCreditRequestActive}

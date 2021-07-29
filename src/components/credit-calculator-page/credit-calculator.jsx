@@ -23,6 +23,7 @@ const CreditCalculator = ({
   formData,
   onSetFormData,
   onSetFormDataAndDeactivateCreditRequest,
+  onFormSubmit,
 
   creditAmount,
   isCreditRequestActive,
@@ -36,7 +37,7 @@ const CreditCalculator = ({
     <section ref={containerRef} className="credit-calculator" id={LocalPath.CREDIT_CALCULATOR}>
       <div className="credit-calculator__container">
         <h2>Кредитный калькулятор</h2>
-        <form className="credit-calculator__parameters-form">
+        <form className="credit-calculator__parameters-form" onSubmit={onFormSubmit}>
           <CreditGoalSelect
             value={creditGoal.value}
             onValueChange={onCreditGoalSelectValueChange}
@@ -92,6 +93,7 @@ CreditCalculator.propTypes = {
   formData: formDataShape,
   onSetFormData: PropTypes.func.isRequired,
   onSetFormDataAndDeactivateCreditRequest: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
 
   creditAmount: PropTypes.number,
   isCreditRequestActive: PropTypes.bool.isRequired,

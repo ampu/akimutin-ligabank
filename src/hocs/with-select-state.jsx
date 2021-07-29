@@ -56,7 +56,7 @@ export const withSelectState = (Component) => {
 
     const onSelectChange = useCallback((evt) => {
       onValueChange(evt.currentTarget.value);
-    }, []);
+    }, [onValueChange]);
 
     const onSelectMouseDown = useCallback((evt) => {
       if (evt.button === MouseButton.PRIMARY) {

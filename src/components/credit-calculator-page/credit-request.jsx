@@ -16,6 +16,7 @@ const CreditRequest = ({
   creditGoal,
   formData,
   onSubmitButtonClick,
+  onFormSubmit,
   isError,
   formRef,
   onNameInputChange,
@@ -53,7 +54,7 @@ const CreditRequest = ({
         </div>
       </dl>
 
-      <form ref={formRef}>
+      <form ref={formRef} onSubmit={onFormSubmit}>
         <input type="hidden" name="id" value={formData.id}/>
 
         <label className="credit-request__name">
@@ -105,6 +106,7 @@ CreditRequest.propTypes = {
   creditGoal: creditGoalShape.isRequired,
   formData: formDataShape.isRequired,
   onSubmitButtonClick: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
   isError: PropTypes.bool.isRequired,
   formRef: refShape.isRequired,
   onNameInputChange: PropTypes.func.isRequired,

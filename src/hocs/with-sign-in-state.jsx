@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {KeyboardKey} from '../constants/keyboard-key';
 import {MouseButton} from '../constants/mouse-button';
 import {signInStore} from '../helpers/sign-in-store';
+import {onNoop} from '../helpers/callback-helpers';
 
 import {useModal} from '../hooks/use-modal';
 import {useBounce} from '../hooks/use-bounce';
@@ -19,7 +20,8 @@ export const withSignInState = (Component) => {
 
     const [isError, setError] = useState(false);
 
-    const [isPasswordVisible, setPasswordVisible] = useState(false);
+    const [isPasswordVisibleByMouse, setPasswordVisibleByMouse] = useState(false);
+    const [isPasswordVisibleByKeyboard, setPasswordVisibleByKeyboard] = useState(false);
 
     const [signInData, setSignInData] = useState({});
 
@@ -53,35 +55,58 @@ export const withSignInState = (Component) => {
       });
     }, [isMountedRef, popupRef, onClose]);
 
-    const onPasswordToggleButtonMouseDown = (evt) => {
+    const onFormSubmit = useCallback((evt) => {
+      evt.preventDefault();
+    }, []);
+
+    const onPasswordToggleButtonMouseDown = useCallback((evt) => {
       if (evt.button === MouseButton.PRIMARY) {
-        setPasswordVisible(true);
-        document.addEventListener(`mouseup`, onDocumentMouseUp);
+        setPasswordVisibleByMouse(true);
       }
-    };
+    }, []);
 
     const onDocumentMouseUp = useCallback(() => {
-      setPasswordVisible(false);
-      document.removeEventListener(`mouseup`, onDocumentMouseUp);
+      setPasswordVisibleByMouse(false);
     }, []);
 
-    const onPasswordToggleKeyDown = (evt) => {
-      if (evt.key === KeyboardKey.SPACE) {
-        setPasswordVisible(true);
-        document.addEventListener(`keyup`, onDocumentKeyUp);
+    useEffect(() => {
+      if (!isPasswordVisibleByMouse) {
+        return onNoop;
       }
-    };
+      document.addEventListener(`mouseup`, onDocumentMouseUp);
+
+      return () => {
+        document.removeEventListener(`mouseup`, onDocumentMouseUp);
+      };
+    }, [isPasswordVisibleByMouse, onDocumentMouseUp]);
+
+    const onPasswordToggleKeyDown = useCallback((evt) => {
+      if (evt.key === KeyboardKey.SPACE) {
+        setPasswordVisibleByKeyboard(true);
+      }
+    }, []);
 
     const onDocumentKeyUp = useCallback(() => {
-      setPasswordVisible(false);
-      document.removeEventListener(`keyup`, onDocumentKeyUp);
+      setPasswordVisibleByKeyboard(false);
     }, []);
+
+    useEffect(() => {
+      if (!isPasswordVisibleByKeyboard) {
+        return onNoop;
+      }
+      document.addEventListener(`keyup`, onDocumentKeyUp);
+
+      return () => {
+        document.removeEventListener(`keyup`, onDocumentKeyUp);
+      };
+    }, [isPasswordVisibleByKeyboard, onDocumentKeyUp]);
 
     return (
       <Component
         popupRef={popupRef}
         onSubmitButtonClick={onSubmitButtonClick}
-        isPasswordVisible={isPasswordVisible}
+        onFormSubmit={onFormSubmit}
+        isPasswordVisible={isPasswordVisibleByMouse || isPasswordVisibleByKeyboard}
         onPasswordToggleButtonMouseDown={onPasswordToggleButtonMouseDown}
         onPasswordToggleKeyDown={onPasswordToggleKeyDown}
         onClose={onClose}

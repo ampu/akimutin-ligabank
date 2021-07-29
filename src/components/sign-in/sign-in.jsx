@@ -19,6 +19,7 @@ const SignIn = ({
   onContainerMouseDown,
   onClose,
   onSubmitButtonClick,
+  onFormSubmit,
   isPasswordVisible,
   onPasswordToggleButtonMouseDown,
   onPasswordToggleKeyDown,
@@ -29,7 +30,11 @@ const SignIn = ({
   return (
     <div className="sign-in" onMouseDown={onContainerMouseDown}>
       <FocusTrap>
-        <form ref={popupRef} className={getClassName(isBounce && `bounce`, isError && `shake`)}>
+        <form
+          ref={popupRef}
+          className={getClassName(isBounce && `bounce`, isError && `shake`)}
+          onSubmit={onFormSubmit}
+        >
           <Logo isExtended className="sign-in__logo"/>
 
           <div className="sign-in__field sign-in__field--login">
@@ -93,6 +98,7 @@ SignIn.propTypes = {
   onContainerMouseDown: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   onSubmitButtonClick: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
   isPasswordVisible: PropTypes.bool.isRequired,
   onPasswordToggleButtonMouseDown: PropTypes.func.isRequired,
   onPasswordToggleKeyDown: PropTypes.func.isRequired,

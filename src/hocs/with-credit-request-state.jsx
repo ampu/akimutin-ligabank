@@ -54,10 +54,15 @@ export const withCreditRequestState = (Component) => {
       });
     }, [isMountedRef, onSubmit]);
 
+    const onFormSubmit = useCallback((evt) => {
+      evt.preventDefault();
+    }, []);
+
     return (
       <Component
         formData={formData}
         onSubmitButtonClick={onSubmitButtonClick}
+        onFormSubmit={onFormSubmit}
         isError={isError}
         formRef={formRef}
         onNameInputChange={onNameInputChange}
