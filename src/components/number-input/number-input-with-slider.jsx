@@ -1,9 +1,10 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
-import {formatInteger, coerceByConstraint} from '../../helpers/number-helpers';
+import {formatInteger} from '../../helpers/number-helpers';
 
+import {withNumberInputWithSliderState} from '../../hocs/with-number-input-with-slider-state';
 import {NumberInput} from './number-input';
 import {RangeSliderWithRangeSliderState as RangeSlider} from '../range-slider/range-slider';
 
@@ -19,33 +20,14 @@ const NumberInputWithSlider = ({
   legendSuffix,
   onGetLegendSuffix,
   skipMaxLegend,
-  value,
   valueConstraint,
   onValueFormat,
-  onValueParse,
-  onValueChange,
+
+  currentValue,
+  onNumberInputValueChange,
+  onNumberInputBlur,
+  onRangeSliderValueChange,
 }) => {
-  const [currentValue, setCurrentValue] = useState(value);
-
-  useEffect(() => {
-    setCurrentValue(value);
-  }, [value]);
-
-  const onNumberInputValueChange = useCallback((state) => {
-    const rawValue = state.floatValue || 0;
-    setCurrentValue(onValueParse ? onValueParse(rawValue) : rawValue);
-  }, [onValueParse]);
-
-  const onNumberInputBlur = useCallback(() => {
-    const newValue = coerceByConstraint(currentValue, valueConstraint);
-    setCurrentValue(newValue);
-    onValueChange(newValue);
-  }, [onValueChange, currentValue, valueConstraint]);
-
-  const onRangeSliderValueChange = useCallback((newValue) => {
-    onValueChange(newValue);
-  }, [onValueChange]);
-
   return (
     <div className={getClassName(`number-input-with-slider`, className)}>
       <label htmlFor={inputId}>{labelText}</label>
@@ -88,11 +70,15 @@ NumberInputWithSlider.propTypes = {
   legendSuffix: PropTypes.string,
   onGetLegendSuffix: PropTypes.func,
   skipMaxLegend: PropTypes.bool,
-  value: PropTypes.number.isRequired,
   valueConstraint: constraintType.isRequired,
   onValueFormat: PropTypes.func,
-  onValueParse: PropTypes.func,
-  onValueChange: PropTypes.func.isRequired,
+
+  currentValue: PropTypes.number.isRequired,
+  onNumberInputValueChange: PropTypes.func.isRequired,
+  onNumberInputBlur: PropTypes.func.isRequired,
+  onRangeSliderValueChange: PropTypes.func.isRequired,
 };
 
-export {NumberInputWithSlider};
+const NumberInputWithSliderWithNumberInputWithSliderState = withNumberInputWithSliderState(NumberInputWithSlider);
+
+export {NumberInputWithSlider, NumberInputWithSliderWithNumberInputWithSliderState};

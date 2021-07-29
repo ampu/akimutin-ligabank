@@ -1,9 +1,10 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
 import {formatInteger, isValidByConstraint} from '../../helpers/number-helpers';
 
+import {withIncrementalNumberInputState} from '../../hocs/with-incremental-number-input-state';
 import {NumberInput} from './number-input';
 import {ReactComponent as MinusIcon} from '../../images/minus-icon.svg';
 import {ReactComponent as PlusIcon} from '../../images/plus-icon.svg';
@@ -20,31 +21,14 @@ const IncrementalNumberInput = ({
   className,
   value,
   valueConstraint,
-  onValueChange,
+
+  currentValue,
+  onNumberInputValueChange,
+  onNumberInputBlur,
+  onDecrementClick,
+  onIncrementClick,
 }) => {
-  const [currentValue, setCurrentValue] = useState(value);
-
-  useEffect(() => {
-    setCurrentValue(value);
-  }, [value]);
-
   const isValidValue = isValidByConstraint(value, valueConstraint);
-
-  const onNumberInputValueChange = useCallback((state) => {
-    setCurrentValue(state.floatValue || 0);
-  }, []);
-
-  const onNumberInputBlur = useCallback(() => {
-    onValueChange(currentValue);
-  }, [onValueChange, currentValue]);
-
-  const onDecrementClick = useCallback(() => {
-    onValueChange(currentValue < valueConstraint.step ? 0 : currentValue - valueConstraint.step);
-  }, [currentValue, valueConstraint, onValueChange]);
-
-  const onIncrementClick = useCallback(() => {
-    onValueChange(currentValue + valueConstraint.step);
-  }, [currentValue, valueConstraint, onValueChange]);
 
   const containerClassName = getClassName({
     [`incremental-number-input`]: true,
@@ -103,7 +87,14 @@ IncrementalNumberInput.propTypes = {
   className: PropTypes.string,
   value: PropTypes.number.isRequired,
   valueConstraint: constraintType.isRequired,
-  onValueChange: PropTypes.func.isRequired,
+
+  currentValue: PropTypes.number.isRequired,
+  onNumberInputValueChange: PropTypes.func.isRequired,
+  onNumberInputBlur: PropTypes.func.isRequired,
+  onDecrementClick: PropTypes.func.isRequired,
+  onIncrementClick: PropTypes.func.isRequired,
 };
 
-export {IncrementalNumberInput};
+const IncrementalNumberInputWithIncrementalNumberInputState = withIncrementalNumberInputState(IncrementalNumberInput);
+
+export {IncrementalNumberInput, IncrementalNumberInputWithIncrementalNumberInputState};

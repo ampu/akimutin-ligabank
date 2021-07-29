@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {calculateInitialPayment, calculateInitialPaymentPercentage} from '../../helpers/credit-calculator-helpers';
 import {formatRublesSuffix, formatYearsSuffix} from '../../helpers/number-helpers';
 
-import {IncrementalNumberInput} from '../number-input/incremental-number-input';
-import {NumberInputWithSlider} from '../number-input/number-input-with-slider';
+import {IncrementalNumberInputWithIncrementalNumberInputState as IncrementalNumberInput} from '../number-input/incremental-number-input';
+import {NumberInputWithSliderWithNumberInputWithSliderState as NumberInputWithSlider} from '../number-input/number-input-with-slider';
 import {Checkbox} from '../checkbox/checkbox';
 
 import {formDataType} from '../../types/form-data-types';
