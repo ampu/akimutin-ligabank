@@ -1,8 +1,10 @@
 .select {
   position: relative;
+  display: grid;
 }
 
 .select select {
+  grid-area: 1 / 1;
   box-sizing: border-box;
   margin: 0;
   padding: 18px 24px;
@@ -31,11 +33,7 @@
 }
 
 .select ul {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
+  grid-area: 1 / 1;
   list-style: none;
   margin: 0;
   padding: 0;

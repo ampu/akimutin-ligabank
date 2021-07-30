@@ -19,7 +19,7 @@ const NumberInputWithSlider = ({
   onGetValueSuffix,
   legendSuffix,
   onGetLegendSuffix,
-  skipMaxLegend,
+  withCurrentValueLegend,
   valueConstraint,
   onValueFormat,
 
@@ -45,9 +45,9 @@ const NumberInputWithSlider = ({
         value={currentValue}
         onValueChange={onRangeSliderValueChange}
       />
-      {skipMaxLegend
+      {withCurrentValueLegend
         ? (
-          <p>{formatInteger(valueConstraint.min)}{onGetLegendSuffix ? onGetLegendSuffix(valueConstraint.min) : legendSuffix}</p>
+          <p>{formatInteger(currentValue)}{onGetLegendSuffix ? onGetLegendSuffix(currentValue) : legendSuffix}</p>
         )
         : (
           <p>
@@ -69,7 +69,7 @@ NumberInputWithSlider.propTypes = {
   onGetValueSuffix: PropTypes.func,
   legendSuffix: PropTypes.string,
   onGetLegendSuffix: PropTypes.func,
-  skipMaxLegend: PropTypes.bool,
+  withCurrentValueLegend: PropTypes.bool,
   valueConstraint: constraintType.isRequired,
   onValueFormat: PropTypes.func,
 

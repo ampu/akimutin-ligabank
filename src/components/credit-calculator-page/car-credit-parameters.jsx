@@ -83,7 +83,7 @@ const CarCreditParameters = ({creditGoal, formData, onSetFormData}) => {
         labelText="Первоначальный взнос"
         onGetValueSuffix={formatRublesSuffix}
         legendSuffix="%"
-        skipMaxLegend
+        withCurrentValueLegend
         value={formData.initialPaymentPercentage}
         valueConstraint={creditGoal.FieldConstraint.INITIAL_PAYMENT_PERCENTAGE}
         onValueFormat={onInitialPaymentFormat}
