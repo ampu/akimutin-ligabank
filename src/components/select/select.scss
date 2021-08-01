@@ -24,6 +24,12 @@
     background-image: url($select-icon--active);
   }
 
+  &:focus {
+    outline: none;
+
+    @include thin-outline;
+  }
+
   @include mobile {
     padding-left: 14px;
     padding-right: (18px + 13px);
@@ -81,11 +87,16 @@
   }
 }
 
+.select li:last-of-type button {
+  border-radius: 0 0 4px 4px;
+}
+
 .select li:first-of-type button {
   position: relative;
   padding-right: (18px + 24px);
 
   border-color: $calculator-border-color;
+  border-radius: 4px 4px 0 0;
 
   &::before {
     content: "";

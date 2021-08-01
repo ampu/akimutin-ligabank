@@ -18,21 +18,21 @@
   position: relative;
   box-sizing: border-box;
   padding-top: 95px;
-  padding-left: rubber(170px);
+  padding-left: rubber--desktop(170px);
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   min-height: 400px;
 
-  background-image: linear-gradient(to right, transparent rubber(52px), $primary-active-color rubber(52px), $primary-active-color rubber(700px), transparent rubber(700px));
+  background-image: linear-gradient(to right, transparent rubber--desktop(52px), $primary-active-color rubber--desktop(52px), $primary-active-color rubber--desktop(700px), transparent rubber--desktop(700px));
 
   &::before {
     content: "";
     position: absolute;
-    left: rubber(52px);
+    left: rubber--desktop(52px);
     bottom: 0;
-    width: rubber(150px);
+    width: rubber--desktop(150px);
     height: 269px;
 
     background-image: linear-gradient(183.47deg, $decoration-gradient-color-1 66.3%, $decoration-gradient-color-2 97.14%);
@@ -41,7 +41,7 @@
   &::after {
     content: "";
     position: absolute;
-    left: rubber(700px);
+    left: rubber--desktop(700px);
     bottom: 0;
     width: 270px;
     height: 269px;
@@ -120,12 +120,14 @@
 
   @include mobile {
     font-size: 38px;
+    line-height: 1.45;
   }
 }
 
 .credit-hero-slide p {
   margin-top: 0;
   margin-bottom: 33px;
+  display: flex;
 
   font-size: 22px;
 

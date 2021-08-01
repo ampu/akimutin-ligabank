@@ -12,13 +12,15 @@
   }
 }
 
-.offices-hero-slide__inner {
+.offices-hero-slide__container {
   @include container;
+}
 
+.offices-hero-slide__inner {
   position: relative;
   box-sizing: border-box;
   padding-top: 95px;
-  padding-left: (170px + $side-padding--desktop);
+  padding-left: rubber--desktop(170px);
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -27,13 +29,13 @@
 
   @include tablet {
     padding-top: 59px;
-    padding-left: (41px + $side-padding--tablet);
+    padding-left: 41px;
     min-height: 300px;
   }
 
   @include mobile {
     padding-top: 34px;
-    padding-left: $side-padding--mobile;
+    padding-left: 0;
     min-height: 226px;
   }
 }
@@ -52,12 +54,14 @@
 
   @include mobile {
     font-size: 38px;
+    line-height: 1.45;
   }
 }
 
 .offices-hero-slide p {
   margin-top: 0;
   margin-bottom: 33px;
+  display: flex;
 
   font-size: 22px;
 

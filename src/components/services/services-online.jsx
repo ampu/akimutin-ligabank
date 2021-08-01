@@ -14,27 +14,33 @@ import retinaOnlineServicesPosterDesktop from '../../images/services-online-post
 const ServicesOnline = () => {
   return (
     <section>
-      <h3 className="visually-hidden">Онлайн-сервисы</h3>
-      <strong>Лига Банк — это огромное количество онлайн-сервисов для&nbsp;вашего&nbsp;удобства</strong>
-      <picture>
-        <source
-          media={MediaQuery.MOBILE}
-          srcSet={`${retinaOnlineServicesPosterMobile} 2x, ${onlineServicesPosterMobile} 1x`}
-        />
-        <source
-          media={MediaQuery.TABLET}
-          srcSet={`${retinaOnlineServicesPosterTablet} 2x, ${onlineServicesPosterTablet} 1x`}
-        />
-        <img
-          src={onlineServicesPosterDesktop}
-          srcSet={`${retinaOnlineServicesPosterDesktop} 2x, ${onlineServicesPosterDesktop} 1x`}
-          alt="Онлайн-сервисы Лига Банка."
-        />
-      </picture>
-      <ul>
-        <li>Мобильный банк,<br/>который всегда под рукой</li>
-        <li>Приложение Лига-проездной позволит вам&nbsp;оплачивать билеты по всему миру</li>
-      </ul>
+      <figure>
+        <picture>
+          <source
+            media={MediaQuery.MOBILE}
+            srcSet={`${retinaOnlineServicesPosterMobile} 2x, ${onlineServicesPosterMobile} 1x`}
+          />
+          <source
+            media={MediaQuery.TABLET}
+            srcSet={`${retinaOnlineServicesPosterTablet} 2x, ${onlineServicesPosterTablet} 1x`}
+          />
+          <img
+            src={onlineServicesPosterDesktop}
+            srcSet={`${retinaOnlineServicesPosterDesktop} 2x, ${onlineServicesPosterDesktop} 1x`}
+            alt="Онлайн-сервисы Лига Банка."
+          />
+        </picture>
+      </figure>
+
+      <div className="services__content-container">
+        <h3 className="visually-hidden">Онлайн-сервисы</h3>
+        <strong>Лига Банк — это огромное количество онлайн‑сервисов для&nbsp;вашего&nbsp;удобства</strong>
+        <ul>
+          <li>Мобильный банк, <br/>который&nbsp;всегда&nbsp;под&nbsp;рукой</li>
+          <li>Приложение Лига-проездной позволит вам&nbsp;оплачивать билеты по&nbsp;всему&nbsp;миру</li>
+        </ul>
+      </div>
+
       <Link to={LocalPath.ONLINE_SERVICES}>Узнать подробнее</Link>
     </section>
   );

@@ -14,7 +14,7 @@ const ThankYou = ({popupRef, onContainerMouseDown, onClose}) => {
       <FocusTrap>
         <div ref={popupRef} className="thank-you__popup">
           <strong>Спасибо за обращение в&nbsp;наш банк.</strong>
-          <p>Наш менеджер скоро свяжется с вами<br/>
+          <p>Наш менеджер скоро свяжется с вами <br/>
             по указанному номеру телефона.</p>
 
           <button className="thank-you__close-button" type="button" onClick={onClose}>

@@ -22,7 +22,7 @@
 
   margin-bottom: 31px;
   display: grid;
-  grid-template-columns: rubber(150px + 109px - 30px) auto 1fr;
+  grid-template-columns: rubber--desktop(150px + 109px - 30px) auto 1fr;
   grid-column-gap: 30px;
   justify-content: space-between;
   align-items: start;

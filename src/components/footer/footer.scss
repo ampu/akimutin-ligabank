@@ -15,7 +15,7 @@
 
   @include tablet {
     display: grid;
-    grid-template-columns: 337px 1fr;
+    grid-template-columns: rubber--tablet(337px) 1fr;
     padding-bottom: 55px;
   }
 

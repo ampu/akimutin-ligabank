@@ -2,7 +2,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import {constraintType} from '../types/constraint-types';
-import {coerceByConstraint} from "../helpers/number-helpers";
+import {coerceByConstraint} from '../helpers/number-helpers';
 
 export const withNumberInputWithSliderState = (Component) => {
   const WithNumberInputWithSliderState = ({

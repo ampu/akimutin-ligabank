@@ -39,48 +39,46 @@ const Services = ({
 }) => {
   return (
     <section className="services" id={LocalPath.SERVICES}>
-      <div className="services__container">
-        <h2 className="visually-hidden">Услуги</h2>
+      <h2 className="visually-hidden">Услуги</h2>
 
-        <ul ref={controlsRef} className="services__controls">
-          {SERVICES.map((service, serviceIndex) => {
-            const buttonClassName = getClassName({
-              active: serviceIndex === activeSlideIndex,
-              alternative: service.isAlternativeButton,
-            });
-            return (
-              <li key={service.key}>
-                <button
-                  type="button"
-                  className={buttonClassName}
-                  data-index={serviceIndex}
-                  onClick={onControlButtonClick}
-                  onFocus={onControlButtonFocus}
-                  onKeyDown={onControlButtonKeyDown}
-                >
-                  <service.iconComponent/>
-                  <span>{service.title}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-
-        <ul ref={itemsRef} className="services__list">
-          {SERVICES.map((service, serviceIndex) => (
-            <li
-              key={service.key}
-              className={getClassName(serviceIndex === activeSlideIndex && `active`)}
-              onTouchStart={onSlideTouchStart}
-              onTouchMove={onSlideTouchMove}
-              onTouchEnd={onSlideTouchEnd}
-              onKeyDown={onItemKeyDown}
-            >
-              <service.component/>
+      <ul ref={controlsRef} className="services__controls">
+        {SERVICES.map((service, serviceIndex) => {
+          const buttonClassName = getClassName({
+            active: serviceIndex === activeSlideIndex,
+            alternative: service.isAlternativeButton,
+          });
+          return (
+            <li key={service.key}>
+              <button
+                type="button"
+                className={buttonClassName}
+                data-index={serviceIndex}
+                onClick={onControlButtonClick}
+                onFocus={onControlButtonFocus}
+                onKeyDown={onControlButtonKeyDown}
+              >
+                <service.iconComponent/>
+                <span>{service.title}</span>
+              </button>
             </li>
-          ))}
-        </ul>
-      </div>
+          );
+        })}
+      </ul>
+
+      <ul ref={itemsRef} className="services__items">
+        {SERVICES.map((service, serviceIndex) => (
+          <li
+            key={service.key}
+            className={getClassName(serviceIndex === activeSlideIndex && `active`)}
+            onTouchStart={onSlideTouchStart}
+            onTouchMove={onSlideTouchMove}
+            onTouchEnd={onSlideTouchEnd}
+            onKeyDown={onItemKeyDown}
+          >
+            <service.component/>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
