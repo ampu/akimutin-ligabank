@@ -20,13 +20,13 @@
   padding: 0 3px;
   margin: 0 -3px;
   display: flex;
-  flex-flow: wrap;
   align-items: center;
 
   border-radius: 4px;
 
   &::before {
     content: "";
+    flex-shrink: 0;
     width: 14px;
     height: 14px;
     margin-right: 8px;
