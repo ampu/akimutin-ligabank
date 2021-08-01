@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/akimutin-ligabank/static/css/main.8bfe152c.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.9ca20d94.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.9ca20d94.chunk.js.map",
+    "main.js": "/akimutin-ligabank/static/js/main.07be1b5b.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.07be1b5b.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
@@ -69,6 +69,6 @@
     "static/css/2.70c372c2.chunk.css",
     "static/js/2.352bb77f.chunk.js",
     "static/css/main.8bfe152c.chunk.css",
-    "static/js/main.9ca20d94.chunk.js"
+    "static/js/main.07be1b5b.chunk.js"
   ]
 }
