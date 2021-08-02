@@ -1,6 +1,7 @@
 .not-found-page {
   @include container;
 
+  flex-grow: 1;
   padding: 60px;
   display: flex;
   flex-flow: column;

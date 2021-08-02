@@ -11,6 +11,7 @@
 .logo img {
   width: 150px;
   height: 31px;
+  display: block;
 
   @include tablet {
     width: 133px;
@@ -26,4 +27,5 @@
 .logo--extended img {
   width: 150px;
   height: 31px;
+  display: block;
 }

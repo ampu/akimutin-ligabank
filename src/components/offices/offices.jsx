@@ -38,7 +38,9 @@ const MAP_PROPS = {
   options: {
     avoidFractionalZoom: false,
   },
-  style: {},
+  style: {
+    width: `100%`,
+  },
   className: `offices__map-container`
 };
 
@@ -86,15 +88,17 @@ const Offices = () => {
         <h2>Отделения Лига Банка</h2>
       </header>
       <div className="offices__map">
-        <picture>
-          <source media={MediaQuery.MOBILE} srcSet={`${retinaOfficesMapMobile} 2x, ${officesMapMobile} 1x`}/>
-          <source media={MediaQuery.TABLET} srcSet={`${retinaOfficesMapTablet} 2x, ${officesMapTablet} 1x`}/>
-          <img
-            src={officesMapDesktop}
-            srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}
-            alt="Карта отделений Лига Банка."
-          />
-        </picture>
+        <div className="offices__image-container">
+          <picture>
+            <source media={MediaQuery.MOBILE} srcSet={`${retinaOfficesMapMobile} 2x, ${officesMapMobile} 1x`}/>
+            <source media={MediaQuery.TABLET} srcSet={`${retinaOfficesMapTablet} 2x, ${officesMapTablet} 1x`}/>
+            <img
+              src={officesMapDesktop}
+              srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}
+              alt="Карта отделений Лига Банка."
+            />
+          </picture>
+        </div>
 
         <YMaps>
           <Map {...MAP_PROPS}>

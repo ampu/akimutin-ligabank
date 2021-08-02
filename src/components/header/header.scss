@@ -1,7 +1,4 @@
 .header {
-  display: flex;
-  flex-flow: column;
-
   background-color: $alternative-color;
 
   &.active {
@@ -20,7 +17,7 @@
 .header__navigation {
   @include container;
 
-  margin-bottom: 31px;
+  padding-bottom: 35px;
   display: grid;
   grid-template-columns: rubber--desktop(150px + 109px - 30px) auto 1fr;
   grid-column-gap: 30px;
@@ -28,13 +25,13 @@
   align-items: start;
 
   @include tablet-mobile {
+    padding-bottom: 22px;
     grid-template-columns: min-content auto 1fr;
-    margin-bottom: 17px;
     grid-column-gap: 30px;
   }
 
   @include mobile {
-    margin-bottom: 10px;
+    padding-bottom: 13px;
     grid-column-gap: 14px;
   }
 }

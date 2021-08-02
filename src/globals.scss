@@ -30,21 +30,12 @@
 
 .page-layout {
   height: 100%;
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
+  display: flex;
+  flex-flow: column;
 }
 
 .page-main {
   padding-bottom: 107px;
-
-  &--not-found {
-    @include container;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 .visually-hidden {

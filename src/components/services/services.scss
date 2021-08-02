@@ -1,8 +1,6 @@
 .services {
   position: relative;
   margin-top: 60px;
-  display: flex;
-  flex-flow: column;
 
   @include tablet-mobile {
     margin-top: 0;
@@ -112,10 +110,9 @@
   @include container;
 
   display: none;
-  flex-flow: column;
 
   &.active {
-    display: flex;
+    display: block;
   }
 
   @include mobile {
@@ -181,6 +178,7 @@
   top: 0;
   width: 440px;
   height: 290px;
+  display: block;
 
   @include tablet {
     left: auto;
@@ -202,6 +200,8 @@
 }
 
 .services__content-container {
+  position: relative;
+  z-index: 1;
   width: 406px;
   display: flex;
   flex-flow: column;

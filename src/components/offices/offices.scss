@@ -1,7 +1,4 @@
 .offices {
-  display: flex;
-  flex-flow: column;
-
   margin-top: 93px;
   margin-bottom: 110px;
 
@@ -53,22 +50,19 @@
   }
 }
 
-.offices__map picture,
-.offices__map img,
-.offices__map-container {
+.offices__image-container {
   grid-area: 1 / 1;
 }
 
 .offices__map img {
   margin: 0 auto;
   max-width: 100%;
-  display: flex;
+  display: block;
 }
 
 .offices__map-container {
-  width: 100%;
+  grid-area: 1 / 1;
   height: 462px;
-  display: flex;
 
   @include tablet {
     height: 462px;

@@ -10,7 +10,7 @@ import {Footer} from '../footer/footer';
 const CreditCalculatorPage = () => {
   return <>
     <Header/>
-    <main className="credit-calculator-page">
+    <main>
       <HeroArea/>
       <Services/>
       <CreditCalculator/>

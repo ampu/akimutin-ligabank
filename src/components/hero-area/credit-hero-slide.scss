@@ -92,6 +92,7 @@
   left: calc(50% + 15px);
   width: 444px;
   height: auto;
+  display: block;
 
   @include tablet {
     top: 42px;
@@ -140,7 +141,7 @@
   }
 
   @include mobile {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
 
     font-size: 16px;
   }
