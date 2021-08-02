@@ -7,9 +7,13 @@
   border: none;
   background-color: transparent;
 
+  @include tablet {
+    margin-bottom: (42px - 30px);
+  }
+
   @include mobile {
     margin-top: 24px;
-    margin-bottom: (15px - 30px);
+    margin-bottom: (31px - 30px);
   }
 }
 

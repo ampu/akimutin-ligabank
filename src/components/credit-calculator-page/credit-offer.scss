@@ -10,13 +10,11 @@
   background-color: $alternative-color;
 
   @include tablet-mobile {
-    margin-top: 42px;
     padding: 53px 60px 60px;
     width: 100%;
   }
 
   @include mobile {
-    margin-top: 16px;
     padding: 34px 15px 40px;
   }
 }

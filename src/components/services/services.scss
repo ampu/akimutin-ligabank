@@ -163,7 +163,7 @@
   border-radius: 4px 0 4px 4px;
 }
 
-.services__items figure {
+.services__image-container {
   position: relative;
   margin: 0;
   padding: 0;
@@ -175,7 +175,7 @@
   }
 }
 
-.services__items figure img {
+.services__image-container img {
   position: absolute;
   left: calc(50% + 10px);
   top: 0;
@@ -188,7 +188,7 @@
     top: 8px;
 
     width: 289px;
-    height: auto;
+    height: 260px;
   }
 
   @include mobile {

@@ -14,7 +14,7 @@ import retinaOnlineServicesPosterDesktop from '../../images/services-online-post
 const ServicesOnline = () => {
   return (
     <section>
-      <figure>
+      <div className="services__image-container">
         <picture>
           <source
             media={MediaQuery.MOBILE}
@@ -30,7 +30,7 @@ const ServicesOnline = () => {
             alt="Онлайн-сервисы Лига Банка."
           />
         </picture>
-      </figure>
+      </div>
 
       <div className="services__content-container">
         <h3 className="visually-hidden">Онлайн-сервисы</h3>

@@ -14,7 +14,7 @@ import retinaInsurancePosterDesktop from '../../images/services-insurance-poster
 const ServicesInsurance = () => {
   return (
     <section>
-      <figure>
+      <div className="services__image-container">
         <picture>
           <source
             media={MediaQuery.MOBILE}
@@ -30,7 +30,7 @@ const ServicesInsurance = () => {
             alt="Лига Страхование."
           />
         </picture>
-      </figure>
+      </div>
 
       <div className="services__content-container">
         <h3 className="visually-hidden">Страхование</h3>

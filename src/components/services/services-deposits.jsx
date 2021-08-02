@@ -14,7 +14,7 @@ import retinaDepositsPosterDesktop from '../../images/services-deposits-poster--
 const ServicesDeposits = () => {
   return (
     <section>
-      <figure>
+      <div className="services__image-container">
         <picture>
           <source
             media={MediaQuery.MOBILE}
@@ -30,7 +30,7 @@ const ServicesDeposits = () => {
             alt="Вклады Лига Банка."
           />
         </picture>
-      </figure>
+      </div>
 
       <div className="services__content-container">
         <h3 className="visually-hidden">Вклады</h3>

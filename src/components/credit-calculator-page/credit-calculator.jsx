@@ -53,7 +53,7 @@ const CreditCalculator = ({
           )}
         </form>
 
-        {creditGoal.value && creditAmount >= 0 && isValidFormData(creditGoal, formData) && creditGoal.denialAmount && (
+        {creditGoal.value && Number.isFinite(creditAmount) && isValidFormData(creditGoal, formData) && creditGoal.denialAmount && (
           creditAmount < creditGoal.denialAmount
             ? (
               <CreditDenial creditGoal={creditGoal}/>
