@@ -29,6 +29,7 @@
 }
 
 .page-layout {
+  min-width: $min-viewport--mobile;
   height: 100%;
   display: flex;
   flex-flow: column;
