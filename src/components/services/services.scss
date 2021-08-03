@@ -305,7 +305,7 @@
   @include mobile {
     font-size: 14px;
     line-height: 1.45;
-    width: calc(100% - 27px);
+    width: 100% - rubber--mobile(27px);
   }
 }
 
