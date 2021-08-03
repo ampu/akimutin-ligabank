@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.d8e065ea.chunk.css",
-    "main.js": "/akimutin-ligabank/static/js/main.bfa22aed.chunk.js",
-    "main.js.map": "/akimutin-ligabank/static/js/main.bfa22aed.chunk.js.map",
+    "main.css": "/akimutin-ligabank/static/css/main.1a5699af.chunk.css",
+    "main.js": "/akimutin-ligabank/static/js/main.44b760c6.chunk.js",
+    "main.js.map": "/akimutin-ligabank/static/js/main.44b760c6.chunk.js.map",
     "runtime-main.js": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js",
     "runtime-main.js.map": "/akimutin-ligabank/static/js/runtime-main.f63a9e83.js.map",
     "static/css/2.70c372c2.chunk.css": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.352bb77f.chunk.js.map": "/akimutin-ligabank/static/js/2.352bb77f.chunk.js.map",
     "index.html": "/akimutin-ligabank/index.html",
     "static/css/2.70c372c2.chunk.css.map": "/akimutin-ligabank/static/css/2.70c372c2.chunk.css.map",
-    "static/css/main.d8e065ea.chunk.css.map": "/akimutin-ligabank/static/css/main.d8e065ea.chunk.css.map",
+    "static/css/main.1a5699af.chunk.css.map": "/akimutin-ligabank/static/css/main.1a5699af.chunk.css.map",
     "static/js/2.352bb77f.chunk.js.LICENSE.txt": "/akimutin-ligabank/static/js/2.352bb77f.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/akimutin-ligabank/static/media/short-phone-icon.186c1e77.svg",
     "static/media/credit-cards--mobile@1x.e205a4c4.png": "/akimutin-ligabank/static/media/credit-cards--mobile@1x.e205a4c4.png",
@@ -47,7 +47,9 @@
     "static/media/services-deposits-icon.94ceb848.svg": "/akimutin-ligabank/static/media/services-deposits-icon.94ceb848.svg",
     "static/media/services-deposits-poster--desktop.615eb056.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--desktop.615eb056.jpg",
     "static/media/services-deposits-poster--desktop@2x.0888e936.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--desktop@2x.0888e936.jpg",
+    "static/media/services-deposits-poster--mobile.0a4ceebf.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--mobile.0a4ceebf.jpg",
     "static/media/services-deposits-poster--mobile@2x.cab57748.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--mobile@2x.cab57748.jpg",
+    "static/media/services-deposits-poster--tablet.762b3991.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--tablet.762b3991.jpg",
     "static/media/services-deposits-poster--tablet@2x.a4871770.jpg": "/akimutin-ligabank/static/media/services-deposits-poster--tablet@2x.a4871770.jpg",
     "static/media/services-insurance-icon.d88d675a.svg": "/akimutin-ligabank/static/media/services-insurance-icon.d88d675a.svg",
     "static/media/services-insurance-poster--desktop.9558e742.jpg": "/akimutin-ligabank/static/media/services-insurance-poster--desktop.9558e742.jpg",
@@ -57,7 +59,11 @@
     "static/media/services-insurance-poster--tablet.de1f935f.jpg": "/akimutin-ligabank/static/media/services-insurance-poster--tablet.de1f935f.jpg",
     "static/media/services-insurance-poster--tablet@2x.b30e8165.jpg": "/akimutin-ligabank/static/media/services-insurance-poster--tablet@2x.b30e8165.jpg",
     "static/media/services-online-icon.5874c898.svg": "/akimutin-ligabank/static/media/services-online-icon.5874c898.svg",
+    "static/media/services-online-poster--desktop.bd6802fa.jpg": "/akimutin-ligabank/static/media/services-online-poster--desktop.bd6802fa.jpg",
     "static/media/services-online-poster--desktop@2x.dc35a31d.jpg": "/akimutin-ligabank/static/media/services-online-poster--desktop@2x.dc35a31d.jpg",
+    "static/media/services-online-poster--mobile.98c9078e.jpg": "/akimutin-ligabank/static/media/services-online-poster--mobile.98c9078e.jpg",
+    "static/media/services-online-poster--mobile@2x.b5d30e57.jpg": "/akimutin-ligabank/static/media/services-online-poster--mobile@2x.b5d30e57.jpg",
+    "static/media/services-online-poster--tablet.9b0f5d8b.jpg": "/akimutin-ligabank/static/media/services-online-poster--tablet.9b0f5d8b.jpg",
     "static/media/services-online-poster--tablet@2x.a21bec53.jpg": "/akimutin-ligabank/static/media/services-online-poster--tablet@2x.a21bec53.jpg",
     "static/media/sign-in-icon.6eab7d1f.svg": "/akimutin-ligabank/static/media/sign-in-icon.6eab7d1f.svg",
     "static/media/sign-in-password-toggle-button-icon.3612b447.svg": "/akimutin-ligabank/static/media/sign-in-password-toggle-button-icon.3612b447.svg",
@@ -68,7 +74,7 @@
     "static/js/runtime-main.f63a9e83.js",
     "static/css/2.70c372c2.chunk.css",
     "static/js/2.352bb77f.chunk.js",
-    "static/css/main.d8e065ea.chunk.css",
-    "static/js/main.bfa22aed.chunk.js"
+    "static/css/main.1a5699af.chunk.css",
+    "static/js/main.44b760c6.chunk.js"
   ]
 }
