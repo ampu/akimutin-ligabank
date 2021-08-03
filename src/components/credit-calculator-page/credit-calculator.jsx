@@ -34,7 +34,7 @@ const CreditCalculator = ({
   onThankYouClose,
 }) => {
   return (
-    <section ref={containerRef} className="credit-calculator" id={LocalPath.CREDIT_CALCULATOR}>
+    <section ref={containerRef} className="credit-calculator" data-navigation-id={LocalPath.CREDIT_CALCULATOR}>
       <div className="credit-calculator__container">
         <h2>Кредитный калькулятор</h2>
         <form className="credit-calculator__parameters-form" onSubmit={onFormSubmit}>

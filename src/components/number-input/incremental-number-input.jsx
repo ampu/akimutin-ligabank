@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
 import {formatInteger, isValidByConstraint} from '../../helpers/number-helpers';
 
+import {useAutoFocus} from '../../hooks/use-auto-focus';
 import {withIncrementalNumberInputState} from '../../hocs/with-incremental-number-input-state';
 import {NumberInput} from './number-input';
 import {ReactComponent as MinusIcon} from '../../images/minus-icon.svg';
@@ -28,6 +29,10 @@ const IncrementalNumberInput = ({
   onDecrementClick,
   onIncrementClick,
 }) => {
+  const containerRef = useRef(null);
+
+  useAutoFocus(containerRef);
+
   const isValidValue = isValidByConstraint(value, valueConstraint);
 
   const containerClassName = getClassName({
@@ -36,7 +41,7 @@ const IncrementalNumberInput = ({
   }, className);
 
   return (
-    <div className={containerClassName}>
+    <div ref={containerRef} className={containerClassName}>
       <label htmlFor={inputId}>{labelText}</label>
       <div>
         <button
@@ -49,7 +54,7 @@ const IncrementalNumberInput = ({
         </button>
 
         <NumberInput
-          autoFocus={autoFocus}
+          data-auto-focus={autoFocus}
           id={inputId}
           name={inputName}
           suffix={onGetSuffix ? onGetSuffix(currentValue) : suffix}

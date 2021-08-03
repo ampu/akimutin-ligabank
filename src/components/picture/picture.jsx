@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useLayoutEffect} from 'react';
 import PropTypes from 'prop-types';
 
 const Picture = ({
@@ -8,7 +8,7 @@ const Picture = ({
 }) => {
   const imageRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     imageRef.current.src = src;
   }, [src]);
 

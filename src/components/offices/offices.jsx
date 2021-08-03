@@ -82,7 +82,7 @@ const PLACEMARKS_PROPS = Object.keys(PinLocation).map((cityKey) => (
 
 const Offices = () => {
   return (
-    <section className="offices" id={LocalPath.CONTACTS}>
+    <section className="offices" data-navigation-id={LocalPath.CONTACTS}>
       <header className="offices__header">
         <h2>Отделения Лига Банка</h2>
       </header>

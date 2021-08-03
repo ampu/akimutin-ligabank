@@ -24,7 +24,7 @@ const CreditRequest = ({
   onEmailInputChange,
 }) => {
   return (
-    <section className={getClassName(`credit-request`, isError && `shake`)}>
+    <section className={getClassName(`credit-request`, isError && `shake`)} data-navigation-id="credit-request">
       <h3>Шаг 3. Оформление заявки</h3>
 
       <dl>

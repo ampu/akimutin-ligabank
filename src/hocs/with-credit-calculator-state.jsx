@@ -3,6 +3,7 @@ import React, {useState, useEffect, useCallback, useRef} from 'react';
 import {CreditSetting} from '../constants/credit-setting';
 import {calculateCreditAmount, findCreditGoalByValue} from '../helpers/credit-calculator-helpers';
 import {creditRequestStore} from '../helpers/credit-request-store';
+import {scrollIntoViewByNavigationId} from '../helpers/dom-helpers';
 
 export const withCreditCalculatorState = (Component) => {
   const WithCreditCalculatorState = (props) => {
@@ -27,6 +28,7 @@ export const withCreditCalculatorState = (Component) => {
     const onCreditRequestClick = useCallback((evt) => {
       evt.preventDefault();
       setCreditRequestActive(true);
+      scrollIntoViewByNavigationId(`credit-request`);
     }, []);
 
     const onCreditRequestSubmit = useCallback(() => {

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
+import {useAutoFocus} from '../../hooks/use-auto-focus';
 import {withSelectState} from '../../hocs/with-select-state';
 
 import {refType} from '../../types/ref-types';
@@ -22,6 +23,8 @@ const Select = ({
 
   ...props
 }) => {
+  useAutoFocus(containerRef, isActive);
+
   return (
     <div
       ref={containerRef}
@@ -58,7 +61,7 @@ const Select = ({
                 data-value={option.value}
                 onClick={onButtonClick}
                 onKeyDown={onButtonKeyDown}
-                autoFocus={value === option.value}
+                data-auto-focus={value === option.value ? true : undefined}
               >
                 {option.title}
               </button>

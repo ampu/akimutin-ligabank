@@ -1,8 +1,6 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
-
-import {scrollIntoViewById} from '../../helpers/dom-helpers';
 
 import {CreditHeroSlide} from './credit-hero-slide';
 import {ConfidenceHeroSlide} from './confidence-hero-slide';
@@ -24,10 +22,6 @@ const HeroArea = ({
   onSlideTouchEnd,
   onControlButtonClick,
 }) => {
-  const onLinkClick = useCallback((evt) => {
-    scrollIntoViewById(evt.target.href.replace(/^.*#/, ``));
-  }, []);
-
   return (
     <div className="hero-area">
       <ul className="hero-area__controls">
@@ -59,7 +53,7 @@ const HeroArea = ({
             onTouchMove={onSlideTouchMove}
             onTouchEnd={onSlideTouchEnd}
           >
-            <slide.component onLinkClick={onLinkClick}/>
+            <slide.component/>
           </li>
         ))}
       </ul>

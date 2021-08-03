@@ -38,7 +38,7 @@ const Services = ({
   onItemKeyDown,
 }) => {
   return (
-    <section className="services" id={LocalPath.SERVICES}>
+    <section className="services" data-navigation-id={LocalPath.SERVICES}>
       <h2 className="visually-hidden">Услуги</h2>
 
       <ul ref={controlsRef} className="services__controls">

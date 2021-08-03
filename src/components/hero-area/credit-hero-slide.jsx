@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
@@ -13,14 +12,14 @@ import retinaCreditCardsWebp from '../../images/credit-cards@2x.webp';
 import mobileCreditCardsPng from '../../images/credit-cards--mobile@1x.png';
 import mobileRetinaCreditCardsPng from '../../images/credit-cards--mobile@2x.png';
 
-const CreditHeroSlide = ({onLinkClick}) => {
+const CreditHeroSlide = () => {
   return (
     <section className="credit-hero-slide">
       <div className="credit-hero-slide__container">
         <div className="credit-hero-slide__inner">
           <h1>Лига Банк</h1>
           <p>Кредиты на любой случай</p>
-          <Link to={LocalPath.CREDIT_CALCULATOR} onClick={onLinkClick}>Рассчитать кредит</Link>
+          <Link to={LocalPath.CREDIT_CALCULATOR}>Рассчитать кредит</Link>
         </div>
       </div>
 
@@ -39,10 +38,6 @@ const CreditHeroSlide = ({onLinkClick}) => {
       </Picture>
     </section>
   );
-};
-
-CreditHeroSlide.propTypes = {
-  onLinkClick: PropTypes.func.isRequired,
 };
 
 export {CreditHeroSlide};
