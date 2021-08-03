@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
+import {Picture} from '../picture/picture';
 import insurancePosterMobile from '../../images/services-insurance-poster--mobile.jpg';
 import insurancePosterTablet from '../../images/services-insurance-poster--tablet.jpg';
 import insurancePosterDesktop from '../../images/services-insurance-poster--desktop.jpg';
@@ -15,7 +16,7 @@ const ServicesInsurance = () => {
   return (
     <section>
       <div className="services__image-container">
-        <picture>
+        <Picture src={insurancePosterDesktop} alt="Лига Страхование.">
           <source
             media={MediaQuery.MOBILE}
             srcSet={`${retinaInsurancePosterMobile} 2x, ${insurancePosterMobile} 1x`}
@@ -24,12 +25,10 @@ const ServicesInsurance = () => {
             media={MediaQuery.TABLET}
             srcSet={`${retinaInsurancePosterTablet} 2x, ${insurancePosterTablet} 1x`}
           />
-          <img
-            src={insurancePosterDesktop}
+          <source
             srcSet={`${retinaInsurancePosterDesktop} 2x, ${insurancePosterDesktop} 1x`}
-            alt="Лига Страхование."
           />
-        </picture>
+        </Picture>
       </div>
 
       <div className="services__content-container">

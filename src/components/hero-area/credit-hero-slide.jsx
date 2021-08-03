@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
+import {Picture} from '../picture/picture';
 import creditCardsPng from '../../images/credit-cards@1x.png';
 import retinaCreditCardsPng from '../../images/credit-cards@2x.png';
 import creditCardsWebp from '../../images/credit-cards@1x.webp';
@@ -23,7 +24,7 @@ const CreditHeroSlide = ({onLinkClick}) => {
         </div>
       </div>
 
-      <picture>
+      <Picture src={creditCardsPng} alt="Кредитные карты «ЛИГА Банк».">
         <source
           media={MediaQuery.MOBILE}
           srcSet={`${mobileRetinaCreditCardsPng} 2x, ${mobileCreditCardsPng} 1x`}
@@ -32,12 +33,10 @@ const CreditHeroSlide = ({onLinkClick}) => {
           type="image/webp"
           srcSet={`${retinaCreditCardsWebp} 2x, ${creditCardsWebp} 1x`}
         />
-        <img
-          src={creditCardsPng}
+        <source
           srcSet={`${retinaCreditCardsPng} 2x, ${creditCardsPng} 1x`}
-          alt="Кредитные карты «ЛИГА Банк»."
         />
-      </picture>
+      </Picture>
     </section>
   );
 };

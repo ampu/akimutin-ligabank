@@ -4,12 +4,11 @@ import {Map, Placemark, YMaps, ZoomControl, GeolocationControl} from 'react-yand
 import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
+import {Picture} from '../picture/picture';
 import officePin from '../../images/office-pin.svg';
-
 import officesMapDesktop from '../../images/offices-map--desktop.jpg';
 import officesMapTablet from '../../images/offices-map--tablet.jpg';
 import officesMapMobile from '../../images/offices-map--mobile.jpg';
-
 import retinaOfficesMapDesktop from '../../images/offices-map--desktop@2x.jpg';
 import retinaOfficesMapTablet from '../../images/offices-map--tablet@2x.jpg';
 import retinaOfficesMapMobile from '../../images/offices-map--mobile@2x.jpg';
@@ -89,15 +88,11 @@ const Offices = () => {
       </header>
       <div className="offices__map">
         <div className="offices__image-container">
-          <picture>
+          <Picture src={officesMapDesktop} alt="Карта отделений Лига Банка.">
             <source media={MediaQuery.MOBILE} srcSet={`${retinaOfficesMapMobile} 2x, ${officesMapMobile} 1x`}/>
             <source media={MediaQuery.TABLET} srcSet={`${retinaOfficesMapTablet} 2x, ${officesMapTablet} 1x`}/>
-            <img
-              src={officesMapDesktop}
-              srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}
-              alt="Карта отделений Лига Банка."
-            />
-          </picture>
+            <source srcSet={`${retinaOfficesMapDesktop} 2x, ${officesMapDesktop} 1x`}/>
+          </Picture>
         </div>
 
         <YMaps>

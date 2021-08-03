@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
+import {Picture} from '../picture/picture';
 import onlineServicesPosterMobile from '../../images/services-online-poster--mobile.jpg';
 import onlineServicesPosterTablet from '../../images/services-online-poster--tablet.jpg';
 import onlineServicesPosterDesktop from '../../images/services-online-poster--desktop.jpg';
@@ -15,7 +16,7 @@ const ServicesOnline = () => {
   return (
     <section>
       <div className="services__image-container">
-        <picture>
+        <Picture src={onlineServicesPosterDesktop} alt="Онлайн-сервисы Лига Банка.">
           <source
             media={MediaQuery.MOBILE}
             srcSet={`${retinaOnlineServicesPosterMobile} 2x, ${onlineServicesPosterMobile} 1x`}
@@ -24,12 +25,10 @@ const ServicesOnline = () => {
             media={MediaQuery.TABLET}
             srcSet={`${retinaOnlineServicesPosterTablet} 2x, ${onlineServicesPosterTablet} 1x`}
           />
-          <img
-            src={onlineServicesPosterDesktop}
+          <source
             srcSet={`${retinaOnlineServicesPosterDesktop} 2x, ${onlineServicesPosterDesktop} 1x`}
-            alt="Онлайн-сервисы Лига Банка."
           />
-        </picture>
+        </Picture>
       </div>
 
       <div className="services__content-container">

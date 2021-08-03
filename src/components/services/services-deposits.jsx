@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import {LocalPath} from '../../constants/local-path';
 import {MediaQuery} from '../../constants/media-query';
 
+import {Picture} from '../picture/picture';
 import depositsPosterMobile from '../../images/services-deposits-poster--mobile.jpg';
 import depositsPosterTablet from '../../images/services-deposits-poster--tablet.jpg';
 import depositsPosterDesktop from '../../images/services-deposits-poster--desktop.jpg';
@@ -12,10 +13,16 @@ import retinaDepositsPosterTablet from '../../images/services-deposits-poster--t
 import retinaDepositsPosterDesktop from '../../images/services-deposits-poster--desktop@2x.jpg';
 
 const ServicesDeposits = () => {
+  const imageContainerRef = useRef(null);
+
+  useEffect(() => {
+    imageContainerRef.current.innerHTML = imageContainerRef.current.innerHTML;
+  }, []);
+
   return (
     <section>
-      <div className="services__image-container">
-        <picture>
+      <div ref={imageContainerRef} className="services__image-container">
+        <Picture src={depositsPosterDesktop} alt="Вклады Лига Банка.">
           <source
             media={MediaQuery.MOBILE}
             srcSet={`${retinaDepositsPosterMobile} 2x, ${depositsPosterMobile} 1x`}
@@ -24,12 +31,10 @@ const ServicesDeposits = () => {
             media={MediaQuery.TABLET}
             srcSet={`${retinaDepositsPosterTablet} 2x, ${depositsPosterTablet} 1x`}
           />
-          <img
-            src={depositsPosterDesktop}
+          <source
             srcSet={`${retinaDepositsPosterDesktop} 2x, ${depositsPosterDesktop} 1x`}
-            alt="Вклады Лига Банка."
           />
-        </picture>
+        </Picture>
       </div>
 
       <div className="services__content-container">
