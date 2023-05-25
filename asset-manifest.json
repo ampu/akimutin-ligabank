@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/akimutin-ligabank/static/css/main.aa36b500.css",
-    "main.js": "/akimutin-ligabank/static/js/main.32e31f1f.js",
+    "main.css": "/akimutin-ligabank/static/css/main.f31c4bc6.css",
+    "main.js": "/akimutin-ligabank/static/js/main.68137ad0.js",
     "static/media/offices-map--desktop@2x.jpg": "/akimutin-ligabank/static/media/offices-map--desktop@2x.28178dd204e7e1f371a4.jpg",
     "static/media/offices-map--tablet@2x.jpg": "/akimutin-ligabank/static/media/offices-map--tablet@2x.03f8da95082a4b059987.jpg",
     "static/media/offices-map--desktop.jpg": "/akimutin-ligabank/static/media/offices-map--desktop.ffd4ad9f99b30441d536.jpg",
@@ -66,11 +66,11 @@
     "static/media/plus-icon.svg": "/akimutin-ligabank/static/media/plus-icon.c9b446f0c0956dc0e0c72751db250599.svg",
     "static/media/minus-icon.svg": "/akimutin-ligabank/static/media/minus-icon.6a6bf6ab5af3916fc988111559d45ac7.svg",
     "static/media/checkbox-icon.svg": "/akimutin-ligabank/static/media/checkbox-icon.b68f348abb5f75bb849c.svg",
-    "main.aa36b500.css.map": "/akimutin-ligabank/static/css/main.aa36b500.css.map",
-    "main.32e31f1f.js.map": "/akimutin-ligabank/static/js/main.32e31f1f.js.map"
+    "main.f31c4bc6.css.map": "/akimutin-ligabank/static/css/main.f31c4bc6.css.map",
+    "main.68137ad0.js.map": "/akimutin-ligabank/static/js/main.68137ad0.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa36b500.css",
-    "static/js/main.32e31f1f.js"
+    "static/css/main.f31c4bc6.css",
+    "static/js/main.68137ad0.js"
   ]
 }
